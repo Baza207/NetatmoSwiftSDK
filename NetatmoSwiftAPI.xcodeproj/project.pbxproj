@@ -10,6 +10,15 @@
 		18021FC02360D36000E3D20A /* NetatmoSwiftAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18021FB62360D35F00E3D20A /* NetatmoSwiftAPI.framework */; };
 		18021FC52360D36000E3D20A /* NetatmoSwiftAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FC42360D36000E3D20A /* NetatmoSwiftAPITests.swift */; };
 		18021FC72360D36000E3D20A /* NetatmoSwiftAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 18021FB92360D35F00E3D20A /* NetatmoSwiftAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18021FD32360D58A00E3D20A /* AuthenticationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FD22360D58A00E3D20A /* AuthenticationResult.swift */; };
+		18021FD52360D5AE00E3D20A /* BaseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FD42360D5AE00E3D20A /* BaseResult.swift */; };
+		18021FD72360D5EA00E3D20A /* WeatherStationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FD62360D5EA00E3D20A /* WeatherStationResult.swift */; };
+		18021FD92360D5FC00E3D20A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FD82360D5FC00E3D20A /* User.swift */; };
+		18021FDB2360D60B00E3D20A /* Administrative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FDA2360D60B00E3D20A /* Administrative.swift */; };
+		18021FDD2360D62500E3D20A /* DeviceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FDC2360D62500E3D20A /* DeviceResult.swift */; };
+		18021FDF2360D63A00E3D20A /* PlaceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FDE2360D63A00E3D20A /* PlaceData.swift */; };
+		18021FE12360D64A00E3D20A /* DashboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FE02360D64A00E3D20A /* DashboardData.swift */; };
+		18021FE32360D65E00E3D20A /* ModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FE22360D65E00E3D20A /* ModuleData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +38,15 @@
 		18021FBF2360D36000E3D20A /* NetatmoSwiftAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetatmoSwiftAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18021FC42360D36000E3D20A /* NetatmoSwiftAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoSwiftAPITests.swift; sourceTree = "<group>"; };
 		18021FC62360D36000E3D20A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18021FD22360D58A00E3D20A /* AuthenticationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationResult.swift; sourceTree = "<group>"; };
+		18021FD42360D5AE00E3D20A /* BaseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResult.swift; sourceTree = "<group>"; };
+		18021FD62360D5EA00E3D20A /* WeatherStationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStationResult.swift; sourceTree = "<group>"; };
+		18021FD82360D5FC00E3D20A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		18021FDA2360D60B00E3D20A /* Administrative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Administrative.swift; sourceTree = "<group>"; };
+		18021FDC2360D62500E3D20A /* DeviceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceResult.swift; sourceTree = "<group>"; };
+		18021FDE2360D63A00E3D20A /* PlaceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceData.swift; sourceTree = "<group>"; };
+		18021FE02360D64A00E3D20A /* DashboardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardData.swift; sourceTree = "<group>"; };
+		18021FE22360D65E00E3D20A /* ModuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				18021FB92360D35F00E3D20A /* NetatmoSwiftAPI.h */,
+				18021FD12360D56300E3D20A /* Models */,
 				18021FBA2360D35F00E3D20A /* Info.plist */,
 			);
 			path = NetatmoSwiftAPI;
@@ -84,6 +103,22 @@
 				18021FC62360D36000E3D20A /* Info.plist */,
 			);
 			path = NetatmoSwiftAPITests;
+			sourceTree = "<group>";
+		};
+		18021FD12360D56300E3D20A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				18021FD22360D58A00E3D20A /* AuthenticationResult.swift */,
+				18021FD42360D5AE00E3D20A /* BaseResult.swift */,
+				18021FD62360D5EA00E3D20A /* WeatherStationResult.swift */,
+				18021FD82360D5FC00E3D20A /* User.swift */,
+				18021FDA2360D60B00E3D20A /* Administrative.swift */,
+				18021FDC2360D62500E3D20A /* DeviceResult.swift */,
+				18021FDE2360D63A00E3D20A /* PlaceData.swift */,
+				18021FE02360D64A00E3D20A /* DashboardData.swift */,
+				18021FE22360D65E00E3D20A /* ModuleData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +184,7 @@
 				TargetAttributes = {
 					18021FB52360D35F00E3D20A = {
 						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1110;
 					};
 					18021FBE2360D36000E3D20A = {
 						CreatedOnToolsVersion = 11.1;
@@ -217,6 +253,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18021FE12360D64A00E3D20A /* DashboardData.swift in Sources */,
+				18021FD92360D5FC00E3D20A /* User.swift in Sources */,
+				18021FD32360D58A00E3D20A /* AuthenticationResult.swift in Sources */,
+				18021FDD2360D62500E3D20A /* DeviceResult.swift in Sources */,
+				18021FE32360D65E00E3D20A /* ModuleData.swift in Sources */,
+				18021FDF2360D63A00E3D20A /* PlaceData.swift in Sources */,
+				18021FDB2360D60B00E3D20A /* Administrative.swift in Sources */,
+				18021FD72360D5EA00E3D20A /* WeatherStationResult.swift in Sources */,
+				18021FD52360D5AE00E3D20A /* BaseResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +407,7 @@
 		18021FCB2360D36000E3D20A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = M5BBZ59SV2;
@@ -380,6 +426,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.PigonaHill.NetatmoSwiftAPI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -388,6 +435,7 @@
 		18021FCC2360D36000E3D20A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = M5BBZ59SV2;
@@ -414,6 +462,7 @@
 		18021FCE2360D36000E3D20A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M5BBZ59SV2;
 				INFOPLIST_FILE = NetatmoSwiftAPITests/Info.plist;
@@ -432,6 +481,7 @@
 		18021FCF2360D36000E3D20A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M5BBZ59SV2;
 				INFOPLIST_FILE = NetatmoSwiftAPITests/Info.plist;
