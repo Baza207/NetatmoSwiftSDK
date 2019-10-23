@@ -19,6 +19,7 @@
 		18021FDF2360D63A00E3D20A /* PlaceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FDE2360D63A00E3D20A /* PlaceData.swift */; };
 		18021FE12360D64A00E3D20A /* DashboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FE02360D64A00E3D20A /* DashboardData.swift */; };
 		18021FE32360D65E00E3D20A /* ModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FE22360D65E00E3D20A /* ModuleData.swift */; };
+		18021FE92360D75F00E3D20A /* NetatmoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FE82360D75F00E3D20A /* NetatmoError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		18021FDE2360D63A00E3D20A /* PlaceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceData.swift; sourceTree = "<group>"; };
 		18021FE02360D64A00E3D20A /* DashboardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardData.swift; sourceTree = "<group>"; };
 		18021FE22360D65E00E3D20A /* ModuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleData.swift; sourceTree = "<group>"; };
+		18021FE82360D75F00E3D20A /* NetatmoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				18021FB92360D35F00E3D20A /* NetatmoSwiftAPI.h */,
+				18021FE72360D74B00E3D20A /* Errors */,
 				18021FD12360D56300E3D20A /* Models */,
 				18021FBA2360D35F00E3D20A /* Info.plist */,
 			);
@@ -119,6 +122,14 @@
 				18021FE22360D65E00E3D20A /* ModuleData.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		18021FE72360D74B00E3D20A /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				18021FE82360D75F00E3D20A /* NetatmoError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +272,7 @@
 				18021FDF2360D63A00E3D20A /* PlaceData.swift in Sources */,
 				18021FDB2360D60B00E3D20A /* Administrative.swift in Sources */,
 				18021FD72360D5EA00E3D20A /* WeatherStationResult.swift in Sources */,
+				18021FE92360D75F00E3D20A /* NetatmoError.swift in Sources */,
 				18021FD52360D5AE00E3D20A /* BaseResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
