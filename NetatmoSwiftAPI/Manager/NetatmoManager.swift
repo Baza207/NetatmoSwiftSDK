@@ -20,10 +20,10 @@ public class NetatmoManager {
     internal var scope: [AuthScope]?
     internal var authResultBuilder: AuthResult? {
         
-        guard let accessToken = self.accessToken, let refreshToken = self.refreshToken, let expires = self.expires, let scope = self.scope else {
+        guard let accessToken = self.accessToken, let refreshToken = self.refreshToken, let expires = self.expires else {
             return nil
         }
-        return AuthResult(accessToken: accessToken, refreshToken: refreshToken, scope: scope, exires: expires)
+        return AuthResult(accessToken: accessToken, refreshToken: refreshToken, exires: expires)
     }
     
     // MARK: - Lifecycle

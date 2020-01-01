@@ -64,7 +64,6 @@ public extension NetatmoManager {
             self.accessToken = authResult.accessToken
             self.refreshToken = authResult.refreshToken
             self.expires = authResult.expiresInDate(from: requestDate)
-            self.scope = authResult.scope
             
             completed(Result.success(authResult))
         }
@@ -129,7 +128,6 @@ public extension NetatmoManager {
             self.accessToken = authResult.accessToken
             self.refreshToken = authResult.refreshToken
             self.expires = authResult.expiresInDate(from: requestDate)
-            self.scope = authResult.scope
             
             completed(Result.success(authResult))
         }

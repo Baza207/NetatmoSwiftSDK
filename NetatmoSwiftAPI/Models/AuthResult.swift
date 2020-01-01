@@ -11,13 +11,11 @@ import Foundation
 public struct AuthResult: Decodable {
     public let accessToken: String
     public let refreshToken: String
-    public let scope: [AuthScope]
     private let expiresIn: TimeInterval
     
     private enum CodingKeys: String, CodingKey {
         case accessToken = "access_token"
         case refreshToken = "refresh_token"
-        case scope
         case expiresIn = "expires_in"
     }
     
@@ -25,11 +23,10 @@ public struct AuthResult: Decodable {
         date + expiresIn
     }
     
-    init(accessToken: String, refreshToken: String, scope: [AuthScope], exires: Date) {
+    init(accessToken: String, refreshToken: String, exires: Date) {
         
         self.accessToken = accessToken
         self.refreshToken = refreshToken
-        self.scope = scope
         self.expiresIn = exires.timeIntervalSinceNow
     }
 }
