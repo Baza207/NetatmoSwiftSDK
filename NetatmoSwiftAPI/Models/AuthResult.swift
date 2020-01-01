@@ -1,5 +1,5 @@
 //
-//  AuthenticationResult.swift
+//  AuthResult.swift
 //  NetatmoSwiftAPI
 //
 //  Created by James Barrow on 2019-10-23.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct AuthenticationResult: Decodable {
+public struct AuthResult: Decodable {
     public let accessToken: String
     public let refreshToken: String
     public let scope: [AuthScope]

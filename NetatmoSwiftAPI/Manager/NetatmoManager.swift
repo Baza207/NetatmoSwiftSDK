@@ -18,12 +18,12 @@ public class NetatmoManager {
     internal var refreshToken: String?
     internal var expires: Date?
     internal var scope: [AuthScope]?
-    internal var authResultBuilder: AuthenticationResult? {
+    internal var authResultBuilder: AuthResult? {
         
         guard let accessToken = self.accessToken, let refreshToken = self.refreshToken, let expires = self.expires, let scope = self.scope else {
             return nil
         }
-        return AuthenticationResult(accessToken: accessToken, refreshToken: refreshToken, scope: scope, exires: expires)
+        return AuthResult(accessToken: accessToken, refreshToken: refreshToken, scope: scope, exires: expires)
     }
     
     // MARK: - Lifecycle

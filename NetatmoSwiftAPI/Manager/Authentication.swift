@@ -20,8 +20,8 @@ public extension NetatmoManager {
     ///   - username: User address email
     ///   - password: User password
     ///   - scope: Scopes required
-    ///   - completed: `AuthenticationResult` with Oauth2 details or an error
-    func login(username: String, password: String, scope: [AuthScope] = [.readStation], completed: @escaping (Result<AuthenticationResult, Error>) -> Void) {
+    ///   - completed: `AuthResult` with Oauth2 details or an error
+    func login(username: String, password: String, scope: [AuthScope] = [.readStation], completed: @escaping (Result<AuthResult, Error>) -> Void) {
         
         guard let url = URL(string: "https://api.netatmo.com/oauth2/token") else {
             completed(Result.failure(NetatmoError.badURL))
@@ -48,9 +48,9 @@ public extension NetatmoManager {
             }
             
             let decoder = JSONDecoder()
-            let result: AuthenticationResult?
+            let result: AuthResult?
             do {
-                result = try decoder.decode(AuthenticationResult.self, from: data)
+                result = try decoder.decode(AuthResult.self, from: data)
             } catch {
                 completed(Result.failure(error))
                 return
@@ -76,7 +76,7 @@ public extension NetatmoManager {
         // TODO: Refresh token if previous one has expired
     }
     
-    internal func refreshToken(_ completed: @escaping (Result<AuthenticationResult, Error>) -> Void) {
+    internal func refreshToken(_ completed: @escaping (Result<AuthResult, Error>) -> Void) {
         
         guard let refreshToken = self.refreshToken, refreshToken.isEmpty == false, let expires = self.expires else {
             completed(Result.failure(NetatmoError.noRefreshToken))
@@ -113,9 +113,9 @@ public extension NetatmoManager {
             }
             
             let decoder = JSONDecoder()
-            let result: AuthenticationResult?
+            let result: AuthResult?
             do {
-                result = try decoder.decode(AuthenticationResult.self, from: data)
+                result = try decoder.decode(AuthResult.self, from: data)
             } catch {
                 completed(Result.failure(error))
                 return
