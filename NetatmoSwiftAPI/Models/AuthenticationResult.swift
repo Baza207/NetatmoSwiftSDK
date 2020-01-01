@@ -11,7 +11,7 @@ import Foundation
 public struct AuthenticationResult: Decodable {
     public let accessToken: String
     public let refreshToken: String
-    public let scope: [String]
+    public let scope: [AuthScope]
     private let expiresIn: TimeInterval
     
     private enum CodingKeys: String, CodingKey {
@@ -25,7 +25,7 @@ public struct AuthenticationResult: Decodable {
         date + expiresIn
     }
     
-    init(accessToken: String, refreshToken: String, scope: [String], exires: Date) {
+    init(accessToken: String, refreshToken: String, scope: [AuthScope], exires: Date) {
         
         self.accessToken = accessToken
         self.refreshToken = refreshToken

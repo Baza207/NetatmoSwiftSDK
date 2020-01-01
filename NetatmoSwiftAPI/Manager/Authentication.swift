@@ -12,7 +12,16 @@ public extension NetatmoManager {
     
     // MARK: - Authentication
     
-    func login(username: String, password: String, completed: @escaping (Result<AuthenticationResult, Error>) -> Void) {
+    /// Client credentials grant type
+    ///
+    /// - WARNING: This method should only be used for personnal use and testing purpose.
+    ///
+    /// - Parameters:
+    ///   - username: User address email
+    ///   - password: User password
+    ///   - scope: Scopes required
+    ///   - completed: `AuthenticationResult` with Oauth2 details or an error
+    func login(username: String, password: String, scope: [AuthScope] = [.readStation], completed: @escaping (Result<AuthenticationResult, Error>) -> Void) {
         
         guard let url = URL(string: "https://api.netatmo.com/oauth2/token") else {
             completed(Result.failure(NetatmoError.badURL))
@@ -22,7 +31,7 @@ public extension NetatmoManager {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         
-        let body = "grant_type=password&client_id=\(clientId)&client_secret=\(clientSecret)&username=\(username)&password=\(password)"
+        let body = "grant_type=password&client_id=\(clientId)&client_secret=\(clientSecret)&username=\(username)&password=\(password)&scope=\(AuthScope.string(from: scope))"
         urlRequest.httpBody = body.data(using: .utf8)!
         
         let requestDate = Date()

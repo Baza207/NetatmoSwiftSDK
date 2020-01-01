@@ -23,6 +23,7 @@
 		18021FE92360D75F00E3D20A /* NetatmoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FE82360D75F00E3D20A /* NetatmoError.swift */; };
 		18021FEB2360E1FA00E3D20A /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FEA2360E1FA00E3D20A /* Authentication.swift */; };
 		18021FED2360E29200E3D20A /* WeatherStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FEC2360E29200E3D20A /* WeatherStation.swift */; };
+		184494DE23BD515C00479929 /* AuthScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184494DD23BD515C00479929 /* AuthScope.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		18021FE82360D75F00E3D20A /* NetatmoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoError.swift; sourceTree = "<group>"; };
 		18021FEA2360E1FA00E3D20A /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		18021FEC2360E29200E3D20A /* WeatherStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStation.swift; sourceTree = "<group>"; };
+		184494DD23BD515C00479929 /* AuthScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScope.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		18021FD12360D56300E3D20A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				184494DD23BD515C00479929 /* AuthScope.swift */,
 				18021FD22360D58A00E3D20A /* AuthenticationResult.swift */,
 				18021FD42360D5AE00E3D20A /* BaseResult.swift */,
 				18021FD62360D5EA00E3D20A /* WeatherStationResult.swift */,
@@ -285,6 +288,7 @@
 				18021FE12360D64A00E3D20A /* DashboardData.swift in Sources */,
 				18021FD92360D5FC00E3D20A /* User.swift in Sources */,
 				18021FD32360D58A00E3D20A /* AuthenticationResult.swift in Sources */,
+				184494DE23BD515C00479929 /* AuthScope.swift in Sources */,
 				18021FDD2360D62500E3D20A /* DeviceResult.swift in Sources */,
 				18021FE32360D65E00E3D20A /* ModuleData.swift in Sources */,
 				18021FDF2360D63A00E3D20A /* PlaceData.swift in Sources */,

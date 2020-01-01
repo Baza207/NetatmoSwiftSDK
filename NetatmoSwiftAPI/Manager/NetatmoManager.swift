@@ -17,7 +17,7 @@ public class NetatmoManager {
     internal var accessToken: String?
     internal var refreshToken: String?
     internal var expires: Date?
-    internal var scope: [String]?
+    internal var scope: [AuthScope]?
     internal var authResultBuilder: AuthenticationResult? {
         
         guard let accessToken = self.accessToken, let refreshToken = self.refreshToken, let expires = self.expires, let scope = self.scope else {
