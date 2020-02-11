@@ -12,14 +12,15 @@ public class NetatmoManager {
     
     // MARK: - Properties
     
-    internal let clientId: String
-    internal let clientSecret: String
-    internal let redirectURI: String
-    internal var accessToken: String?
-    internal var refreshToken: String?
-    internal var expires: Date?
-    internal var scope: [AuthScope]?
-    internal var authResultBuilder: AuthResult? {
+    let clientId: String
+    let clientSecret: String
+    let redirectURI: String
+    var accessToken: String?
+    var refreshToken: String?
+    var expires: Date?
+    var requestedScope: [AuthScope]?
+    var stateUUID: String?
+    var authResultBuilder: AuthResult? {
         
         guard let accessToken = self.accessToken, let refreshToken = self.refreshToken, let expires = self.expires else {
             return nil
