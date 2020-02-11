@@ -31,7 +31,7 @@ public extension NetatmoManager {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         
-        let body = "grant_type=password&client_id=\(clientId)&client_secret=\(clientSecret)&username=\(username)&password=\(password)&scope=\(AuthScope.string(from: scope))"
+        let body = "grant_type=password&client_id=\(clientId)&client_secret=\(clientSecret)&username=\(username)&password=\(password)&scope=\(AuthScope.string(from: scope, separationType: .space))"
         urlRequest.httpBody = body.data(using: .utf8)!
         
         let requestDate = Date()
