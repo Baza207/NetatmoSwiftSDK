@@ -14,6 +14,7 @@ public class NetatmoManager {
     
     internal let clientId: String
     internal let clientSecret: String
+    internal let redirectURI: String
     internal var accessToken: String?
     internal var refreshToken: String?
     internal var expires: Date?
@@ -28,10 +29,11 @@ public class NetatmoManager {
     
     // MARK: - Lifecycle
     
-    public init(clientId: String, clientSecret: String) {
+    public init(clientId: String, clientSecret: String, redirectURI: String) {
         
         self.clientId = clientId
         self.clientSecret = clientSecret
+        self.redirectURI = redirectURI
     }
     
 }
