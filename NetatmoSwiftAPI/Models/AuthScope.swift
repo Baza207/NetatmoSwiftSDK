@@ -29,17 +29,23 @@ public enum AuthScope: String, Decodable {
     /// To read data coming from Healthy Home Coach (gethomecoachsdata)
     case readHomecoach = "read_homecoach"
     
-    internal static func string(from scope: [AuthScope]) -> String {
+    enum SeparationType: String {
+        case dot = "."
+        case space = " "
+    }
+    
+    internal static func string(from scope: [AuthScope], separationType: SeparationType = .dot) -> String {
         guard scope.count > 0 else {
             return AuthScope.readStation.rawValue
         }
-        return scope.map { $0.rawValue }.joined(separator: " ")
+        return scope.map { $0.rawValue }.joined(separator: separationType.rawValue)
     }
     
-    internal static func scopes(from string: String) -> [AuthScope] {
+    internal static func scopes(from string: String, separationType: SeparationType = .dot) -> [AuthScope] {
         guard string.isEmpty == false else {
             return [.readStation]
         }
-        return string.split(separator: " ").compactMap { AuthScope(rawValue: "\($0)") }
+        
+        return string.components(separatedBy: separationType.rawValue).compactMap { AuthScope(rawValue: "\($0)") }
     }
 }
