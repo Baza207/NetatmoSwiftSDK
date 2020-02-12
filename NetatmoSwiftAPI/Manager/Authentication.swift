@@ -21,7 +21,7 @@ public extension NetatmoManager {
     ///   - password: User password
     ///   - scope: Scopes required
     ///   - completed: `AuthResult` with Oauth2 details or an error
-    func login(username: String, password: String, scope: [AuthScope] = [.readStation], completed: @escaping (Result<AuthResult, Error>) -> Void) {
+    internal func login(username: String, password: String, scope: [AuthScope] = [.readStation], completed: @escaping (Result<AuthResult, Error>) -> Void) {
         
         guard let url = URL(string: "https://api.netatmo.com/oauth2/token") else {
             completed(Result.failure(NetatmoError.badURL))
@@ -70,7 +70,7 @@ public extension NetatmoManager {
         downloadTask.resume()
     }
     
-    internal func authorizeURL(scope: [AuthScope] = [.readStation]) throws -> URL {
+    func authorizeURL(scope: [AuthScope] = [.readStation]) throws -> URL {
         
         // TODO: Chack if a state UUID already exists and check if the user wants to override it
         
@@ -96,7 +96,7 @@ public extension NetatmoManager {
         return url
     }
     
-    internal func authorizationCallback(with url: URL, completed: @escaping (Result<AuthResult, Error>) -> Void) {
+    func authorizationCallback(with url: URL, completed: @escaping (Result<AuthResult, Error>) -> Void) {
         
         let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
         
@@ -166,7 +166,7 @@ public extension NetatmoManager {
         downloadTask.resume()
     }
     
-    internal func refreshToken(_ completed: @escaping (Result<AuthResult, Error>) -> Void) {
+    func refreshToken(_ completed: @escaping (Result<AuthResult, Error>) -> Void) {
         
         guard let refreshToken = self.refreshToken, refreshToken.isEmpty == false, let expires = self.expires else {
             completed(Result.failure(NetatmoError.noRefreshToken))
