@@ -12,14 +12,13 @@ import XCTest
 class NetatmoManagerTests: XCTestCase {
     
     var config = try? TestConfig.load()
-    var manager: NetatmoManager?
     
     override func setUp() {
         
         guard let config = config else {
             return
         }
-        manager = NetatmoManager(clientId: config.clientId, clientSecret: config.clientSecret)
+        NetatmoManager.configure(clientId: config.clientId, clientSecret: config.clientSecret, redirectURI: config.redirectURI)
     }
     
     func testLogin() {
@@ -29,16 +28,11 @@ class NetatmoManagerTests: XCTestCase {
             return
         }
         
-        guard let manager = self.manager else {
-            XCTAssertFalse(true, "Requires a Netatmo manager to be setup before calling login!")
-            return
-        }
-        
         let expectation = self.expectation(description: #function)
         var accessToken: String?
         var resultError: Error?
         
-        manager.login(username: config.username, password: config.password) { (result) in
+        NetatmoManager.shared.login(username: config.username, password: config.password) { (result) in
             
             switch result {
             case .success(let authResult):

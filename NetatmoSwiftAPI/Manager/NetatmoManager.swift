@@ -10,11 +10,13 @@ import Foundation
 
 public class NetatmoManager {
     
+    public static var shared = NetatmoManager()
+    
     // MARK: - Properties
     
-    let clientId: String
-    let clientSecret: String
-    let redirectURI: String
+    var clientId: String = ""
+    var clientSecret: String = ""
+    var redirectURI: String = ""
     var accessToken: String?
     var refreshToken: String?
     var expires: Date?
@@ -30,11 +32,13 @@ public class NetatmoManager {
     
     // MARK: - Lifecycle
     
-    public init(clientId: String, clientSecret: String, redirectURI: String) {
+    public static func configure(clientId: String, clientSecret: String, redirectURI: String) {
         
-        self.clientId = clientId
-        self.clientSecret = clientSecret
-        self.redirectURI = redirectURI
+        shared.clientId = clientId
+        shared.clientSecret = clientSecret
+        shared.redirectURI = redirectURI
     }
+    
+    init() { }
     
 }
