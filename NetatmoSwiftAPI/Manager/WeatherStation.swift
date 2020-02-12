@@ -12,7 +12,7 @@ public extension NetatmoManager {
     
     // MARK: - Weather Station
     
-    func getWeatherStationData(deviceId: String = "", completed: @escaping (Result<WeatherStationResult?, Error>) -> Void) {
+    func getWeatherStationData(deviceId: String = "", completed: @escaping (Result<WeatherStationResult, Error>) -> Void) {
         
         guard let accessToken = self.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
