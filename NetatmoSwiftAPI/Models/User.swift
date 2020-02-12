@@ -8,7 +8,10 @@
 
 import Foundation
 
-public struct User: Decodable {
+public struct User: Decodable, CustomStringConvertible {
     public let mail: String
     public let administrative: Administrative
+    public var description: String {
+        "<User - \(mail) - \(administrative)>"
+    }
 }

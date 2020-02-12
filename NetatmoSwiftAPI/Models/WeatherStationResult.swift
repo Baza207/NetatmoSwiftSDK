@@ -8,7 +8,10 @@
 
 import Foundation
 
-public struct WeatherStationResult: Decodable {
+public struct WeatherStationResult: Decodable, CustomStringConvertible {
     public let user: User
     public let devices: [DeviceResult]
+    public var description: String {
+        "<WeatherStationResult - \(user) - \(devices)>"
+    }
 }

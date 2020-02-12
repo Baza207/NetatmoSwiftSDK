@@ -8,12 +8,15 @@
 
 import Foundation
 
-public struct PlaceData: Decodable {
+public struct PlaceData: Decodable, CustomStringConvertible {
     public let altitude: Int
     public let city: String
     public let country: String
     public let timeZone: String
     public let location: [Double]
+    public var description: String {
+        "<PlaceData - \(city) - \(country) - \(timeZone) - \(location)>"
+    }
     
     private enum CodingKeys: String, CodingKey {
         case altitude

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct DeviceResult: Decodable {
+public struct DeviceResult: Decodable, CustomStringConvertible {
     public let identifier: String
     public let type: String
     public let moduleName: String
@@ -20,6 +20,9 @@ public struct DeviceResult: Decodable {
     public let dataType: [String]
     public let dashboardData: DashboardData
     public let modules: [ModuleData]
+    public var description: String {
+        "<DeviceResult - \(moduleName) - \(stationName) - \(dashboardData) - \(modules)>"
+    }
     
     private enum CodingKeys: String, CodingKey {
         case identifier = "_id"

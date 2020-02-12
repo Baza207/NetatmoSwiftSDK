@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct DashboardData: Decodable {
+public struct DashboardData: Decodable, CustomStringConvertible {
     private let time: TimeInterval // UTC
     public var date: Date { Date(timeIntervalSince1970: time) }
     public let temperature: Double
@@ -25,6 +25,9 @@ public struct DashboardData: Decodable {
     public var minTempDate: Date { Date(timeIntervalSince1970: minTempTime) }
     public let tempTrend: String
     public let pressureTrend: String?
+    public var description: String {
+        "<DashboardData - \(temperature) - \(date)>"
+    }
     
     private enum CodingKeys: String, CodingKey {
         case time = "time_utc"

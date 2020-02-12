@@ -8,10 +8,13 @@
 
 import Foundation
 
-public struct AuthResult: Decodable {
+public struct AuthResult: Decodable, CustomStringConvertible {
     public let accessToken: String
     public let refreshToken: String
     private let expiresIn: TimeInterval
+    public var description: String {
+        "<AuthResult - \(accessToken) - \(refreshToken) - \(expiresIn)>"
+    }
     
     private enum CodingKeys: String, CodingKey {
         case accessToken = "access_token"

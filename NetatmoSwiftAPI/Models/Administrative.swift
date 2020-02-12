@@ -8,13 +8,16 @@
 
 import Foundation
 
-public struct Administrative: Decodable {
+public struct Administrative: Decodable, CustomStringConvertible {
     public let languageCode: String
     public let localeCode: String
     public let unit: Int
     public let windUnit: Int
     public let pressureUnit: Int
     public let feelsLikeAlgorithm: Int
+    public var description: String {
+        "<Administrative - \(languageCode) - \(localeCode)>"
+    }
     
     private enum CodingKeys: String, CodingKey {
         case languageCode = "lang"
