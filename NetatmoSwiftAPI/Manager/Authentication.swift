@@ -16,6 +16,8 @@ public extension NetatmoManager {
     ///
     /// - WARNING: This method should only be used for personnal use and testing purpose.
     ///
+    /// - NOTE: This method does not call `authStateDidChangeListeners`, as it should not be used in production.
+    ///
     /// - Parameters:
     ///   - username: User address email
     ///   - password: User password
@@ -73,6 +75,10 @@ public extension NetatmoManager {
     func authorizeURL(scope: [AuthScope] = [.readStation]) throws -> URL {
         
         // TODO: Chack if a state UUID already exists and check if the user wants to override it
+        guard stateUUID == nil else {
+            authStateDidChangeListeners.values.forEach { $0(.failed(NetatmoError.existingState)) }
+            throw(NetatmoError.existingState)
+        }
         
         guard var urlComponents = URLComponents(string: "https://api.netatmo.com/oauth2/authorize") else {
             throw(NetatmoError.badURL)
@@ -90,13 +96,14 @@ public extension NetatmoManager {
         ]
         
         guard let url = urlComponents.url else {
+            authStateDidChangeListeners.values.forEach { $0(.failed(NetatmoError.badURL)) }
             throw(NetatmoError.badURL)
         }
         
         return url
     }
     
-    func authorizationCallback(with url: URL, completed: @escaping (Result<AuthResult, Error>) -> Void) {
+    func authorizationCallback(with url: URL, completed: ((Result<AuthResult, Error>) -> Void)? = nil) {
         
         let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
         
@@ -105,11 +112,19 @@ public extension NetatmoManager {
             let stateUUID = self.stateUUID, state == stateUUID,
             let code = urlComponents?.queryItems?.first(where: { $0.name == "code" })?.value
         else {
-            // TODO: Call completed with error
+            authStateDidChangeListeners.values.forEach { $0(.failed(NetatmoError.noCallbackCode)) }
             return
         }
         
-        token(with: code, completed: completed)
+        token(with: code) { [weak self] (result) in
+            
+            switch result {
+            case .success:
+                self?.authStateDidChangeListeners.values.forEach { $0(.authorized) }
+            case .failure(let error):
+                self?.authStateDidChangeListeners.values.forEach { $0(.failed(error)) }
+            }
+        }
     }
     
     internal func token(with code: String, completed: @escaping (Result<AuthResult, Error>) -> Void) {
@@ -120,7 +135,7 @@ public extension NetatmoManager {
         }
         
         guard let requestedScope = self.requestedScope else {
-            // TODO: Call completed with error
+            authStateDidChangeListeners.values.forEach { $0(.failed(NetatmoError.noScope)) }
             return
         }
         
@@ -223,6 +238,23 @@ public extension NetatmoManager {
             completed(Result.success(authResult))
         }
         downloadTask.resume()
+    }
+    
+    // MARK: - Auth State Changed Listner
+    
+    func addAuthStateDidChangeListener(_ callback: @escaping ((_ authState: AuthState) -> Void)) -> UUID {
+        // FIXME: Add to queue to avail race conditions
+        let uuid = UUID()
+        authStateDidChangeListeners[uuid] = callback
+        
+        // TODO: Perform callback with current state
+        
+        return uuid
+    }
+    
+    func removeAuthStateDidChangeListener(with uuid: UUID) {
+        // FIXME: Add to queue to avail race conditions
+        authStateDidChangeListeners.removeValue(forKey: uuid)
     }
     
 }

@@ -12,6 +12,13 @@ public class NetatmoManager {
     
     public static var shared = NetatmoManager()
     
+    public enum AuthState {
+        case unknown
+        case authorized
+        case tokenExpired
+        case failed(_ error: Error)
+    }
+    
     // MARK: - Properties
     
     var clientId: String = ""
@@ -29,6 +36,7 @@ public class NetatmoManager {
         }
         return AuthResult(accessToken: accessToken, refreshToken: refreshToken, exires: expires)
     }
+    lazy var authStateDidChangeListeners = [UUID: ((authState: AuthState) -> Void)]()
     
     // MARK: - Lifecycle
     

@@ -14,4 +14,8 @@ public enum NetatmoError: Error {
     case generalError
     case noRefreshToken
     case noAccessToken
+    case noCallbackCode
+    case noScope
+    case existingState
+    case stateMismatch
 }
