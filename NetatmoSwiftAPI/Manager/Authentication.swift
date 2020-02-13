@@ -20,7 +20,7 @@ public extension NetatmoManager {
     ///   - username: User address email
     ///   - password: User password
     ///   - scope: Scopes required
-    ///   - completed: `AuthResult` with Oauth2 details or an error
+    ///   - completed: `AuthResult` with OAuth2 details or an error
     internal func login(username: String, password: String, scope: [AuthScope] = [.readStation], completed: @escaping (Result<AuthResult, Error>) -> Void) {
         
         guard let url = URL(string: "https://api.netatmo.com/oauth2/token") else {
