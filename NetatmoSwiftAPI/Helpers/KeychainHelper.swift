@@ -8,11 +8,6 @@
 
 import Foundation
 
-public enum KeychainError: Error {
-    case passwordError
-    case keychainError(errorString: String)
-}
-
 class KeychainHelper {
     
     func set(service: String, account: String, password: String, description: String = "", comment: String = "", label: String? = nil) throws -> Bool {
