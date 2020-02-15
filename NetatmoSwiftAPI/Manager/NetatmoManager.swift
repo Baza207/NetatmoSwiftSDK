@@ -12,6 +12,20 @@ public class NetatmoManager {
     
     public static var shared = NetatmoManager()
     
+    // MARK: - Types
+
+    public enum NetatmoError: Error {
+        case badURL
+        case noData
+        case generalError
+        case noRefreshToken
+        case noAccessToken
+        case noCallbackCode
+        case noScope
+        case existingState
+        case stateMismatch
+    }
+
     public enum AuthState {
         case unknown
         case authorized
