@@ -77,11 +77,11 @@ public extension NetatmoManager {
         // TODO: Chack if a state UUID already exists and check if the user wants to override it
         guard stateUUID == nil else {
             authStateDidChangeListeners.values.forEach { $0(.failed(NetatmoError.existingState)) }
-            throw(NetatmoError.existingState)
+            throw NetatmoError.existingState
         }
         
         guard var urlComponents = URLComponents(string: "https://api.netatmo.com/oauth2/authorize") else {
-            throw(NetatmoError.badURL)
+            throw NetatmoError.badURL
         }
         
         let stateUUID = UUID().uuidString
@@ -97,7 +97,7 @@ public extension NetatmoManager {
         
         guard let url = urlComponents.url else {
             authStateDidChangeListeners.values.forEach { $0(.failed(NetatmoError.badURL)) }
-            throw(NetatmoError.badURL)
+            throw NetatmoError.badURL
         }
         
         return url
