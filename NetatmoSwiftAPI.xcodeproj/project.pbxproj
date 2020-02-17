@@ -22,6 +22,7 @@
 		18021FEB2360E1FA00E3D20A /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FEA2360E1FA00E3D20A /* Authentication.swift */; };
 		18021FED2360E29200E3D20A /* WeatherStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FEC2360E29200E3D20A /* WeatherStation.swift */; };
 		1821A11F23F6EC3F002688DA /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821A11E23F6EC3F002688DA /* KeychainPasswordItem.swift */; };
+		1821A12323FB276F002688DA /* OAuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821A12223FB276F002688DA /* OAuthState.swift */; };
 		184494DE23BD515C00479929 /* AuthScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184494DD23BD515C00479929 /* AuthScope.swift */; };
 		1860AFCC23F33A8D00FA36B1 /* NetatmoManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860AFCB23F33A8D00FA36B1 /* NetatmoManagerTests.swift */; };
 		1860AFCE23F33C0000FA36B1 /* TestConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 1860AFCD23F33C0000FA36B1 /* TestConfig.json */; };
@@ -58,6 +59,7 @@
 		18021FEA2360E1FA00E3D20A /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		18021FEC2360E29200E3D20A /* WeatherStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStation.swift; sourceTree = "<group>"; };
 		1821A11E23F6EC3F002688DA /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		1821A12223FB276F002688DA /* OAuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthState.swift; sourceTree = "<group>"; };
 		184494DD23BD515C00479929 /* AuthScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScope.swift; sourceTree = "<group>"; };
 		1860AFCB23F33A8D00FA36B1 /* NetatmoManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoManagerTests.swift; sourceTree = "<group>"; };
 		1860AFCD23F33C0000FA36B1 /* TestConfig.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TestConfig.json; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		18021FD12360D56300E3D20A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1821A12223FB276F002688DA /* OAuthState.swift */,
 				184494DD23BD515C00479929 /* AuthScope.swift */,
 				18021FD22360D58A00E3D20A /* AuthResult.swift */,
 				18021FD42360D5AE00E3D20A /* BaseResult.swift */,
@@ -315,6 +318,7 @@
 				18021FD72360D5EA00E3D20A /* WeatherStationResult.swift in Sources */,
 				18021FEB2360E1FA00E3D20A /* Authentication.swift in Sources */,
 				18021FE62360D73300E3D20A /* NetatmoManager.swift in Sources */,
+				1821A12323FB276F002688DA /* OAuthState.swift in Sources */,
 				1860AFD823F35BD600FA36B1 /* iOSAuthentication.swift in Sources */,
 				18021FD52360D5AE00E3D20A /* BaseResult.swift in Sources */,
 			);
