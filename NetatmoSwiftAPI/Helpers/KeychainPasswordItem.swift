@@ -15,7 +15,6 @@ struct KeychainPasswordItem {
     enum KeychainError: Error {
         case noPassword
         case unexpectedPasswordData
-        case unexpectedObjectData
         case unexpectedItemData
         case unhandledError(status: OSStatus)
     }
@@ -48,14 +47,13 @@ struct KeychainPasswordItem {
         return password
     }
     
-    func readObject<T>() throws -> T {
+    func readObject<T>() throws -> T where T: Decodable {
         
         let keychainData = try readData()
         
-        // Parse the object from the query result.
-        guard let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(keychainData) as? T else {
-            throw KeychainError.unexpectedObjectData
-        }
+        // Parse the JSON object from the query result.
+        let decoder = JSONDecoder()
+        let object = try decoder.decode(T.self, from: keychainData)
         
         return object
     }
@@ -98,12 +96,13 @@ struct KeychainPasswordItem {
         try save(encodedPassword)
     }
     
-    func saveObject(_ object: Any) throws {
+    func saveJSON<T>(_ object: T) throws where T: Encodable {
         
-        // Encode the object into an Data object.
-        let encodedObject = try NSKeyedArchiver.archivedData(withRootObject: object, requiringSecureCoding: true)
+        // Encode the JSON object into an Data.
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(object)
         
-        try save(encodedObject)
+        try save(data)
     }
     
     func save(_ keychainData: Data) throws {
