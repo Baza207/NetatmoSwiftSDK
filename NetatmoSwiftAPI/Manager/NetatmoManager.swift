@@ -74,6 +74,10 @@ public class NetatmoManager {
     internal var accessToken: String?
     internal var refreshToken: String?
     internal var expires: Date?
+    var isValid: Bool {
+        guard let expires = self.expires else { return false }
+        return Date() < expires
+    }
     internal var requestedScope: [AuthScope]?
     internal var stateUUID: String?
     public var authState: AuthState = .unknown {

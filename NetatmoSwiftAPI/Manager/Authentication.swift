@@ -139,14 +139,14 @@ public extension NetatmoManager {
     
     func refreshToken(_ completed: @escaping (Result<AuthState, Error>) -> Void) {
         
-        guard let refreshToken = self.refreshToken, refreshToken.isEmpty == false, let expires = self.expires else {
-            completed(Result.failure(NetatmoError.noRefreshToken))
-            return
+        // If the token has not yet expired, just return success
+        if isValid == true {
+            completed(Result.success(.authorized))
         }
         
-        // If the token has not yet expired, just return success
-        if expires < Date() {
-            completed(Result.success(.authorized))
+        guard let refreshToken = self.refreshToken, refreshToken.isEmpty == false else {
+            completed(Result.failure(NetatmoError.noRefreshToken))
+            return
         }
         
         guard let url = URL(string: "https://api.netatmo.com/oauth2/token") else {
