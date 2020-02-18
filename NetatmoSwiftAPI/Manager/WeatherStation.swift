@@ -12,19 +12,54 @@ public extension NetatmoManager {
     
     // MARK: - Weather Station
     
-    func getWeatherStationData(deviceId: String = "", completed: @escaping (Result<WeatherStationResult, Error>) -> Void) {
+    /// Returns data from a user Weather Stations (measures and device specific data).
+    /// - Parameters:
+    ///   - deviceId: Weather station mac address.
+    ///   - getFavorites: To retrieve user's favorite weather stations. Default is false.
+    ///   - completed: The result of the request as `WeatherStationResult` or `Error` on failure.
+    func getWeatherStationData(deviceId: String? = nil, getFavorites: Bool = false, completed: @escaping (Result<WeatherStationResult, Error>) -> Void) {
         
         guard let accessToken = self.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
             return
         }
         
-        // TODO: Check to see if token has expired, if so, refresh the token
-        
-        guard let url = URL(string: "https://api.netatmo.com/api/getstationsdata") else {
+        guard var urlComponents = URLComponents(string: "https://api.netatmo.com/api/getstationsdata") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }
+        
+        urlComponents.queryItems = [
+            URLQueryItem(name: "get_favorites", value: "\(getFavorites)")
+        ]
+        
+        if let deviceId = deviceId {
+            urlComponents.queryItems?.append(URLQueryItem(name: "device_id", value: deviceId))
+        }
+        
+        guard let url = urlComponents.url else {
+            completed(Result.failure(NetatmoError.badURL))
+            return
+        }
+        
+        guard isValid == false else {
+            getWeatherStationData(accessToken: accessToken, url: url, completed: completed)
+            return
+        }
+        
+        // Attempt tokenn refresh
+        refreshToken { [weak self] (result) in
+            
+            switch result {
+            case .success:
+                self?.getWeatherStationData(accessToken: accessToken, url: url, completed: completed)
+            case .failure(let error):
+                completed(Result.failure(error))
+            }
+        }
+    }
+    
+    private func getWeatherStationData(accessToken: String, url: URL, completed: @escaping (Result<WeatherStationResult, Error>) -> Void) {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
