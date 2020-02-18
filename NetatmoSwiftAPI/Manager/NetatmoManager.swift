@@ -95,14 +95,24 @@ public class NetatmoManager {
         shared.redirectURI = redirectURI
         
         guard let stateUUID = shared.loadStateUUID() else {
-            shared.authState = .unknown
+            do {
+                try shared.logout()
+                shared.authState = .unknown
+            } catch {
+                shared.authState = .failed(error)
+            }
             return
         }
         
         shared.stateUUID = stateUUID
         
         guard let keychainAuthState = try? KeychainPasswordItem(service: NetatmoManager.keychainServiceName, account: stateUUID).readObject() as OAuthState else {
-            shared.authState = .unknown
+            do {
+                try shared.logout()
+                shared.authState = .unknown
+            } catch {
+                shared.authState = .failed(error)
+            }
             return
         }
         
@@ -110,27 +120,29 @@ public class NetatmoManager {
         shared.refreshToken = keychainAuthState.refreshToken
         shared.expires = keychainAuthState.expires
         
-        guard keychainAuthState.isValid == true else {
-            shared.authState = .unknown
-            
-            // Attempt tokenn refresh
-            shared.refreshToken { (result) in
-                
-                let authState: AuthState
-                switch result {
-                case .success:
-                    authState = .authorized
-                case .failure(let error):
-                    authState = .failed(error)
-                }
-                
-                shared.authState = authState
-            }
-            
+        guard keychainAuthState.isValid == false else {
+            shared.authState = .authorized
             return
         }
         
-        shared.authState = .authorized
+        // Attempt tokenn refresh
+        shared.refreshToken { (result) in
+            
+            let authState: AuthState
+            switch result {
+            case .success:
+                authState = .authorized
+            case .failure(let error):
+                do {
+                    try shared.logout()
+                    authState = .failed(error)
+                } catch {
+                    authState = .failed(error)
+                }
+            }
+            
+            shared.authState = authState
+        }
     }
     
     // MARK: - State UUID
