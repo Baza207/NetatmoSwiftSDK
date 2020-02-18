@@ -26,9 +26,9 @@ import Foundation
 public class NetatmoManager {
     
     public static var shared = NetatmoManager()
-    static let userDefaultsSuiteName = "com.PigonaHill.NetatmoSwiftAPI.userDefaults.suiteName"
-    static let userDefaultsKeychainStateUUID = "com.PigonaHill.NetatmoSwiftAPI.userDefaults.stateUUID"
-    static let keychainServiceName = "com.PigonaHill.NetatmoSwiftAPI.keychain"
+    internal static let userDefaultsSuiteName = "com.PigonaHill.NetatmoSwiftAPI.userDefaults.suiteName"
+    internal static let userDefaultsKeychainStateUUID = "com.PigonaHill.NetatmoSwiftAPI.userDefaults.stateUUID"
+    internal static let keychainServiceName = "com.PigonaHill.NetatmoSwiftAPI.keychain"
     
     // MARK: - Types
 
@@ -68,21 +68,21 @@ public class NetatmoManager {
     
     // MARK: - Properties
     
-    var clientId: String = ""
-    var clientSecret: String = ""
-    var redirectURI: String = ""
-    var accessToken: String?
-    var refreshToken: String?
-    var expires: Date?
-    var requestedScope: [AuthScope]?
-    var stateUUID: String?
-    var authState: AuthState = .unknown {
+    internal var clientId: String = ""
+    internal var clientSecret: String = ""
+    internal var redirectURI: String = ""
+    internal var accessToken: String?
+    internal var refreshToken: String?
+    internal var expires: Date?
+    internal var requestedScope: [AuthScope]?
+    internal var stateUUID: String?
+    public var authState: AuthState = .unknown {
         didSet {
             guard oldValue != authState else { return }
             authStateDidChangeListeners.values.forEach { $0(authState) }
         }
     }
-    lazy var authStateDidChangeListeners = [UUID: ((authState: AuthState) -> Void)]()
+    internal lazy var authStateDidChangeListeners = [UUID: ((authState: AuthState) -> Void)]()
     
     // MARK: - Lifecycle
     
@@ -147,7 +147,7 @@ public class NetatmoManager {
     
     // MARK: - State UUID
     
-    func loadStateUUID() -> String? {
+    internal func loadStateUUID() -> String? {
         
         guard let userDefaults = UserDefaults(suiteName: NetatmoManager.userDefaultsSuiteName) else {
             return nil
@@ -156,7 +156,7 @@ public class NetatmoManager {
     }
     
     @discardableResult
-    func saveStateUUID(_ uuid: String) -> Bool {
+    internal func saveStateUUID(_ uuid: String) -> Bool {
         
         guard let userDefaults = UserDefaults(suiteName: NetatmoManager.userDefaultsSuiteName) else {
             return false
@@ -168,7 +168,7 @@ public class NetatmoManager {
     }
     
     @discardableResult
-    func removeStateUUID() -> Bool {
+    internal func removeStateUUID() -> Bool {
         
         guard let userDefaults = UserDefaults(suiteName: NetatmoManager.userDefaultsSuiteName) else {
             return false
