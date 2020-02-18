@@ -79,10 +79,14 @@ public class NetatmoManager {
     public var authState: AuthState = .unknown {
         didSet {
             guard oldValue != authState else { return }
-            authStateDidChangeListeners.values.forEach { $0(authState) }
+            authStateListenerQueue.async(flags: .barrier) { [weak self] in
+                guard let self = self else { return }
+                self.authStateDidChangeListeners.values.forEach { $0(self.authState) }
+            }
         }
     }
     internal lazy var authStateDidChangeListeners = [UUID: ((authState: AuthState) -> Void)]()
+    internal let authStateListenerQueue = DispatchQueue(label: "com.PigonaHill.NetatmoSwiftAPI.AuthStateListenerQueue", attributes: .concurrent)
     
     // MARK: - Lifecycle
     

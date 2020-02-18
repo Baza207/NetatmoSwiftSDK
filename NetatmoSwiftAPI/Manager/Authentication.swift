@@ -232,19 +232,23 @@ public extension NetatmoManager {
     
     func addAuthStateDidChangeListener(_ callback: @escaping ((_ authState: AuthState) -> Void)) -> Listener {
         
-        // FIXME: Add to queue to avail race conditions
-        let listener = Listener()
-        authStateDidChangeListeners[listener] = callback
-        
-        // Perform callback with current state
-        callback(authState)
-        
-        return listener
+        return authStateListenerQueue.sync(flags: .barrier) { [weak self] in
+            
+            let listener = Listener()
+            self?.authStateDidChangeListeners[listener] = callback
+
+            // Perform callback with current state
+            callback(authState)
+            
+            return listener
+        }
     }
     
     func removeAuthStateDidChangeListener(with uuid: Listener) {
-        // FIXME: Add to queue to avail race conditions
-        authStateDidChangeListeners.removeValue(forKey: uuid)
+        
+        authStateListenerQueue.async(flags: .barrier) { [weak self] in
+            self?.authStateDidChangeListeners.removeValue(forKey: uuid)
+        }
     }
     
 }
