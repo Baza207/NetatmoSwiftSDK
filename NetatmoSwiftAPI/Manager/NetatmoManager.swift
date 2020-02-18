@@ -106,6 +106,10 @@ public class NetatmoManager {
             return
         }
         
+        shared.accessToken = keychainAuthState.accessToken
+        shared.refreshToken = keychainAuthState.refreshToken
+        shared.expires = keychainAuthState.expires
+        
         guard keychainAuthState.isValid == true else {
             shared.authState = .unknown
             
@@ -125,10 +129,6 @@ public class NetatmoManager {
             
             return
         }
-        
-        shared.accessToken = keychainAuthState.accessToken
-        shared.refreshToken = keychainAuthState.refreshToken
-        shared.expires = keychainAuthState.expires
         
         shared.authState = .authorized
     }
