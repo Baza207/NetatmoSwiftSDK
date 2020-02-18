@@ -29,11 +29,16 @@ public enum AuthScope: String, Decodable {
     /// To read data coming from Healthy Home Coach (gethomecoachsdata)
     case readHomecoach = "read_homecoach"
     
+    /// The type of seperator used when creating the auth scope string
     enum SeparationType: String {
         case dot = "."
         case space = " "
     }
     
+    /// Creates a string from auth scopes
+    /// - Parameters:
+    ///   - scope: The auth scopes to create a string from
+    ///   - separationType: The type of seperator to use when joining the auth scopes into a string
     internal static func string(from scope: [AuthScope], separationType: SeparationType = .dot) -> String {
         guard scope.count > 0 else {
             return AuthScope.readStation.rawValue
@@ -41,6 +46,10 @@ public enum AuthScope: String, Decodable {
         return scope.map { $0.rawValue }.joined(separator: separationType.rawValue)
     }
     
+    /// Parses auth scopes out of a string
+    /// - Parameters:
+    ///   - string: The string that contains the auth scopes
+    ///   - separationType: The type of seperator that is used to join auth scopes
     internal static func scopes(from string: String, separationType: SeparationType = .dot) -> [AuthScope] {
         guard string.isEmpty == false else {
             return [.readStation]
