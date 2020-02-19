@@ -15,9 +15,9 @@ public extension NetatmoManager {
     /// Returns data from a user Weather Stations (measures and device specific data).
     /// - Parameters:
     ///   - deviceId: Weather station mac address.
-    ///   - getFavorites: To retrieve user's favorite weather stations. Default is false.
+    ///   - favorites: To retrieve user's favorite weather stations. Default is false.
     ///   - completed: The result of the request as `WeatherStationResult` or `Error` on failure.
-    func getWeatherStationData(deviceId: String? = nil, getFavorites: Bool = false, completed: @escaping (Result<WeatherStationResult, Error>) -> Void) {
+    func getWeatherStationData(deviceId: String? = nil, favorites: Bool = false, completed: @escaping (Result<WeatherStationResult, Error>) -> Void) {
         
         guard let accessToken = self.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -30,7 +30,7 @@ public extension NetatmoManager {
         }
         
         urlComponents.queryItems = [
-            URLQueryItem(name: "get_favorites", value: "\(getFavorites)")
+            URLQueryItem(name: "get_favorites", value: "\(favorites)")
         ]
         
         if let deviceId = deviceId {
