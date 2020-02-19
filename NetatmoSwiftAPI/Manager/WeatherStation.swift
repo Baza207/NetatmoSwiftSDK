@@ -43,23 +43,23 @@ public extension NetatmoManager {
         }
         
         guard isValid == false else {
-            getWeatherStationData(accessToken: accessToken, url: url, completed: completed)
+            NetatmoManager.getWeatherStationData(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
         // Attempt tokenn refresh
-        refreshToken { [weak self] (result) in
+        refreshToken { (result) in
             
             switch result {
             case .success:
-                self?.getWeatherStationData(accessToken: accessToken, url: url, completed: completed)
+                NetatmoManager.getWeatherStationData(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
         }
     }
     
-    private func getWeatherStationData(accessToken: String, url: URL, completed: @escaping (Result<WeatherStationResult, Error>) -> Void) {
+    private static func getWeatherStationData(accessToken: String, url: URL, completed: @escaping (Result<WeatherStationResult, Error>) -> Void) {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
