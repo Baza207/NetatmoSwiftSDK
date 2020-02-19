@@ -59,6 +59,14 @@ public extension NetatmoManager {
         }
     }
     
+    /// Returns data from a user Weather Stations (measures and device specific data).
+    ///
+    /// - Note: This should be called only from `getWeatherStationData(deviceId:,favorites:,completed:)`.
+    ///
+    /// - Parameters:
+    ///   - accessToken: A valid access token from the manager.
+    ///   - url: The URL to call with all the required properties.
+    ///   - completed: The result of the request as `WeatherStationResult` or `Error` on failure.
     private static func getWeatherStationData(accessToken: String, url: URL, completed: @escaping (Result<WeatherStationResult, Error>) -> Void) {
         
         var urlRequest = URLRequest(url: url)
