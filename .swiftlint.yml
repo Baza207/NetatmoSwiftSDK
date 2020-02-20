@@ -34,3 +34,8 @@ cyclomatic_complexity:
   warning: 30
   error: 40
 
+nesting:
+  type_level: 2
+
+identifier_name:
+  min_length: 2
