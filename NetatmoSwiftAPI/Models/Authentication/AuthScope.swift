@@ -57,4 +57,5 @@ public enum AuthScope: String, Decodable {
         
         return string.components(separatedBy: separationType.rawValue).compactMap { AuthScope(rawValue: "\($0)") }
     }
+    
 }

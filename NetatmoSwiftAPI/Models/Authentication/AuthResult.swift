@@ -32,4 +32,5 @@ public struct AuthResult: Decodable, CustomStringConvertible {
         self.refreshToken = refreshToken
         self.expiresIn = exires.timeIntervalSinceNow
     }
+    
 }
