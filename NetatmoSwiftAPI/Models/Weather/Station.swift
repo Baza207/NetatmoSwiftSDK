@@ -15,13 +15,21 @@ public extension Weather {
         // MARK: - Properties
         
         /// The body of the result.
-        public let body: Station
+        public let body: Station?
         /// The status of the result.
-        public let status: String
+        public let status: String?
+        /// The error if the request errors.
+        internal let error: NetatmoManager.RequestError?
         
         public var description: String {
-            "StationBase(status: \(status), body: \(body))"
+            if let status = self.status, let body = self.body {
+                return "StationBase(status: \(status), body: \(body))"
+            } else if let error = self.error {
+                return "StationBase(errorCode: \(error.code), body: \(error.message))"
+            }
+            return "StationBase()"
         }
+        
     }
     
     struct Station: Decodable, CustomStringConvertible {

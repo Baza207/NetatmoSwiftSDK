@@ -101,7 +101,14 @@ public extension NetatmoManager {
                 completed(Result.failure(NetatmoError.generalError))
                 return
             }
-            completed(Result.success(baseResult.body))
+            
+            if let body = baseResult.body {
+                completed(Result.success(body))
+            } else if let error = baseResult.error {
+                completed(Result.failure(NetatmoError.error(code: error.code, message: error.message)))
+            } else {
+                completed(Result.failure(NetatmoError.noData))
+            }
         }
         downloadTask.resume()
     }
@@ -190,7 +197,14 @@ public extension NetatmoManager {
                 completed(Result.failure(NetatmoError.generalError))
                 return
             }
-            completed(Result.success(baseResult.body))
+            
+            if let body = baseResult.body {
+                completed(Result.success(body))
+            } else if let error = baseResult.error {
+                completed(Result.failure(NetatmoError.error(code: error.code, message: error.message)))
+            } else {
+                completed(Result.failure(NetatmoError.noData))
+            }
         }
         downloadTask.resume()
     }
@@ -343,7 +357,14 @@ public extension NetatmoManager {
                 completed(Result.failure(NetatmoError.generalError))
                 return
             }
-            completed(Result.success(baseResult.body))
+            
+            if let body = baseResult.body {
+                completed(Result.success(body))
+            } else if let error = baseResult.error {
+                completed(Result.failure(NetatmoError.error(code: error.code, message: error.message)))
+            } else {
+                completed(Result.failure(NetatmoError.noData))
+            }
         }
         downloadTask.resume()
     }
