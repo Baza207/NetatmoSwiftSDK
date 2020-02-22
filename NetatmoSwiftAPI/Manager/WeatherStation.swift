@@ -211,47 +211,6 @@ public extension NetatmoManager {
     
     // MARK: - Weather Station Measurement
     
-    enum TimeScale: String {
-        case thirtyMin = "30min"
-        case oneHour = "1hour"
-        case threeHours = "3hours"
-        case oneDay = "1day"
-        case oneWeek = "1week"
-        case oneMonth = "1month"
-    }
-    
-    enum MeasureType: String {
-        case temperature
-        case humidity
-        case datemaxCO2 = "date_max_co2"
-        case dateMinCO2 = "date_min_co2"
-        case dateMaxNoise = "date_max_noise"
-        case dateMinNoise = "date_min_noise"
-        case dateMaxPressure = "date_max_pressure"
-        case dateMinPressure = "date_min_pressure"
-        case dateMaxHumidity = "date_max_hum"
-        case dateMaxGust = "date_max_gust"
-        case sumRain = "sum_rain"
-        case minNoise = "min_noise"
-        case maxNoise = "max_noise"
-        case maxPressure = "max_pressure"
-        case minPressure = "min_pressure"
-        case maxHumidity = "max_hum"
-        case minHumidity = "min_hum"
-        case dateMaxTemp = "date_max_temp"
-        case dateMinTemp = "date_min_temp"
-        case maxTemp = "max_temp"
-        case minTemp = "min_temp"
-        case gustAngle = "gustangle"
-        case gustStrength = "guststrength"
-        case windAngle = "windangle"
-        case windStrenght = "windstrenght"
-        case noise
-        case rain
-        case co2
-        case pressure
-    }
-    
     /// Retrieve data from a device or module.
     ///
     /// `readStation` scope required.
@@ -267,7 +226,7 @@ public extension NetatmoManager {
     ///   - optimize: Determines the format of the answer. Default is `true`. For mobile apps we recommend `true` and `false` if bandwidth isn't an issue as it is easier to parse.
     ///   - realTime: If scale different than max, timestamps are by default offset + scale/2. To get exact timestamps, use `true`. Default is `false`.
     ///   - completed: The result of the request as `Weather.StationMeasure` or `Error` on failure.
-    func getMeasure(deviceId: String, moduleId: String? = nil, scale: TimeScale, type: MeasureType, beginDate: Date? = nil, endDate: Date? = nil, limit: Int? = nil, optimize: Bool = true, realTime: Bool = false, completed: @escaping (Result<[Weather.StationMeasure], Error>) -> Void) {
+    func getMeasure(deviceId: String, moduleId: String? = nil, scale: Weather.TimeScale, type: Weather.MeasureType, beginDate: Date? = nil, endDate: Date? = nil, limit: Int? = nil, optimize: Bool = true, realTime: Bool = false, completed: @escaping (Result<[Weather.StationMeasure], Error>) -> Void) {
         
         guard let accessToken = self.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
