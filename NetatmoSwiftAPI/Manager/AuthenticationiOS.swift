@@ -12,9 +12,9 @@ import SafariServices
 @available(iOS 9.0, *)
 public extension NetatmoManager {
     
-    func authorize(scope: [AuthScope] = [.readStation]) throws -> SFSafariViewController {
+    static func authorize(scope: [AuthScope] = [.readStation]) throws -> SFSafariViewController {
         
-        let url = try authorizeURL()
+        let url = try NetatmoManager.authorizeURL()
         return SFSafariViewController(url: url)
     }
     

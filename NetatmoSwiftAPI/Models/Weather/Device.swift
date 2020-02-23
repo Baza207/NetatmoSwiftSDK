@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension Weather {
+public extension NetatmoWeather {
     
     struct Device: Decodable, CustomStringConvertible {
         

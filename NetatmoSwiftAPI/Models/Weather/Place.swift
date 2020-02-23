@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-public extension Weather {
+public extension NetatmoWeather {
     
     struct Place: Decodable, CustomStringConvertible {
         

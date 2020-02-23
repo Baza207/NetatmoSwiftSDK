@@ -1,5 +1,5 @@
 //
-//  WeatherAPI.swift
+//  NetatmoWeather.swift
 //  NetatmoSwiftAPI
 //
 //  Created by James Barrow on 2019-10-23.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-public extension NetatmoManager {
+public class NetatmoWeather {
     
     // MARK: - Public Weather Data
     
@@ -22,15 +22,15 @@ public extension NetatmoManager {
     ///   - southWest: Coordinates of the south west corner of the requested area. Latitude: `-85 <= swLatitude <= 85`. Longitude: `-180 <= swLongitude <= 180`.
     ///   - requiredData: To filter stations based on relevant measurements you want (e.g. rain will only return stations with rain gauges). Default is no filter `nil`.
     ///   - filter: `true` to exclude station with abnormal temperature measures. Default is `false`.
-    ///   - completed: The result of the request as `Weather.PublicData` or `Error` on failure.
-    func getPublicData(northEast: CLLocationCoordinate2D, southWest: CLLocationCoordinate2D, requiredData: String? = nil, filter: Bool = false, completed: @escaping (Result<[Weather.PublicData], Error>) -> Void) {
+    ///   - completed: The result of the request as `PublicData` or `Error` on failure.
+    public static func getPublicData(northEast: CLLocationCoordinate2D, southWest: CLLocationCoordinate2D, requiredData: String? = nil, filter: Bool = false, completed: @escaping (Result<[PublicData], Error>) -> Void) {
         
-        guard let accessToken = self.accessToken, accessToken.isEmpty == false else {
+        guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
             return
         }
         
-        guard var urlComponents = URLComponents(string: "https://api.netatmo.com/api/getpublicdata") else {
+        guard var urlComponents = URLComponents(string: "\(NetatmoManager.baseAPIURL)/getpublicdata") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }
@@ -54,24 +54,24 @@ public extension NetatmoManager {
             return
         }
         
-        guard isValid == false else {
-            NetatmoManager.getPublicData(accessToken: accessToken, url: url, completed: completed)
+        guard NetatmoManager.shared.isValid == false else {
+            NetatmoWeather.getPublicData(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
         // Attempt tokenn refresh
-        refreshToken { (result) in
+        NetatmoManager.refreshToken { (result) in
             
             switch result {
             case .success:
-                NetatmoManager.getPublicData(accessToken: accessToken, url: url, completed: completed)
+                NetatmoWeather.getPublicData(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
         }
     }
     
-    private static func getPublicData(accessToken: String, url: URL, completed: @escaping (Result<[Weather.PublicData], Error>) -> Void) {
+    private static func getPublicData(accessToken: String, url: URL, completed: @escaping (Result<[PublicData], Error>) -> Void) {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
@@ -89,9 +89,9 @@ public extension NetatmoManager {
             }
             
             let decoder = JSONDecoder()
-            let result: Weather.PublicDataBase?
+            let result: PublicDataBase?
             do {
-                result = try decoder.decode(Weather.PublicDataBase.self, from: data)
+                result = try decoder.decode(PublicDataBase.self, from: data)
             } catch {
                 completed(Result.failure(error))
                 return
@@ -122,15 +122,15 @@ public extension NetatmoManager {
     /// - Parameters:
     ///   - deviceId: Weather station mac address.
     ///   - favorites: To retrieve user's favorite weather stations. Default is false.
-    ///   - completed: The result of the request as `Weather.Station` or `Error` on failure.
-    func getWeatherStationData(deviceId: String? = nil, favorites: Bool = false, completed: @escaping (Result<Weather.Station, Error>) -> Void) {
+    ///   - completed: The result of the request as `Station` or `Error` on failure.
+    public static func getWeatherStationData(deviceId: String? = nil, favorites: Bool = false, completed: @escaping (Result<Station, Error>) -> Void) {
         
-        guard let accessToken = self.accessToken, accessToken.isEmpty == false else {
+        guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
             return
         }
         
-        guard var urlComponents = URLComponents(string: "https://api.netatmo.com/api/getstationsdata") else {
+        guard var urlComponents = URLComponents(string: "\(NetatmoManager.baseAPIURL)/getstationsdata") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }
@@ -150,24 +150,24 @@ public extension NetatmoManager {
             return
         }
         
-        guard isValid == false else {
-            NetatmoManager.getWeatherStationData(accessToken: accessToken, url: url, completed: completed)
+        guard NetatmoManager.shared.isValid == false else {
+            NetatmoWeather.getWeatherStationData(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
         // Attempt tokenn refresh
-        refreshToken { (result) in
+        NetatmoManager.refreshToken { (result) in
             
             switch result {
             case .success:
-                NetatmoManager.getWeatherStationData(accessToken: accessToken, url: url, completed: completed)
+                NetatmoWeather.getWeatherStationData(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
         }
     }
     
-    private static func getWeatherStationData(accessToken: String, url: URL, completed: @escaping (Result<Weather.Station, Error>) -> Void) {
+    private static func getWeatherStationData(accessToken: String, url: URL, completed: @escaping (Result<Station, Error>) -> Void) {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
@@ -185,9 +185,9 @@ public extension NetatmoManager {
             }
             
             let decoder = JSONDecoder()
-            let result: Weather.StationBase?
+            let result: StationBase?
             do {
-                result = try decoder.decode(Weather.StationBase.self, from: data)
+                result = try decoder.decode(StationBase.self, from: data)
             } catch {
                 completed(Result.failure(error))
                 return
@@ -225,15 +225,15 @@ public extension NetatmoManager {
     ///   - limit: Maximum number of measurements (default and max are 1024).
     ///   - optimize: Determines the format of the answer. Default is `true`. For mobile apps we recommend `true` and `false` if bandwidth isn't an issue as it is easier to parse.
     ///   - realTime: If scale different than max, timestamps are by default offset + scale/2. To get exact timestamps, use `true`. Default is `false`.
-    ///   - completed: The result of the request as `Weather.StationMeasure` or `Error` on failure.
-    func getMeasure(deviceId: String, moduleId: String? = nil, scale: Weather.TimeScale, type: Weather.MeasureType, beginDate: Date? = nil, endDate: Date? = nil, limit: Int? = nil, optimize: Bool = true, realTime: Bool = false, completed: @escaping (Result<[Weather.StationMeasure], Error>) -> Void) {
+    ///   - completed: The result of the request as `StationMeasure` or `Error` on failure.
+    public static func getMeasure(deviceId: String, moduleId: String? = nil, scale: TimeScale, type: MeasureType, beginDate: Date? = nil, endDate: Date? = nil, limit: Int? = nil, optimize: Bool = true, realTime: Bool = false, completed: @escaping (Result<[StationMeasure], Error>) -> Void) {
         
-        guard let accessToken = self.accessToken, accessToken.isEmpty == false else {
+        guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
             return
         }
         
-        guard var urlComponents = URLComponents(string: "https://api.netatmo.com/api/getmeasure") else {
+        guard var urlComponents = URLComponents(string: "\(NetatmoManager.baseAPIURL)/getmeasure") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }
@@ -269,24 +269,24 @@ public extension NetatmoManager {
             return
         }
         
-        guard isValid == false else {
-            NetatmoManager.getMeasure(accessToken: accessToken, url: url, completed: completed)
+        guard NetatmoManager.shared.isValid == false else {
+            NetatmoWeather.getMeasure(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
         // Attempt tokenn refresh
-        refreshToken { (result) in
+        NetatmoManager.refreshToken { (result) in
             
             switch result {
             case .success:
-                NetatmoManager.getMeasure(accessToken: accessToken, url: url, completed: completed)
+                NetatmoWeather.getMeasure(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
         }
     }
     
-    private static func getMeasure(accessToken: String, url: URL, completed: @escaping (Result<[Weather.StationMeasure], Error>) -> Void) {
+    private static func getMeasure(accessToken: String, url: URL, completed: @escaping (Result<[StationMeasure], Error>) -> Void) {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
@@ -304,9 +304,9 @@ public extension NetatmoManager {
             }
             
             let decoder = JSONDecoder()
-            let result: Weather.StationMeasureBase?
+            let result: StationMeasureBase?
             do {
-                result = try decoder.decode(Weather.StationMeasureBase.self, from: data)
+                result = try decoder.decode(StationMeasureBase.self, from: data)
             } catch {
                 completed(Result.failure(error))
                 return
