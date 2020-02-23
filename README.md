@@ -16,7 +16,7 @@ This is currently a work in progress. There is a list of currently supported fea
 - [ ] Security 📝 **[IN PROGRESS]**  
 - [ ] Energy  
 - [ ] AirCare  
-- [x] Error Handling 📝 **[WORK IN PROGRESS]**  
+- [x] Error Handling 📝 **[CONTINUOUS]**  
 
 ## Prerequisites
 
@@ -40,4 +40,4 @@ Coming Soon!
 
 ## License
 
-This project uses the following license: [MIT Licence](LICENSE).
+[MIT Licence](LICENSE).
