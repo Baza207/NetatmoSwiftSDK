@@ -117,7 +117,7 @@ public extension NetatmoManager {
     
     /// Returns data from a user Weather Stations (measures and device specific data).
     ///
-    /// `readStation` scope required.
+    /// Scope required: `readStation`.
     ///
     /// - Parameters:
     ///   - deviceId: Weather station mac address.
@@ -213,7 +213,7 @@ public extension NetatmoManager {
     
     /// Retrieve data from a device or module.
     ///
-    /// `readStation` scope required.
+    /// Scope required: `readStation`.
     ///
     /// - Parameters:
     ///   - deviceId: Weather station mac address.
