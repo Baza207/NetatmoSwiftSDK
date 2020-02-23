@@ -20,10 +20,12 @@
 		1821A11F23F6EC3F002688DA /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821A11E23F6EC3F002688DA /* KeychainPasswordItem.swift */; };
 		1821A12323FB276F002688DA /* OAuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821A12223FB276F002688DA /* OAuthState.swift */; };
 		184494DE23BD515C00479929 /* AuthScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184494DD23BD515C00479929 /* AuthScope.swift */; };
+		1854E32724031492005FA858 /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854E32624031492005FA858 /* Security.swift */; };
 		1860AFCC23F33A8D00FA36B1 /* NetatmoManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860AFCB23F33A8D00FA36B1 /* NetatmoManagerTests.swift */; };
 		1860AFCE23F33C0000FA36B1 /* TestConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 1860AFCD23F33C0000FA36B1 /* TestConfig.json */; };
 		1860AFD523F3466500FA36B1 /* TestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860AFD023F33C5E00FA36B1 /* TestConfig.swift */; };
 		1860AFD823F35BD600FA36B1 /* iOSAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860AFD723F35BD600FA36B1 /* iOSAuthentication.swift */; };
+		1862DB3E24031CF900DE4B75 /* SecurityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862DB3D24031CF900DE4B75 /* SecurityAPI.swift */; };
 		18ACFCEA23FF15D400BA6B03 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCE923FF15D400BA6B03 /* Weather.swift */; };
 		18ACFCEE23FF28D200BA6B03 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCED23FF28D200BA6B03 /* Place.swift */; };
 		18ACFCF023FF369600BA6B03 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCEF23FF369600BA6B03 /* Dashboard.swift */; };
@@ -59,10 +61,12 @@
 		1821A11E23F6EC3F002688DA /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		1821A12223FB276F002688DA /* OAuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthState.swift; sourceTree = "<group>"; };
 		184494DD23BD515C00479929 /* AuthScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScope.swift; sourceTree = "<group>"; };
+		1854E32624031492005FA858 /* Security.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
 		1860AFCB23F33A8D00FA36B1 /* NetatmoManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoManagerTests.swift; sourceTree = "<group>"; };
 		1860AFCD23F33C0000FA36B1 /* TestConfig.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TestConfig.json; sourceTree = "<group>"; };
 		1860AFD023F33C5E00FA36B1 /* TestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConfig.swift; sourceTree = "<group>"; };
 		1860AFD723F35BD600FA36B1 /* iOSAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSAuthentication.swift; sourceTree = "<group>"; };
+		1862DB3D24031CF900DE4B75 /* SecurityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityAPI.swift; sourceTree = "<group>"; };
 		18ACFCE923FF15D400BA6B03 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		18ACFCED23FF28D200BA6B03 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		18ACFCEF23FF369600BA6B03 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 			children = (
 				18E6901423FDE7C20038435B /* Authentication */,
 				18E6901523FDE83C0038435B /* Weather */,
+				1854E3252403147E005FA858 /* Security */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 				18021FEA2360E1FA00E3D20A /* Authentication.swift */,
 				1860AFD723F35BD600FA36B1 /* iOSAuthentication.swift */,
 				18021FEC2360E29200E3D20A /* WeatherAPI.swift */,
+				1862DB3D24031CF900DE4B75 /* SecurityAPI.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -156,6 +162,14 @@
 				1821A11E23F6EC3F002688DA /* KeychainPasswordItem.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1854E3252403147E005FA858 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				1854E32624031492005FA858 /* Security.swift */,
+			);
+			path = Security;
 			sourceTree = "<group>";
 		};
 		1860AFCF23F33C4600FA36B1 /* Test Config */ = {
@@ -332,10 +346,12 @@
 				18ACFCF023FF369600BA6B03 /* Dashboard.swift in Sources */,
 				18021FED2360E29200E3D20A /* WeatherAPI.swift in Sources */,
 				18021FD92360D5FC00E3D20A /* User.swift in Sources */,
+				1854E32724031492005FA858 /* Security.swift in Sources */,
 				18ACFCEA23FF15D400BA6B03 /* Weather.swift in Sources */,
 				18021FD32360D58A00E3D20A /* AuthResult.swift in Sources */,
 				184494DE23BD515C00479929 /* AuthScope.swift in Sources */,
 				18021FDD2360D62500E3D20A /* Device.swift in Sources */,
+				1862DB3E24031CF900DE4B75 /* SecurityAPI.swift in Sources */,
 				18E6901923FDEADD0038435B /* StationMeasure.swift in Sources */,
 				1821A11F23F6EC3F002688DA /* KeychainPasswordItem.swift in Sources */,
 				18ACFCF223FF36D600BA6B03 /* Module.swift in Sources */,
