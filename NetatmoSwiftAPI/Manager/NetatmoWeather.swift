@@ -60,7 +60,7 @@ public class NetatmoWeather {
         }
         
         // Attempt tokenn refresh
-        NetatmoManager.shared.refreshToken { (result) in
+        NetatmoManager.refreshToken { (result) in
             
             switch result {
             case .success:
@@ -156,7 +156,7 @@ public class NetatmoWeather {
         }
         
         // Attempt tokenn refresh
-        NetatmoManager.shared.refreshToken { (result) in
+        NetatmoManager.refreshToken { (result) in
             
             switch result {
             case .success:
@@ -275,7 +275,7 @@ public class NetatmoWeather {
         }
         
         // Attempt tokenn refresh
-        NetatmoManager.shared.refreshToken { (result) in
+        NetatmoManager.refreshToken { (result) in
             
             switch result {
             case .success:

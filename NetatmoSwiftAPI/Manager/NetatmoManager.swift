@@ -25,7 +25,7 @@ import Foundation
 
 public class NetatmoManager {
     
-    public static var shared = NetatmoManager()
+    internal static var shared = NetatmoManager()
     internal static let userDefaultsSuiteName = "com.PigonaHill.NetatmoSwiftAPI.userDefaults.suiteName"
     internal static let userDefaultsKeychainStateUUID = "com.PigonaHill.NetatmoSwiftAPI.userDefaults.stateUUID"
     internal static let keychainServiceName = "com.PigonaHill.NetatmoSwiftAPI.keychain"
@@ -102,7 +102,7 @@ public class NetatmoManager {
         
         guard let stateUUID = shared.loadStateUUID() else {
             do {
-                try shared.logout()
+                try NetatmoManager.logout()
                 shared.authState = .unknown
             } catch {
                 shared.authState = .failed(error)
@@ -114,7 +114,7 @@ public class NetatmoManager {
         
         guard let keychainAuthState = try? KeychainPasswordItem(service: NetatmoManager.keychainServiceName, account: stateUUID).readObject() as OAuthState else {
             do {
-                try shared.logout()
+                try NetatmoManager.logout()
                 shared.authState = .unknown
             } catch {
                 shared.authState = .failed(error)
@@ -132,7 +132,7 @@ public class NetatmoManager {
         }
         
         // Attempt tokenn refresh
-        shared.refreshToken { (result) in
+        NetatmoManager.refreshToken { (result) in
             
             let authState: AuthState
             switch result {
@@ -140,7 +140,7 @@ public class NetatmoManager {
                 authState = .authorized
             case .failure(let error):
                 do {
-                    try shared.logout()
+                    try NetatmoManager.logout()
                     authState = .failed(error)
                 } catch {
                     authState = .failed(error)
