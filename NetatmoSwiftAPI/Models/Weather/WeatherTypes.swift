@@ -8,11 +8,11 @@
 
 import Foundation
 
-public struct Weather {
+public extension NetatmoWeather {
     
     // MARK: - Types
     
-    public enum TimeScale: String {
+    enum TimeScale: String {
         case thirtyMin = "30min"
         case oneHour = "1hour"
         case threeHours = "3hours"
@@ -21,7 +21,7 @@ public struct Weather {
         case oneMonth = "1month"
     }
     
-    public enum MeasureType: String {
+    enum MeasureType: String {
         case temperature
         case humidity
         case datemaxCO2 = "date_max_co2"
@@ -53,7 +53,7 @@ public struct Weather {
         case pressure
     }
     
-    public enum Unit: Int, Decodable, CustomStringConvertible {
+    enum Unit: Int, Decodable, CustomStringConvertible {
         case metric = 0
         case imperial = 1
         
@@ -67,7 +67,7 @@ public struct Weather {
         }
     }
     
-    public enum WindUnit: Int, Decodable, CustomStringConvertible {
+    enum WindUnit: Int, Decodable, CustomStringConvertible {
         case kph = 0
         case mph = 1
         case ms = 2
@@ -90,7 +90,7 @@ public struct Weather {
         }
     }
     
-    public enum PressureUnit: Int, Decodable, CustomStringConvertible {
+    enum PressureUnit: Int, Decodable, CustomStringConvertible {
         case mbar = 0
         case inHg = 1
         case mmHg = 2
@@ -107,7 +107,7 @@ public struct Weather {
         }
     }
     
-    public enum FeelsLikeAlgorithm: Int, Decodable, CustomStringConvertible {
+    enum FeelsLikeAlgorithm: Int, Decodable, CustomStringConvertible {
         case humidex = 0
         case heatIndex = 1
         
@@ -121,7 +121,7 @@ public struct Weather {
         }
     }
 
-    public enum Trend: String, Decodable, CustomStringConvertible {
+    enum Trend: String, Decodable, CustomStringConvertible {
         case up
         case down
         case stable
