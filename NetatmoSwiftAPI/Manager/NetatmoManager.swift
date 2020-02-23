@@ -41,42 +41,6 @@ public class NetatmoManager {
         }
     }
     
-    public enum NetatmoError: Error, LocalizedError {
-        case badURL
-        case noData
-        case generalError
-        case noRefreshToken
-        case noAccessToken
-        case noCallbackCode
-        case noScope
-        case stateMismatch
-        case error(code: Int, message: String)
-        
-        public var errorDescription: String? {
-            
-            switch self {
-            case .badURL:
-                return "Bad URL"
-            case .noData:
-                return "No Data"
-            case .generalError:
-                return "General Error"
-            case .noRefreshToken:
-                return "No Refresh Token"
-            case .noAccessToken:
-                return "No Access Token"
-            case .noCallbackCode:
-                return "No Callback Code"
-            case .noScope:
-                return "No Scope"
-            case .stateMismatch:
-                return "State Mismatch"
-            case .error(let code, let message):
-                return "\(message) [\(code)]"
-            }
-        }
-    }
-    
     public enum AuthState: Equatable {
         case unknown
         case authorized
