@@ -1,5 +1,5 @@
 //
-//  SecurityAPI.swift
+//  NetatmoSecurity.swift
 //  NetatmoSwiftAPI
 //
 //  Created by James Barrow on 2020-02-23.
@@ -8,15 +8,15 @@
 
 import Foundation
 
-public extension NetatmoManager {
+public class NetatmoSecurity {
     
     /// Retrieve user's homes and their topology.
     ///
     /// Scope required: `read_camera`, `acces_camera`, `read_presence`, `access_presence` and `read_smokedetector`.
     ///
-    func getHomeData(homeId: String? = nil, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Any], Error>) -> Void) {
+    public static func getHomeData(homeId: String? = nil, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Any], Error>) -> Void) {
         
-        guard let accessToken = self.accessToken, accessToken.isEmpty == false else {
+        guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
             return
         }
@@ -43,17 +43,17 @@ public extension NetatmoManager {
             return
         }
         
-        guard isValid == false else {
-            NetatmoManager.getHomeData(accessToken: accessToken, url: url, completed: completed)
+        guard NetatmoManager.shared.isValid == false else {
+            NetatmoSecurity.getHomeData(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
         // Attempt tokenn refresh
-        refreshToken { (result) in
+        NetatmoManager.refreshToken { (result) in
             
             switch result {
             case .success:
-                NetatmoManager.getHomeData(accessToken: accessToken, url: url, completed: completed)
+                NetatmoSecurity.getHomeData(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
@@ -108,9 +108,9 @@ public extension NetatmoManager {
     ///
     ///  - Note: This method is available for Welcome (Indoor Camera), Presence (Outdoor Camera) and the Smart Smoke Alarm
     ///
-    func getEventsUntil(homeId: String, eventId: String, completed: @escaping (Result<[Any], Error>) -> Void) {
+    public static func getEventsUntil(homeId: String, eventId: String, completed: @escaping (Result<[Any], Error>) -> Void) {
         
-        guard let accessToken = self.accessToken, accessToken.isEmpty == false else {
+        guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
             return
         }
@@ -130,17 +130,17 @@ public extension NetatmoManager {
             return
         }
         
-        guard isValid == false else {
-            NetatmoManager.getEventsUntil(accessToken: accessToken, url: url, completed: completed)
+        guard NetatmoManager.shared.isValid == false else {
+            NetatmoSecurity.getEventsUntil(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
         // Attempt tokenn refresh
-        refreshToken { (result) in
+        NetatmoManager.refreshToken { (result) in
             
             switch result {
             case .success:
-                NetatmoManager.getEventsUntil(accessToken: accessToken, url: url, completed: completed)
+                NetatmoSecurity.getEventsUntil(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
@@ -195,9 +195,9 @@ public extension NetatmoManager {
     ///
     /// - Note: This method is only available for Welcome (Indoor Camera).
     ///
-    func getLatestEventsOfPerson(homeId: String, personId: String, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Any], Error>) -> Void) {
+    public static func getLatestEventsOfPerson(homeId: String, personId: String, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Any], Error>) -> Void) {
         
-        guard let accessToken = self.accessToken, accessToken.isEmpty == false else {
+        guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
             return
         }
@@ -217,17 +217,17 @@ public extension NetatmoManager {
             return
         }
         
-        guard isValid == false else {
-            NetatmoManager.getLatestEventsOfPerson(accessToken: accessToken, url: url, completed: completed)
+        guard NetatmoManager.shared.isValid == false else {
+            NetatmoSecurity.getLatestEventsOfPerson(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
         // Attempt tokenn refresh
-        refreshToken { (result) in
+        NetatmoManager.refreshToken { (result) in
             
             switch result {
             case .success:
-                NetatmoManager.getLatestEventsOfPerson(accessToken: accessToken, url: url, completed: completed)
+                NetatmoSecurity.getLatestEventsOfPerson(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
@@ -282,9 +282,9 @@ public extension NetatmoManager {
     ///
     /// - Note: This method is available for Welcome (Indoor Camera), Presence (Outdoor Camera) and the Smart Smoke Alarm
     ///
-    func getNextEvents(homeId: String, eventId: String, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Any], Error>) -> Void) {
+    public static func getNextEvents(homeId: String, eventId: String, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Any], Error>) -> Void) {
         
-        guard let accessToken = self.accessToken, accessToken.isEmpty == false else {
+        guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
             return
         }
@@ -304,17 +304,17 @@ public extension NetatmoManager {
             return
         }
         
-        guard isValid == false else {
-            NetatmoManager.getNextEvents(accessToken: accessToken, url: url, completed: completed)
+        guard NetatmoManager.shared.isValid == false else {
+            NetatmoSecurity.getNextEvents(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
         // Attempt tokenn refresh
-        refreshToken { (result) in
+        NetatmoManager.refreshToken { (result) in
             
             switch result {
             case .success:
-                NetatmoManager.getNextEvents(accessToken: accessToken, url: url, completed: completed)
+                NetatmoSecurity.getNextEvents(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
@@ -367,9 +367,9 @@ public extension NetatmoManager {
     ///
     /// No scope required.
     ///
-    func getCameraPicture(imageId: String, key: String, completed: @escaping (Result<[Any], Error>) -> Void) {
+    public static func getCameraPicture(imageId: String, key: String, completed: @escaping (Result<[Any], Error>) -> Void) {
         
-        guard let accessToken = self.accessToken, accessToken.isEmpty == false else {
+        guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
             return
         }
@@ -389,17 +389,17 @@ public extension NetatmoManager {
             return
         }
         
-        guard isValid == false else {
-            NetatmoManager.getCameraPicture(accessToken: accessToken, url: url, completed: completed)
+        guard NetatmoManager.shared.isValid == false else {
+            NetatmoSecurity.getCameraPicture(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
         // Attempt tokenn refresh
-        refreshToken { (result) in
+        NetatmoManager.refreshToken { (result) in
             
             switch result {
             case .success:
-                NetatmoManager.getCameraPicture(accessToken: accessToken, url: url, completed: completed)
+                NetatmoSecurity.getCameraPicture(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
@@ -454,9 +454,9 @@ public extension NetatmoManager {
     ///
     /// - Note: This method is only available for Welcome.
     ///
-    func setPersonAway(homeId: String, personId: String? = nil, completed: @escaping (Result<[Any], Error>) -> Void) {
+    public static func setPersonAway(homeId: String, personId: String? = nil, completed: @escaping (Result<[Any], Error>) -> Void) {
         
-        guard let accessToken = self.accessToken, accessToken.isEmpty == false else {
+        guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
             return
         }
@@ -481,17 +481,17 @@ public extension NetatmoManager {
             return
         }
         
-        guard isValid == false else {
-            NetatmoManager.setPersonAway(accessToken: accessToken, url: url, completed: completed)
+        guard NetatmoManager.shared.isValid == false else {
+            NetatmoSecurity.setPersonAway(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
         // Attempt tokenn refresh
-        refreshToken { (result) in
+        NetatmoManager.refreshToken { (result) in
             
             switch result {
             case .success:
-                NetatmoManager.setPersonAway(accessToken: accessToken, url: url, completed: completed)
+                NetatmoSecurity.setPersonAway(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
@@ -549,9 +549,9 @@ public extension NetatmoManager {
     ///
     /// - Note: This method is only available for Welcome.
     ///
-    func setPersonHome(homeId: String, personIds: [String], completed: @escaping (Result<[Any], Error>) -> Void) {
+    public static func setPersonHome(homeId: String, personIds: [String], completed: @escaping (Result<[Any], Error>) -> Void) {
         
-        guard let accessToken = self.accessToken, accessToken.isEmpty == false else {
+        guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
             return
         }
@@ -576,17 +576,17 @@ public extension NetatmoManager {
             return
         }
         
-        guard isValid == false else {
-            NetatmoManager.setPersonHome(accessToken: accessToken, url: url, completed: completed)
+        guard NetatmoManager.shared.isValid == false else {
+            NetatmoSecurity.setPersonHome(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
         // Attempt tokenn refresh
-        refreshToken { (result) in
+        NetatmoManager.refreshToken { (result) in
             
             switch result {
             case .success:
-                NetatmoManager.setPersonHome(accessToken: accessToken, url: url, completed: completed)
+                NetatmoSecurity.setPersonHome(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }

@@ -1,5 +1,5 @@
 //
-//  Security.swift
+//  SecurityTypes.swift
 //  NetatmoSwiftAPI
 //
 //  Created by James Barrow on 2020-02-23.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-public struct Security {
+public extension NetatmoSecurity {
     
 }
