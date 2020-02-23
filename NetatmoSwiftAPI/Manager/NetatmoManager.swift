@@ -33,10 +33,10 @@ public class NetatmoManager {
     // MARK: - Types
     
     internal struct RequestError: Decodable {
-        public let code: Int
-        public let message: String
+        let code: Int
+        let message: String
         
-        public var localizedDescription: String {
+        var localizedDescription: String {
             return "RequestError(code: \(code), message: \(message))"
         }
     }
