@@ -16,7 +16,7 @@
 		18021FDD2360D62500E3D20A /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FDC2360D62500E3D20A /* Device.swift */; };
 		18021FE62360D73300E3D20A /* NetatmoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FE52360D73300E3D20A /* NetatmoManager.swift */; };
 		18021FEB2360E1FA00E3D20A /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FEA2360E1FA00E3D20A /* Authentication.swift */; };
-		18021FED2360E29200E3D20A /* WeatherStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FEC2360E29200E3D20A /* WeatherStation.swift */; };
+		18021FED2360E29200E3D20A /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FEC2360E29200E3D20A /* WeatherAPI.swift */; };
 		1821A11F23F6EC3F002688DA /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821A11E23F6EC3F002688DA /* KeychainPasswordItem.swift */; };
 		1821A12323FB276F002688DA /* OAuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821A12223FB276F002688DA /* OAuthState.swift */; };
 		184494DE23BD515C00479929 /* AuthScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184494DD23BD515C00479929 /* AuthScope.swift */; };
@@ -55,7 +55,7 @@
 		18021FDC2360D62500E3D20A /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		18021FE52360D73300E3D20A /* NetatmoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoManager.swift; sourceTree = "<group>"; };
 		18021FEA2360E1FA00E3D20A /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
-		18021FEC2360E29200E3D20A /* WeatherStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStation.swift; sourceTree = "<group>"; };
+		18021FEC2360E29200E3D20A /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		1821A11E23F6EC3F002688DA /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		1821A12223FB276F002688DA /* OAuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthState.swift; sourceTree = "<group>"; };
 		184494DD23BD515C00479929 /* AuthScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScope.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 				18021FE52360D73300E3D20A /* NetatmoManager.swift */,
 				18021FEA2360E1FA00E3D20A /* Authentication.swift */,
 				1860AFD723F35BD600FA36B1 /* iOSAuthentication.swift */,
-				18021FEC2360E29200E3D20A /* WeatherStation.swift */,
+				18021FEC2360E29200E3D20A /* WeatherAPI.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -330,7 +330,7 @@
 				18E6901723FDEA4D0038435B /* PublicData.swift in Sources */,
 				18ACFCEE23FF28D200BA6B03 /* Place.swift in Sources */,
 				18ACFCF023FF369600BA6B03 /* Dashboard.swift in Sources */,
-				18021FED2360E29200E3D20A /* WeatherStation.swift in Sources */,
+				18021FED2360E29200E3D20A /* WeatherAPI.swift in Sources */,
 				18021FD92360D5FC00E3D20A /* User.swift in Sources */,
 				18ACFCEA23FF15D400BA6B03 /* Weather.swift in Sources */,
 				18021FD32360D58A00E3D20A /* AuthResult.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  WeatherStation.swift
+//  WeatherAPI.swift
 //  NetatmoSwiftAPI
 //
 //  Created by James Barrow on 2019-10-23.
