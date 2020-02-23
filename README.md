@@ -36,7 +36,7 @@ Coming Soon!
 
 ## Contributors
 
-[@baza207](https://github.com/baza207)
+[James Barrow](https://github.com/baza207)
 
 ## License
 
