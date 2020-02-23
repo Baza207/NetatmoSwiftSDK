@@ -17,7 +17,7 @@ public extension NetatmoManager {
         let manager = NetatmoManager.shared
         manager.requestedScope = scope
         
-        guard var urlComponents = URLComponents(string: "https://api.netatmo.com/oauth2/authorize") else {
+        guard var urlComponents = URLComponents(string: "\(NetatmoManager.baseOAuth2URL)/authorize") else {
             throw NetatmoError.badURL
         }
         
@@ -76,7 +76,7 @@ public extension NetatmoManager {
     
     internal func token(with code: String, completed: @escaping (Result<AuthState, Error>) -> Void) {
         
-        guard let url = URL(string: "https://api.netatmo.com/oauth2/token") else {
+        guard let url = URL(string: "\(NetatmoManager.baseOAuth2URL)/token") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }
@@ -153,7 +153,7 @@ public extension NetatmoManager {
             return
         }
         
-        guard let url = URL(string: "https://api.netatmo.com/oauth2/token") else {
+        guard let url = URL(string: "\(NetatmoManager.baseOAuth2URL)/token") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }
@@ -277,7 +277,7 @@ internal extension NetatmoManager {
     ///   - completed: `AuthResult` with OAuth2 details or an error
     static func login(username: String, password: String, scope: [AuthScope] = [.readStation], completed: @escaping (Result<AuthResult, Error>) -> Void) {
         
-        guard let url = URL(string: "https://api.netatmo.com/oauth2/token") else {
+        guard let url = URL(string: "\(NetatmoManager.baseOAuth2URL)/token") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }

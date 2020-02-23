@@ -30,7 +30,7 @@ public class NetatmoWeather {
             return
         }
         
-        guard var urlComponents = URLComponents(string: "https://api.netatmo.com/api/getpublicdata") else {
+        guard var urlComponents = URLComponents(string: "\(NetatmoManager.baseAPIURL)/getpublicdata") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }
@@ -130,7 +130,7 @@ public class NetatmoWeather {
             return
         }
         
-        guard var urlComponents = URLComponents(string: "https://api.netatmo.com/api/getstationsdata") else {
+        guard var urlComponents = URLComponents(string: "\(NetatmoManager.baseAPIURL)/getstationsdata") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }
@@ -233,7 +233,7 @@ public class NetatmoWeather {
             return
         }
         
-        guard var urlComponents = URLComponents(string: "https://api.netatmo.com/api/getmeasure") else {
+        guard var urlComponents = URLComponents(string: "\(NetatmoManager.baseAPIURL)/getmeasure") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }

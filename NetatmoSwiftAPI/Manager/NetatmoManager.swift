@@ -29,6 +29,9 @@ public class NetatmoManager {
     internal static let userDefaultsSuiteName = "com.PigonaHill.NetatmoSwiftAPI.userDefaults.suiteName"
     internal static let userDefaultsKeychainStateUUID = "com.PigonaHill.NetatmoSwiftAPI.userDefaults.stateUUID"
     internal static let keychainServiceName = "com.PigonaHill.NetatmoSwiftAPI.keychain"
+    internal static let baseURL = "https://api.netatmo.com"
+    internal static let baseOAuth2URL = "\(baseURL)/oauth"
+    internal static let baseAPIURL = "\(baseURL)/api"
     
     // MARK: - Types
     
