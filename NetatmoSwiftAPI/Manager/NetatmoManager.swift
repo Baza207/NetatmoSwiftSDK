@@ -25,7 +25,7 @@ import Foundation
 
 public class NetatmoManager {
     
-    public static var shared = NetatmoManager()
+    internal static var shared = NetatmoManager()
     internal static let userDefaultsSuiteName = "com.PigonaHill.NetatmoSwiftAPI.userDefaults.suiteName"
     internal static let userDefaultsKeychainStateUUID = "com.PigonaHill.NetatmoSwiftAPI.userDefaults.stateUUID"
     internal static let keychainServiceName = "com.PigonaHill.NetatmoSwiftAPI.keychain"
@@ -33,47 +33,11 @@ public class NetatmoManager {
     // MARK: - Types
     
     internal struct RequestError: Decodable {
-        public let code: Int
-        public let message: String
+        let code: Int
+        let message: String
         
-        public var localizedDescription: String {
+        var localizedDescription: String {
             return "RequestError(code: \(code), message: \(message))"
-        }
-    }
-    
-    public enum NetatmoError: Error, LocalizedError {
-        case badURL
-        case noData
-        case generalError
-        case noRefreshToken
-        case noAccessToken
-        case noCallbackCode
-        case noScope
-        case stateMismatch
-        case error(code: Int, message: String)
-        
-        public var errorDescription: String? {
-            
-            switch self {
-            case .badURL:
-                return "Bad URL"
-            case .noData:
-                return "No Data"
-            case .generalError:
-                return "General Error"
-            case .noRefreshToken:
-                return "No Refresh Token"
-            case .noAccessToken:
-                return "No Access Token"
-            case .noCallbackCode:
-                return "No Callback Code"
-            case .noScope:
-                return "No Scope"
-            case .stateMismatch:
-                return "State Mismatch"
-            case .error(let code, let message):
-                return "\(message) [\(code)]"
-            }
         }
     }
     
@@ -138,7 +102,7 @@ public class NetatmoManager {
         
         guard let stateUUID = shared.loadStateUUID() else {
             do {
-                try shared.logout()
+                try NetatmoManager.logout()
                 shared.authState = .unknown
             } catch {
                 shared.authState = .failed(error)
@@ -150,7 +114,7 @@ public class NetatmoManager {
         
         guard let keychainAuthState = try? KeychainPasswordItem(service: NetatmoManager.keychainServiceName, account: stateUUID).readObject() as OAuthState else {
             do {
-                try shared.logout()
+                try NetatmoManager.logout()
                 shared.authState = .unknown
             } catch {
                 shared.authState = .failed(error)
@@ -168,7 +132,7 @@ public class NetatmoManager {
         }
         
         // Attempt tokenn refresh
-        shared.refreshToken { (result) in
+        NetatmoManager.refreshToken { (result) in
             
             let authState: AuthState
             switch result {
@@ -176,7 +140,7 @@ public class NetatmoManager {
                 authState = .authorized
             case .failure(let error):
                 do {
-                    try shared.logout()
+                    try NetatmoManager.logout()
                     authState = .failed(error)
                 } catch {
                     authState = .failed(error)
