@@ -65,6 +65,9 @@ public extension NetatmoManager {
     }
     
     /// Returns the snapshot associated to an event.
+    ///
+    /// No scope required.
+    ///
     func getCameraPicture(imageId: String, key: String, completed: @escaping (Result<[Any], Error>) -> Void) {
         
     }
