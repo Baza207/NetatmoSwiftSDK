@@ -28,6 +28,8 @@ public enum AuthScope: String, Decodable {
     case accessPresence = "access_presence"
     /// To read data coming from Healthy Home Coach (gethomecoachsdata)
     case readHomecoach = "read_homecoach"
+    /// To retrieve Smoke Detector data (Gethomedata)
+    case readSmokeDetector = "read_smokedetector"
     
     /// The type of seperator used when creating the auth scope string
     enum SeparationType: String {
