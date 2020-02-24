@@ -29,24 +29,20 @@ class NetatmoManagerTests: XCTestCase {
         }
         
         let expectation = self.expectation(description: #function)
-        var accessToken: String?
-        var resultError: Error?
         
         NetatmoManager.login(username: config.username, password: config.password) { (result) in
             
             switch result {
-            case .success(let authResult):
-                print(authResult)
-                accessToken = authResult.accessToken
+            case .success(let authState):
+                XCTAssertTrue(authState == .authorized)
             case .failure(let error):
-                resultError = error
+                XCTFail(error.localizedDescription)
             }
             
             expectation.fulfill()
         }
         
         waitForExpectations(timeout: 10)
-        XCTAssertNotNil(accessToken, resultError?.localizedDescription ?? "A successfuly logged in manager should have an access token!")
     }
     
 }
