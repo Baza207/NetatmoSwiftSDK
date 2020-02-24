@@ -275,7 +275,7 @@ internal extension NetatmoManager {
     ///   - password: User password
     ///   - scope: Scopes required
     ///   - completed: `AuthResult` with OAuth2 details or an error
-    static func login(username: String, password: String, scope: [AuthScope] = [.readStation], completed: @escaping (Result<AuthResult, Error>) -> Void) {
+    static func login(username: String, password: String, scope: [AuthScope] = [.readStation], completed: @escaping (Result<AuthState, Error>) -> Void) {
         
         guard let url = URL(string: "\(NetatmoManager.baseOAuth2URL)/token") else {
             completed(Result.failure(NetatmoError.badURL))
@@ -293,13 +293,18 @@ internal extension NetatmoManager {
         let requestDate = Date()
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             
+            let manager = NetatmoManager.shared
+            
             if let error = error {
+                manager.authState = .failed(error)
                 completed(Result.failure(error))
                 return
             }
             
             guard let data = data else {
-                completed(Result.failure(NetatmoError.noData))
+                let error = NetatmoError.noData
+                manager.authState = .failed(error)
+                completed(Result.failure(error))
                 return
             }
             
@@ -308,21 +313,28 @@ internal extension NetatmoManager {
             do {
                 result = try decoder.decode(AuthResult.self, from: data)
             } catch {
+                manager.authState = .failed(error)
                 completed(Result.failure(error))
                 return
             }
             
             guard let authResult = result else {
-                completed(Result.failure(NetatmoError.generalError))
+                let error = NetatmoError.generalError
+                manager.authState = .failed(error)
+                completed(Result.failure(error))
                 return
             }
             
-            let manager = NetatmoManager.shared
             manager.accessToken = authResult.accessToken
             manager.refreshToken = authResult.refreshToken
             manager.expires = authResult.expiresInDate(from: requestDate)
             
-            completed(Result.success(authResult))
+            if manager.isValid {
+                manager.authState = .authorized
+            } else {
+                manager.authState = .tokenExpired
+            }
+            completed(Result.success(shared.authState))
         }
         downloadTask.resume()
     }
