@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-public extension NetatmoWeather {
+public extension NetatmoManager {
     
     struct Place: Decodable, CustomStringConvertible {
         
@@ -31,10 +31,21 @@ public extension NetatmoWeather {
         }
         
         public var description: String {
+            var description = "Place(timeZone: \(timeZone), country: \(country)"
+            
             if let city = self.city {
-                return "Place(city: \(city), country: \(country), timeZone: \(timeZone), altitude: \(altitude), coordinate: \(coordinate))"
+                description += ", city: \(city)"
             }
-            return "Place(country: \(country), timeZone: \(timeZone), altitude: \(altitude), coordinate: \(coordinate))"
+            
+            if let altitude = self.altitude {
+                description += ", altitude: \(altitude)"
+            }
+            
+            if let coordinate = self.coordinate {
+                description += ", coordinate: \(coordinate)"
+            }
+            
+            return description + ")"
         }
         
         // MARK: - Coding

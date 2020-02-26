@@ -168,6 +168,7 @@
 		18021FD12360D56300E3D20A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				189C9278240733F2008492A0 /* General */,
 				18E6901423FDE7C20038435B /* Authentication */,
 				18E6901523FDE83C0038435B /* Weather */,
 				1854E3252403147E005FA858 /* Security */,
@@ -226,6 +227,14 @@
 			path = "Test Config";
 			sourceTree = "<group>";
 		};
+		189C9278240733F2008492A0 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				18ACFCED23FF28D200BA6B03 /* Place.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 		18E6901423FDE7C20038435B /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,7 +255,6 @@
 				18021FD82360D5FC00E3D20A /* WeatherUser.swift */,
 				18021FDA2360D60B00E3D20A /* Administrative.swift */,
 				18021FDC2360D62500E3D20A /* Device.swift */,
-				18ACFCED23FF28D200BA6B03 /* Place.swift */,
 				18ACFCEF23FF369600BA6B03 /* Dashboard.swift */,
 				18ACFCF123FF36D600BA6B03 /* WeatherModule.swift */,
 			);

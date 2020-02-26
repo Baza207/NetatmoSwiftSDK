@@ -19,7 +19,7 @@ public extension NetatmoSecurity {
         /// Name of the home.
         public let name: String
         public let people: [Person]
-        public let place: NetatmoWeather.Place
+        public let place: NetatmoManager.Place
         public let cameras: [Camera]
         public let smokeDetectors: [SmokeDetector]
         public let events: [Event]
