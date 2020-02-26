@@ -338,27 +338,27 @@ public class NetatmoSecurity {
                 return
             }
             
-//            let decoder = JSONDecoder()
-//            let result: Weather.PublicDataBase?
-//            do {
-//                result = try decoder.decode(Weather.PublicDataBase.self, from: data)
-//            } catch {
-//                completed(Result.failure(error))
-//                return
-//            }
-//
-//            guard let baseResult = result else {
-//                completed(Result.failure(NetatmoError.generalError))
-//                return
-//            }
-//
-//            if let body = baseResult.body {
-//                completed(Result.success(body))
-//            } else if let error = baseResult.error {
-//                completed(Result.failure(NetatmoError.error(code: error.code, message: error.message)))
-//            } else {
-//                completed(Result.failure(NetatmoError.noData))
-//            }
+            let decoder = JSONDecoder()
+            let result: NetatmoSecurity.EventListBase?
+            do {
+                result = try decoder.decode(NetatmoSecurity.EventListBase.self, from: data)
+            } catch {
+                completed(Result.failure(error))
+                return
+            }
+
+            guard let baseResult = result else {
+                completed(Result.failure(NetatmoError.generalError))
+                return
+            }
+
+            if let body = baseResult.body {
+                completed(Result.success(body.eventsList))
+            } else if let error = baseResult.error {
+                completed(Result.failure(NetatmoError.error(code: error.code, message: error.message)))
+            } else {
+                completed(Result.failure(NetatmoError.noData))
+            }
         }
         downloadTask.resume()
     }
