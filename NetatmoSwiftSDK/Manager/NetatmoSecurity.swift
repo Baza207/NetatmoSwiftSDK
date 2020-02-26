@@ -108,7 +108,7 @@ public class NetatmoSecurity {
     ///
     ///  - Note: This method is available for Welcome (Indoor Camera), Presence (Outdoor Camera) and the Smart Smoke Alarm
     ///
-    public static func getEventsUntil(homeId: String, eventId: String, completed: @escaping (Result<[Any], Error>) -> Void) {
+    public static func getEventsUntil(homeId: String, eventId: String, completed: @escaping (Result<[Event], Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -147,7 +147,7 @@ public class NetatmoSecurity {
         }
     }
     
-    private static func getEventsUntil(accessToken: String, url: URL, completed: @escaping (Result<[Any], Error>) -> Void) {
+    private static func getEventsUntil(accessToken: String, url: URL, completed: @escaping (Result<[Event], Error>) -> Void) {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
@@ -164,27 +164,27 @@ public class NetatmoSecurity {
                 return
             }
             
-//            let decoder = JSONDecoder()
-//            let result: Weather.PublicDataBase?
-//            do {
-//                result = try decoder.decode(Weather.PublicDataBase.self, from: data)
-//            } catch {
-//                completed(Result.failure(error))
-//                return
-//            }
-//
-//            guard let baseResult = result else {
-//                completed(Result.failure(NetatmoError.generalError))
-//                return
-//            }
-//
-//            if let body = baseResult.body {
-//                completed(Result.success(body))
-//            } else if let error = baseResult.error {
-//                completed(Result.failure(NetatmoError.error(code: error.code, message: error.message)))
-//            } else {
-//                completed(Result.failure(NetatmoError.noData))
-//            }
+            let decoder = JSONDecoder()
+            let result: NetatmoSecurity.EventListBase?
+            do {
+                result = try decoder.decode(NetatmoSecurity.EventListBase.self, from: data)
+            } catch {
+                completed(Result.failure(error))
+                return
+            }
+
+            guard let baseResult = result else {
+                completed(Result.failure(NetatmoError.generalError))
+                return
+            }
+
+            if let body = baseResult.body {
+                completed(Result.success(body.eventsList))
+            } else if let error = baseResult.error {
+                completed(Result.failure(NetatmoError.error(code: error.code, message: error.message)))
+            } else {
+                completed(Result.failure(NetatmoError.noData))
+            }
         }
         downloadTask.resume()
     }

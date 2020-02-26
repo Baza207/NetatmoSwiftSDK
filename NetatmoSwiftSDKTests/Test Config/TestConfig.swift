@@ -19,6 +19,8 @@ struct TestConfig: Decodable {
     let username: String
     let password: String
     let redirectURI: String
+    let homeId: String
+    let eventId: String
     
     static func load(_ overrideUrl: URL? = nil) throws -> TestConfig? {
         
