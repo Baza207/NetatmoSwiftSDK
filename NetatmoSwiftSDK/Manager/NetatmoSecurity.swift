@@ -14,7 +14,7 @@ public class NetatmoSecurity {
     ///
     /// Scope required: `read_camera`, `acces_camera`, `read_presence`, `access_presence` and `read_smokedetector`.
     ///
-    public static func getHomeData(homeId: String? = nil, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Any], Error>) -> Void) {
+    public static func getHomeData(homeId: String? = nil, numberOfEvents size: Int? = nil, completed: @escaping (Result<NetatmoSecurity.HomeData, Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -60,7 +60,7 @@ public class NetatmoSecurity {
         }
     }
     
-    private static func getHomeData(accessToken: String, url: URL, completed: @escaping (Result<[Any], Error>) -> Void) {
+    private static func getHomeData(accessToken: String, url: URL, completed: @escaping (Result<NetatmoSecurity.HomeData, Error>) -> Void) {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
@@ -77,27 +77,27 @@ public class NetatmoSecurity {
                 return
             }
             
-//            let decoder = JSONDecoder()
-//            let result: Weather.PublicDataBase?
-//            do {
-//                result = try decoder.decode(Weather.PublicDataBase.self, from: data)
-//            } catch {
-//                completed(Result.failure(error))
-//                return
-//            }
-//
-//            guard let baseResult = result else {
-//                completed(Result.failure(NetatmoError.generalError))
-//                return
-//            }
-//
-//            if let body = baseResult.body {
-//                completed(Result.success(body))
-//            } else if let error = baseResult.error {
-//                completed(Result.failure(NetatmoError.error(code: error.code, message: error.message)))
-//            } else {
-//                completed(Result.failure(NetatmoError.noData))
-//            }
+            let decoder = JSONDecoder()
+            let result: NetatmoSecurity.HomeDataBase?
+            do {
+                result = try decoder.decode(NetatmoSecurity.HomeDataBase.self, from: data)
+            } catch {
+                completed(Result.failure(error))
+                return
+            }
+            
+            guard let baseResult = result else {
+                completed(Result.failure(NetatmoError.generalError))
+                return
+            }
+            
+            if let body = baseResult.body {
+                completed(Result.success(body))
+            } else if let error = baseResult.error {
+                completed(Result.failure(NetatmoError.error(code: error.code, message: error.message)))
+            } else {
+                completed(Result.failure(NetatmoError.noData))
+            }
         }
         downloadTask.resume()
     }

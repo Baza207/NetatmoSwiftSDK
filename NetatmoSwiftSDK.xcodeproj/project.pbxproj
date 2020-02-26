@@ -27,6 +27,7 @@
 		1860AFD823F35BD600FA36B1 /* AuthenticationiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860AFD723F35BD600FA36B1 /* AuthenticationiOS.swift */; };
 		1862DB3E24031CF900DE4B75 /* NetatmoSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862DB3D24031CF900DE4B75 /* NetatmoSecurity.swift */; };
 		187D9A9924033550009DD7FB /* NetatmoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D9A9824033550009DD7FB /* NetatmoError.swift */; };
+		18AA34F024046265006EC67A /* HomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA34EF24046265006EC67A /* HomeData.swift */; };
 		18ACFCEA23FF15D400BA6B03 /* WeatherTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCE923FF15D400BA6B03 /* WeatherTypes.swift */; };
 		18ACFCEE23FF28D200BA6B03 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCED23FF28D200BA6B03 /* Place.swift */; };
 		18ACFCF023FF369600BA6B03 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCEF23FF369600BA6B03 /* Dashboard.swift */; };
@@ -69,6 +70,7 @@
 		1860AFD723F35BD600FA36B1 /* AuthenticationiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationiOS.swift; sourceTree = "<group>"; };
 		1862DB3D24031CF900DE4B75 /* NetatmoSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoSecurity.swift; sourceTree = "<group>"; };
 		187D9A9824033550009DD7FB /* NetatmoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoError.swift; sourceTree = "<group>"; };
+		18AA34EF24046265006EC67A /* HomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeData.swift; sourceTree = "<group>"; };
 		18ACFCE923FF15D400BA6B03 /* WeatherTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTypes.swift; sourceTree = "<group>"; };
 		18ACFCED23FF28D200BA6B03 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		18ACFCEF23FF369600BA6B03 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				1854E32624031492005FA858 /* SecurityTypes.swift */,
+				18AA34EF24046265006EC67A /* HomeData.swift */,
 			);
 			path = Security;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				18021FD32360D58A00E3D20A /* AuthResult.swift in Sources */,
 				184494DE23BD515C00479929 /* AuthScope.swift in Sources */,
 				18021FDD2360D62500E3D20A /* Device.swift in Sources */,
+				18AA34F024046265006EC67A /* HomeData.swift in Sources */,
 				1862DB3E24031CF900DE4B75 /* NetatmoSecurity.swift in Sources */,
 				18E6901923FDEADD0038435B /* StationMeasure.swift in Sources */,
 				187D9A9924033550009DD7FB /* NetatmoError.swift in Sources */,

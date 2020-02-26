@@ -22,11 +22,12 @@ public extension NetatmoWeather {
         /// The country the weather station is in.
         public let country: String
         /// The altitude the weather station is at.
-        public let altitude: Int
-        private let location: [Double]
+        public let altitude: Int?
+        private let location: [Double]?
         /// The latitude and longitude coordinate the weather station is at.
-        public var coordinate: CLLocationCoordinate2D {
-            CLLocationCoordinate2D(latitude: location[0], longitude: location[1])
+        public var coordinate: CLLocationCoordinate2D? {
+            guard let location = self.location, location.count == 2 else { return nil }
+            return CLLocationCoordinate2D(latitude: location[0], longitude: location[1])
         }
         
         public var description: String {
