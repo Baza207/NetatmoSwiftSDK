@@ -195,7 +195,7 @@ public class NetatmoSecurity {
     ///
     /// - Note: This method is only available for Welcome (Indoor Camera).
     ///
-    public static func getLatestEventsOfPerson(homeId: String, personId: String, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Any], Error>) -> Void) {
+    public static func getLatestEventsOfPerson(homeId: String, personId: String, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Event], Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -234,7 +234,7 @@ public class NetatmoSecurity {
         }
     }
     
-    private static func getLatestEventsOfPerson(accessToken: String, url: URL, completed: @escaping (Result<[Any], Error>) -> Void) {
+    private static func getLatestEventsOfPerson(accessToken: String, url: URL, completed: @escaping (Result<[Event], Error>) -> Void) {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
@@ -282,7 +282,7 @@ public class NetatmoSecurity {
     ///
     /// - Note: This method is available for Welcome (Indoor Camera), Presence (Outdoor Camera) and the Smart Smoke Alarm
     ///
-    public static func getNextEvents(homeId: String, eventId: String, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Any], Error>) -> Void) {
+    public static func getNextEvents(homeId: String, eventId: String, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Event], Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -321,7 +321,7 @@ public class NetatmoSecurity {
         }
     }
     
-    private static func getNextEvents(accessToken: String, url: URL, completed: @escaping (Result<[Any], Error>) -> Void) {
+    private static func getNextEvents(accessToken: String, url: URL, completed: @escaping (Result<[Event], Error>) -> Void) {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
