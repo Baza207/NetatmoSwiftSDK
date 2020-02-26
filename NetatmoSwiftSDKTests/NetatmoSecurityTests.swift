@@ -95,4 +95,41 @@ class NetatmoSecurityTests: XCTestCase {
         waitForExpectations(timeout: 30)
     }
     
+    func testGetLatestEventsOfPerson() {
+        
+        guard let config = self.config else {
+            XCTAssertFalse(true, "Requires a test config to be setup before calling login!")
+            return
+        }
+        
+        let expectation = self.expectation(description: #function)
+        
+        let scope: [AuthScope] = [.readCamera, .accessCamera, .readPresence, .accessPresence, .readSmokeDetector]
+        NetatmoManager.login(username: config.username, password: config.password, scope: scope) { (result) in
+            
+            switch result {
+            case .success(let authState):
+                XCTAssertTrue(authState == .authorized)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            NetatmoSecurity.getLatestEventsOfPerson(homeId: config.homeId, personId: config.personId) { (result) in
+                
+                switch result {
+                case .success:
+                    XCTAssertTrue(true)
+                case .failure(let error):
+                    XCTFail(error.localizedDescription)
+                }
+                
+                try? NetatmoManager.logout()
+                
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
 }
