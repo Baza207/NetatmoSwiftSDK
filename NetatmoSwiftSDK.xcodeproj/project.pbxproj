@@ -11,7 +11,7 @@
 		18021FC72360D36000E3D20A /* NetatmoSwiftSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 18021FB92360D35F00E3D20A /* NetatmoSwiftSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		18021FD32360D58A00E3D20A /* AuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FD22360D58A00E3D20A /* AuthResult.swift */; };
 		18021FD72360D5EA00E3D20A /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FD62360D5EA00E3D20A /* Station.swift */; };
-		18021FD92360D5FC00E3D20A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FD82360D5FC00E3D20A /* User.swift */; };
+		18021FD92360D5FC00E3D20A /* WeatherUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FD82360D5FC00E3D20A /* WeatherUser.swift */; };
 		18021FDB2360D60B00E3D20A /* Administrative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FDA2360D60B00E3D20A /* Administrative.swift */; };
 		18021FDD2360D62500E3D20A /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FDC2360D62500E3D20A /* Device.swift */; };
 		18021FE62360D73300E3D20A /* NetatmoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18021FE52360D73300E3D20A /* NetatmoManager.swift */; };
@@ -32,7 +32,19 @@
 		18ACFCEA23FF15D400BA6B03 /* WeatherTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCE923FF15D400BA6B03 /* WeatherTypes.swift */; };
 		18ACFCEE23FF28D200BA6B03 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCED23FF28D200BA6B03 /* Place.swift */; };
 		18ACFCF023FF369600BA6B03 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCEF23FF369600BA6B03 /* Dashboard.swift */; };
-		18ACFCF223FF36D600BA6B03 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCF123FF36D600BA6B03 /* Module.swift */; };
+		18ACFCF223FF36D600BA6B03 /* WeatherModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCF123FF36D600BA6B03 /* WeatherModule.swift */; };
+		18D3E02D2407302400A64E62 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E02C2407302400A64E62 /* Home.swift */; };
+		18D3E02F2407303C00A64E62 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E02E2407303C00A64E62 /* Person.swift */; };
+		18D3E0312407304F00A64E62 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E0302407304F00A64E62 /* Face.swift */; };
+		18D3E0332407306400A64E62 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E0322407306400A64E62 /* Camera.swift */; };
+		18D3E0352407308400A64E62 /* SecurityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E0342407308400A64E62 /* SecurityModule.swift */; };
+		18D3E037240730A500A64E62 /* SmokeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E036240730A500A64E62 /* SmokeDetector.swift */; };
+		18D3E039240730EA00A64E62 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E038240730EA00A64E62 /* Event.swift */; };
+		18D3E03B2407310B00A64E62 /* SubEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E03A2407310B00A64E62 /* SubEvent.swift */; };
+		18D3E03D240731D800A64E62 /* Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E03C240731D800A64E62 /* Snapshot.swift */; };
+		18D3E03F240731F000A64E62 /* Vignette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E03E240731F000A64E62 /* Vignette.swift */; };
+		18D3E0412407321400A64E62 /* SecurityUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E0402407321400A64E62 /* SecurityUser.swift */; };
+		18D3E0432407322E00A64E62 /* GlobalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E0422407322E00A64E62 /* GlobalInfo.swift */; };
 		18E6901723FDEA4D0038435B /* PublicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E6901623FDEA4D0038435B /* PublicData.swift */; };
 		18E6901923FDEADD0038435B /* StationMeasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E6901823FDEADD0038435B /* StationMeasure.swift */; };
 /* End PBXBuildFile section */
@@ -55,7 +67,7 @@
 		18021FC62360D36000E3D20A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18021FD22360D58A00E3D20A /* AuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResult.swift; sourceTree = "<group>"; };
 		18021FD62360D5EA00E3D20A /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
-		18021FD82360D5FC00E3D20A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		18021FD82360D5FC00E3D20A /* WeatherUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUser.swift; sourceTree = "<group>"; };
 		18021FDA2360D60B00E3D20A /* Administrative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Administrative.swift; sourceTree = "<group>"; };
 		18021FDC2360D62500E3D20A /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		18021FE52360D73300E3D20A /* NetatmoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoManager.swift; sourceTree = "<group>"; };
@@ -76,7 +88,19 @@
 		18ACFCE923FF15D400BA6B03 /* WeatherTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTypes.swift; sourceTree = "<group>"; };
 		18ACFCED23FF28D200BA6B03 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		18ACFCEF23FF369600BA6B03 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
-		18ACFCF123FF36D600BA6B03 /* Module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
+		18ACFCF123FF36D600BA6B03 /* WeatherModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModule.swift; sourceTree = "<group>"; };
+		18D3E02C2407302400A64E62 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		18D3E02E2407303C00A64E62 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		18D3E0302407304F00A64E62 /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
+		18D3E0322407306400A64E62 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		18D3E0342407308400A64E62 /* SecurityModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityModule.swift; sourceTree = "<group>"; };
+		18D3E036240730A500A64E62 /* SmokeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeDetector.swift; sourceTree = "<group>"; };
+		18D3E038240730EA00A64E62 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		18D3E03A2407310B00A64E62 /* SubEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubEvent.swift; sourceTree = "<group>"; };
+		18D3E03C240731D800A64E62 /* Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapshot.swift; sourceTree = "<group>"; };
+		18D3E03E240731F000A64E62 /* Vignette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vignette.swift; sourceTree = "<group>"; };
+		18D3E0402407321400A64E62 /* SecurityUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityUser.swift; sourceTree = "<group>"; };
+		18D3E0422407322E00A64E62 /* GlobalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalInfo.swift; sourceTree = "<group>"; };
 		18E6901623FDEA4D0038435B /* PublicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicData.swift; sourceTree = "<group>"; };
 		18E6901823FDEADD0038435B /* StationMeasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationMeasure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,6 +201,18 @@
 			children = (
 				1854E32624031492005FA858 /* SecurityTypes.swift */,
 				18AA34EF24046265006EC67A /* HomeData.swift */,
+				18D3E02C2407302400A64E62 /* Home.swift */,
+				18D3E02E2407303C00A64E62 /* Person.swift */,
+				18D3E0302407304F00A64E62 /* Face.swift */,
+				18D3E0322407306400A64E62 /* Camera.swift */,
+				18D3E0342407308400A64E62 /* SecurityModule.swift */,
+				18D3E036240730A500A64E62 /* SmokeDetector.swift */,
+				18D3E038240730EA00A64E62 /* Event.swift */,
+				18D3E03A2407310B00A64E62 /* SubEvent.swift */,
+				18D3E03C240731D800A64E62 /* Snapshot.swift */,
+				18D3E03E240731F000A64E62 /* Vignette.swift */,
+				18D3E0402407321400A64E62 /* SecurityUser.swift */,
+				18D3E0422407322E00A64E62 /* GlobalInfo.swift */,
 			);
 			path = Security;
 			sourceTree = "<group>";
@@ -207,12 +243,12 @@
 				18E6901623FDEA4D0038435B /* PublicData.swift */,
 				18021FD62360D5EA00E3D20A /* Station.swift */,
 				18E6901823FDEADD0038435B /* StationMeasure.swift */,
-				18021FD82360D5FC00E3D20A /* User.swift */,
+				18021FD82360D5FC00E3D20A /* WeatherUser.swift */,
 				18021FDA2360D60B00E3D20A /* Administrative.swift */,
 				18021FDC2360D62500E3D20A /* Device.swift */,
 				18ACFCED23FF28D200BA6B03 /* Place.swift */,
 				18ACFCEF23FF369600BA6B03 /* Dashboard.swift */,
-				18ACFCF123FF36D600BA6B03 /* Module.swift */,
+				18ACFCF123FF36D600BA6B03 /* WeatherModule.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -352,26 +388,38 @@
 			files = (
 				18E6901723FDEA4D0038435B /* PublicData.swift in Sources */,
 				18ACFCEE23FF28D200BA6B03 /* Place.swift in Sources */,
+				18D3E0352407308400A64E62 /* SecurityModule.swift in Sources */,
 				18ACFCF023FF369600BA6B03 /* Dashboard.swift in Sources */,
 				1854E32724031492005FA858 /* SecurityTypes.swift in Sources */,
 				18021FED2360E29200E3D20A /* NetatmoWeather.swift in Sources */,
-				18021FD92360D5FC00E3D20A /* User.swift in Sources */,
+				18021FD92360D5FC00E3D20A /* WeatherUser.swift in Sources */,
+				18D3E02F2407303C00A64E62 /* Person.swift in Sources */,
 				18ACFCEA23FF15D400BA6B03 /* WeatherTypes.swift in Sources */,
 				18021FD32360D58A00E3D20A /* AuthResult.swift in Sources */,
 				184494DE23BD515C00479929 /* AuthScope.swift in Sources */,
+				18D3E0332407306400A64E62 /* Camera.swift in Sources */,
 				18021FDD2360D62500E3D20A /* Device.swift in Sources */,
 				18AA34F024046265006EC67A /* HomeData.swift in Sources */,
+				18D3E0312407304F00A64E62 /* Face.swift in Sources */,
+				18D3E03F240731F000A64E62 /* Vignette.swift in Sources */,
+				18D3E037240730A500A64E62 /* SmokeDetector.swift in Sources */,
 				1862DB3E24031CF900DE4B75 /* NetatmoSecurity.swift in Sources */,
 				18E6901923FDEADD0038435B /* StationMeasure.swift in Sources */,
+				18D3E02D2407302400A64E62 /* Home.swift in Sources */,
+				18D3E039240730EA00A64E62 /* Event.swift in Sources */,
 				187D9A9924033550009DD7FB /* NetatmoError.swift in Sources */,
+				18D3E03B2407310B00A64E62 /* SubEvent.swift in Sources */,
 				1821A11F23F6EC3F002688DA /* KeychainPasswordItem.swift in Sources */,
-				18ACFCF223FF36D600BA6B03 /* Module.swift in Sources */,
+				18ACFCF223FF36D600BA6B03 /* WeatherModule.swift in Sources */,
+				18D3E03D240731D800A64E62 /* Snapshot.swift in Sources */,
 				18021FDB2360D60B00E3D20A /* Administrative.swift in Sources */,
 				18021FD72360D5EA00E3D20A /* Station.swift in Sources */,
+				18D3E0432407322E00A64E62 /* GlobalInfo.swift in Sources */,
 				18021FEB2360E1FA00E3D20A /* Authentication.swift in Sources */,
 				18021FE62360D73300E3D20A /* NetatmoManager.swift in Sources */,
 				1821A12323FB276F002688DA /* OAuthState.swift in Sources */,
 				1860AFD823F35BD600FA36B1 /* AuthenticationiOS.swift in Sources */,
+				18D3E0412407321400A64E62 /* SecurityUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
