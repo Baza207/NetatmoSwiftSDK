@@ -190,8 +190,44 @@ class NetatmoSecurityTests: XCTestCase {
             NetatmoSecurity.getCameraPicture(imageId: config.faceId, key: config.faceKey) { (result) in
                 
                 switch result {
-                case .success:
-                    XCTAssertTrue(true)
+                case .success(let data):
+                    XCTAssertNotNil(data)
+                case .failure(let error):
+                    XCTFail(error.localizedDescription)
+                }
+                
+                try? NetatmoManager.logout()
+                
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
+    func testGetFaceCameraUIImage() {
+        
+        guard let config = self.config else {
+            XCTAssertFalse(true, "Requires a test config to be setup before calling login!")
+            return
+        }
+        
+        let expectation = self.expectation(description: #function)
+        
+        NetatmoManager.login(username: config.username, password: config.password, scope: []) { (result) in
+            
+            switch result {
+            case .success(let authState):
+                XCTAssertTrue(authState == .authorized)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            NetatmoSecurity.getCameraUIImage(imageId: config.faceId, key: config.faceKey) { (result) in
+                
+                switch result {
+                case .success(let image):
+                    XCTAssertNotNil(image)
                 case .failure(let error):
                     XCTFail(error.localizedDescription)
                 }
@@ -226,8 +262,44 @@ class NetatmoSecurityTests: XCTestCase {
             NetatmoSecurity.getCameraPicture(imageId: config.snapshotId, key: config.snapshotKey) { (result) in
                 
                 switch result {
-                case .success:
-                    XCTAssertTrue(true)
+                case .success(let data):
+                    XCTAssertNotNil(data)
+                case .failure(let error):
+                    XCTFail(error.localizedDescription)
+                }
+                
+                try? NetatmoManager.logout()
+                
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
+    func testGetSnapshotCameraUIImage() {
+        
+        guard let config = self.config else {
+            XCTAssertFalse(true, "Requires a test config to be setup before calling login!")
+            return
+        }
+        
+        let expectation = self.expectation(description: #function)
+        
+        NetatmoManager.login(username: config.username, password: config.password, scope: []) { (result) in
+            
+            switch result {
+            case .success(let authState):
+                XCTAssertTrue(authState == .authorized)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            NetatmoSecurity.getCameraUIImage(imageId: config.snapshotId, key: config.snapshotKey) { (result) in
+                
+                switch result {
+                case .success(let image):
+                    XCTAssertNotNil(image)
                 case .failure(let error):
                     XCTFail(error.localizedDescription)
                 }
@@ -262,8 +334,44 @@ class NetatmoSecurityTests: XCTestCase {
             NetatmoSecurity.getCameraPicture(imageId: config.vignetteId, key: config.vignetteKey) { (result) in
                 
                 switch result {
-                case .success:
-                    XCTAssertTrue(true)
+                case .success(let data):
+                    XCTAssertNotNil(data)
+                case .failure(let error):
+                    XCTFail(error.localizedDescription)
+                }
+                
+                try? NetatmoManager.logout()
+                
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
+    func testGetVignetteCameraUIImage() {
+        
+        guard let config = self.config else {
+            XCTAssertFalse(true, "Requires a test config to be setup before calling login!")
+            return
+        }
+        
+        let expectation = self.expectation(description: #function)
+        
+        NetatmoManager.login(username: config.username, password: config.password, scope: []) { (result) in
+            
+            switch result {
+            case .success(let authState):
+                XCTAssertTrue(authState == .authorized)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            NetatmoSecurity.getCameraUIImage(imageId: config.vignetteId, key: config.vignetteKey) { (result) in
+                
+                switch result {
+                case .success(let image):
+                    XCTAssertNotNil(image)
                 case .failure(let error):
                     XCTFail(error.localizedDescription)
                 }

@@ -28,6 +28,7 @@
 		1862DB3E24031CF900DE4B75 /* NetatmoSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862DB3D24031CF900DE4B75 /* NetatmoSecurity.swift */; };
 		187D9A9924033550009DD7FB /* NetatmoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D9A9824033550009DD7FB /* NetatmoError.swift */; };
 		189C927C24073598008492A0 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C927B24073598008492A0 /* EventList.swift */; };
+		189C927E24073BCA008492A0 /* NetatmoSecurityiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C927D24073BCA008492A0 /* NetatmoSecurityiOS.swift */; };
 		18AA34F024046265006EC67A /* HomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA34EF24046265006EC67A /* HomeData.swift */; };
 		18AA34F22404667E006EC67A /* NetatmoSecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA34F12404667E006EC67A /* NetatmoSecurityTests.swift */; };
 		18ACFCEA23FF15D400BA6B03 /* WeatherTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCE923FF15D400BA6B03 /* WeatherTypes.swift */; };
@@ -85,6 +86,7 @@
 		1862DB3D24031CF900DE4B75 /* NetatmoSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoSecurity.swift; sourceTree = "<group>"; };
 		187D9A9824033550009DD7FB /* NetatmoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoError.swift; sourceTree = "<group>"; };
 		189C927B24073598008492A0 /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
+		189C927D24073BCA008492A0 /* NetatmoSecurityiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoSecurityiOS.swift; sourceTree = "<group>"; };
 		18AA34EF24046265006EC67A /* HomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeData.swift; sourceTree = "<group>"; };
 		18AA34F12404667E006EC67A /* NetatmoSecurityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoSecurityTests.swift; sourceTree = "<group>"; };
 		18ACFCE923FF15D400BA6B03 /* WeatherTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTypes.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				1860AFD723F35BD600FA36B1 /* AuthenticationiOS.swift */,
 				18021FEC2360E29200E3D20A /* NetatmoWeather.swift */,
 				1862DB3D24031CF900DE4B75 /* NetatmoSecurity.swift */,
+				189C927D24073BCA008492A0 /* NetatmoSecurityiOS.swift */,
 				187D9A9824033550009DD7FB /* NetatmoError.swift */,
 			);
 			path = Manager;
@@ -411,6 +414,7 @@
 				18D3E0332407306400A64E62 /* Camera.swift in Sources */,
 				18021FDD2360D62500E3D20A /* Device.swift in Sources */,
 				18AA34F024046265006EC67A /* HomeData.swift in Sources */,
+				189C927E24073BCA008492A0 /* NetatmoSecurityiOS.swift in Sources */,
 				18D3E0312407304F00A64E62 /* Face.swift in Sources */,
 				18D3E03F240731F000A64E62 /* Vignette.swift in Sources */,
 				18D3E037240730A500A64E62 /* SmokeDetector.swift in Sources */,

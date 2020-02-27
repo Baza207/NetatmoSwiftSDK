@@ -17,6 +17,7 @@ public enum NetatmoError: Error, LocalizedError {
     case noCallbackCode
     case noScope
     case stateMismatch
+    case noImage
     case error(code: Int, message: String)
     
     public var errorDescription: String? {
@@ -38,6 +39,8 @@ public enum NetatmoError: Error, LocalizedError {
             return "No Scope"
         case .stateMismatch:
             return "State Mismatch"
+        case .noImage:
+            return "No Image"
         case .error(let code, let message):
             return "\(message) [\(code)]"
         }
