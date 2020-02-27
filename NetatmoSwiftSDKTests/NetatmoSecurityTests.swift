@@ -43,8 +43,8 @@ class NetatmoSecurityTests: XCTestCase {
             NetatmoSecurity.getHomeData { (result) in
                 
                 switch result {
-                case .success:
-                    XCTAssertTrue(true)
+                case .success(let homeData):
+                    XCTAssertNotNil(homeData)
                 case .failure(let error):
                     XCTFail(error.localizedDescription)
                 }
@@ -80,8 +80,8 @@ class NetatmoSecurityTests: XCTestCase {
             NetatmoSecurity.getEventsUntil(homeId: config.homeId, eventId: config.eventId) { (result) in
                 
                 switch result {
-                case .success:
-                    XCTAssertTrue(true)
+                case .success(let events):
+                    XCTAssertNotNil(events)
                 case .failure(let error):
                     XCTFail(error.localizedDescription)
                 }
@@ -117,8 +117,8 @@ class NetatmoSecurityTests: XCTestCase {
             NetatmoSecurity.getLatestEventsOfPerson(homeId: config.homeId, personId: config.personId) { (result) in
                 
                 switch result {
-                case .success:
-                    XCTAssertTrue(true)
+                case .success(let events):
+                    XCTAssertNotNil(events)
                 case .failure(let error):
                     XCTFail(error.localizedDescription)
                 }
@@ -154,8 +154,8 @@ class NetatmoSecurityTests: XCTestCase {
             NetatmoSecurity.getNextEvents(homeId: config.homeId, eventId: config.eventId) { (result) in
                 
                 switch result {
-                case .success:
-                    XCTAssertTrue(true)
+                case .success(let events):
+                    XCTAssertNotNil(events)
                 case .failure(let error):
                     XCTFail(error.localizedDescription)
                 }
