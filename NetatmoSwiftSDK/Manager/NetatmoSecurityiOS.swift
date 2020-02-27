@@ -22,6 +22,7 @@ public extension NetatmoSecurity {
             case .success(let data):
                 if let image = UIImage(data: data) {
                     completed(Result.success(image))
+                    return
                 }
                 completed(Result.failure(NetatmoError.noImage))
             case .failure(let error):
