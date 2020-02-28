@@ -73,9 +73,7 @@ public class NetatmoWeather {
     
     private static func getPublicData(accessToken: String, url: URL, completed: @escaping (Result<[PublicData], Error>) -> Void) {
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        
+        let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             
             if let error = error {
@@ -169,9 +167,7 @@ public class NetatmoWeather {
     
     private static func getWeatherStationData(accessToken: String, url: URL, completed: @escaping (Result<Station, Error>) -> Void) {
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        
+        let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             
             if let error = error {
@@ -288,9 +284,7 @@ public class NetatmoWeather {
     
     private static func getMeasure(accessToken: String, url: URL, completed: @escaping (Result<[StationMeasure], Error>) -> Void) {
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        
+        let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             
             if let error = error {

@@ -62,9 +62,7 @@ public class NetatmoSecurity {
     
     private static func getHomeData(accessToken: String, url: URL, completed: @escaping (Result<NetatmoSecurity.HomeData, Error>) -> Void) {
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        
+        let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             
             if let error = error {
@@ -149,9 +147,7 @@ public class NetatmoSecurity {
     
     private static func getEventsUntil(accessToken: String, url: URL, completed: @escaping (Result<[Event], Error>) -> Void) {
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        
+        let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             
             if let error = error {
@@ -236,9 +232,7 @@ public class NetatmoSecurity {
     
     private static func getLatestEventsOfPerson(accessToken: String, url: URL, completed: @escaping (Result<[Event], Error>) -> Void) {
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        
+        let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             
             if let error = error {
@@ -323,9 +317,7 @@ public class NetatmoSecurity {
     
     private static func getNextEvents(accessToken: String, url: URL, completed: @escaping (Result<[Event], Error>) -> Void) {
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        
+        let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             
             if let error = error {
@@ -408,9 +400,7 @@ public class NetatmoSecurity {
     
     private static func getCameraPicture(accessToken: String, url: URL, completed: @escaping (Result<Data, Error>) -> Void) {
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        
+        let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             
             if let error = error {
@@ -480,11 +470,7 @@ public class NetatmoSecurity {
     
     private static func setPersonAway(accessToken: String, url: URL, completed: @escaping (Result<Void, Error>) -> Void) {
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
-        urlRequest.setValue("application/json", forHTTPHeaderField: "accept")
-        urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        
+        let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken, httpMethod: "POST")
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             
             if let error = error {
@@ -574,11 +560,7 @@ public class NetatmoSecurity {
     
     private static func setPersonHome(accessToken: String, url: URL, completed: @escaping (Result<Void, Error>) -> Void) {
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
-        urlRequest.setValue("application/json", forHTTPHeaderField: "accept")
-        urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        
+        let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken, httpMethod: "POST")
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             
             if let error = error {
