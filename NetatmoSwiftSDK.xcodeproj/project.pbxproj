@@ -51,6 +51,7 @@
 		18E6901723FDEA4D0038435B /* PublicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E6901623FDEA4D0038435B /* PublicData.swift */; };
 		18E6901923FDEADD0038435B /* StationMeasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E6901823FDEADD0038435B /* StationMeasure.swift */; };
 		18FBF6292409C27F00DF7366 /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBF6282409C27F00DF7366 /* URLRequestExtensions.swift */; };
+		18FBF62B2409C41A00DF7366 /* NetatmoWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBF62A2409C41A00DF7366 /* NetatmoWeatherTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		18E6901623FDEA4D0038435B /* PublicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicData.swift; sourceTree = "<group>"; };
 		18E6901823FDEADD0038435B /* StationMeasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationMeasure.swift; sourceTree = "<group>"; };
 		18FBF6282409C27F00DF7366 /* URLRequestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtensions.swift; sourceTree = "<group>"; };
+		18FBF62A2409C41A00DF7366 /* NetatmoWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoWeatherTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			children = (
 				1860AFCF23F33C4600FA36B1 /* Test Config */,
 				1860AFCB23F33A8D00FA36B1 /* NetatmoManagerTests.swift */,
+				18FBF62A2409C41A00DF7366 /* NetatmoWeatherTests.swift */,
 				18AA34F12404667E006EC67A /* NetatmoSecurityTests.swift */,
 				18021FC62360D36000E3D20A /* Info.plist */,
 			);
@@ -462,6 +465,7 @@
 				1860AFCC23F33A8D00FA36B1 /* NetatmoManagerTests.swift in Sources */,
 				18AA34F22404667E006EC67A /* NetatmoSecurityTests.swift in Sources */,
 				1860AFD523F3466500FA36B1 /* TestConfig.swift in Sources */,
+				18FBF62B2409C41A00DF7366 /* NetatmoWeatherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

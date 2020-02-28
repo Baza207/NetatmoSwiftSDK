@@ -29,6 +29,11 @@ struct TestConfig: Decodable {
     let snapshotKey: String
     let vignetteId: String
     let vignetteKey: String
+    let neLatitude: Double
+    let neLongitude: Double
+    let swLatitude: Double
+    let swLongitude: Double
+    let weatherDeviceId: String
     
     static func load(_ overrideUrl: URL? = nil) throws -> TestConfig? {
         
