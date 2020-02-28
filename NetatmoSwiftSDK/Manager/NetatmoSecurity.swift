@@ -482,9 +482,8 @@ public class NetatmoSecurity {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
-        
-        let body = "access_token=\(accessToken)"
-        urlRequest.httpBody = body.data(using: .utf8)!
+        urlRequest.setValue("application/json", forHTTPHeaderField: "accept")
+        urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             
@@ -577,9 +576,8 @@ public class NetatmoSecurity {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
-        
-        let body = "access_token=\(accessToken)"
-        urlRequest.httpBody = body.data(using: .utf8)!
+        urlRequest.setValue("application/json", forHTTPHeaderField: "accept")
+        urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             
