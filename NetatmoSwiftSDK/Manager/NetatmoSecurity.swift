@@ -434,7 +434,7 @@ public class NetatmoSecurity {
     ///
     /// - Note: This method is only available for Welcome.
     ///
-    public static func setPersonAway(homeId: String, personId: String? = nil, completed: @escaping (Result<[Any], Error>) -> Void) {
+    public static func setPersonAway(homeId: String, personId: String? = nil, completed: @escaping (Result<Void, Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -478,7 +478,7 @@ public class NetatmoSecurity {
         }
     }
     
-    private static func setPersonAway(accessToken: String, url: URL, completed: @escaping (Result<[Any], Error>) -> Void) {
+    private static func setPersonAway(accessToken: String, url: URL, completed: @escaping (Result<Void, Error>) -> Void) {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
@@ -498,27 +498,27 @@ public class NetatmoSecurity {
                 return
             }
             
-//            let decoder = JSONDecoder()
-//            let result: Weather.PublicDataBase?
-//            do {
-//                result = try decoder.decode(Weather.PublicDataBase.self, from: data)
-//            } catch {
-//                completed(Result.failure(error))
-//                return
-//            }
-//
-//            guard let baseResult = result else {
-//                completed(Result.failure(NetatmoError.generalError))
-//                return
-//            }
-//
-//            if let body = baseResult.body {
-//                completed(Result.success(body))
-//            } else if let error = baseResult.error {
-//                completed(Result.failure(NetatmoError.error(code: error.code, message: error.message)))
-//            } else {
-//                completed(Result.failure(NetatmoError.noData))
-//            }
+            let decoder = JSONDecoder()
+            let result: NetatmoManager.DataBase?
+            do {
+                result = try decoder.decode(NetatmoManager.DataBase.self, from: data)
+            } catch {
+                completed(Result.failure(error))
+                return
+            }
+
+            guard let baseResult = result else {
+                completed(Result.failure(NetatmoError.generalError))
+                return
+            }
+
+            if baseResult.status == "ok" {
+                completed(Result.success(()))
+            } else if let error = baseResult.error {
+                completed(Result.failure(NetatmoError.error(code: error.code, message: error.message)))
+            } else {
+                completed(Result.failure(NetatmoError.noData))
+            }
         }
         downloadTask.resume()
     }
@@ -529,7 +529,7 @@ public class NetatmoSecurity {
     ///
     /// - Note: This method is only available for Welcome.
     ///
-    public static func setPersonHome(homeId: String, personIds: [String], completed: @escaping (Result<[Any], Error>) -> Void) {
+    public static func setPersonHome(homeId: String, personIds: [String], completed: @escaping (Result<Void, Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -573,7 +573,7 @@ public class NetatmoSecurity {
         }
     }
     
-    private static func setPersonHome(accessToken: String, url: URL, completed: @escaping (Result<[Any], Error>) -> Void) {
+    private static func setPersonHome(accessToken: String, url: URL, completed: @escaping (Result<Void, Error>) -> Void) {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
@@ -593,27 +593,27 @@ public class NetatmoSecurity {
                 return
             }
             
-//            let decoder = JSONDecoder()
-//            let result: Weather.PublicDataBase?
-//            do {
-//                result = try decoder.decode(Weather.PublicDataBase.self, from: data)
-//            } catch {
-//                completed(Result.failure(error))
-//                return
-//            }
-//
-//            guard let baseResult = result else {
-//                completed(Result.failure(NetatmoError.generalError))
-//                return
-//            }
-//
-//            if let body = baseResult.body {
-//                completed(Result.success(body))
-//            } else if let error = baseResult.error {
-//                completed(Result.failure(NetatmoError.error(code: error.code, message: error.message)))
-//            } else {
-//                completed(Result.failure(NetatmoError.noData))
-//            }
+            let decoder = JSONDecoder()
+            let result: NetatmoManager.DataBase?
+            do {
+                result = try decoder.decode(NetatmoManager.DataBase.self, from: data)
+            } catch {
+                completed(Result.failure(error))
+                return
+            }
+
+            guard let baseResult = result else {
+                completed(Result.failure(NetatmoError.generalError))
+                return
+            }
+
+            if baseResult.status == "ok" {
+                completed(Result.success(()))
+            } else if let error = baseResult.error {
+                completed(Result.failure(NetatmoError.error(code: error.code, message: error.message)))
+            } else {
+                completed(Result.failure(NetatmoError.noData))
+            }
         }
         downloadTask.resume()
     }

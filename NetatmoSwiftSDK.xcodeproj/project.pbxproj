@@ -20,6 +20,7 @@
 		1821A11F23F6EC3F002688DA /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821A11E23F6EC3F002688DA /* KeychainPasswordItem.swift */; };
 		1821A12323FB276F002688DA /* OAuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1821A12223FB276F002688DA /* OAuthState.swift */; };
 		184494DE23BD515C00479929 /* AuthScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184494DD23BD515C00479929 /* AuthScope.swift */; };
+		184EC814240966E6002A1574 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184EC813240966E6002A1574 /* DataBase.swift */; };
 		1854E32724031492005FA858 /* SecurityTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854E32624031492005FA858 /* SecurityTypes.swift */; };
 		1860AFCC23F33A8D00FA36B1 /* NetatmoManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860AFCB23F33A8D00FA36B1 /* NetatmoManagerTests.swift */; };
 		1860AFCE23F33C0000FA36B1 /* TestConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 1860AFCD23F33C0000FA36B1 /* TestConfig.json */; };
@@ -78,6 +79,7 @@
 		1821A11E23F6EC3F002688DA /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		1821A12223FB276F002688DA /* OAuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthState.swift; sourceTree = "<group>"; };
 		184494DD23BD515C00479929 /* AuthScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScope.swift; sourceTree = "<group>"; };
+		184EC813240966E6002A1574 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		1854E32624031492005FA858 /* SecurityTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityTypes.swift; sourceTree = "<group>"; };
 		1860AFCB23F33A8D00FA36B1 /* NetatmoManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoManagerTests.swift; sourceTree = "<group>"; };
 		1860AFCD23F33C0000FA36B1 /* TestConfig.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TestConfig.json; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 		189C9278240733F2008492A0 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				184EC813240966E6002A1574 /* DataBase.swift */,
 				18ACFCED23FF28D200BA6B03 /* Place.swift */,
 			);
 			path = General;
@@ -408,6 +411,7 @@
 				18021FED2360E29200E3D20A /* NetatmoWeather.swift in Sources */,
 				18021FD92360D5FC00E3D20A /* WeatherUser.swift in Sources */,
 				18D3E02F2407303C00A64E62 /* Person.swift in Sources */,
+				184EC814240966E6002A1574 /* DataBase.swift in Sources */,
 				18ACFCEA23FF15D400BA6B03 /* WeatherTypes.swift in Sources */,
 				18021FD32360D58A00E3D20A /* AuthResult.swift in Sources */,
 				184494DE23BD515C00479929 /* AuthScope.swift in Sources */,
