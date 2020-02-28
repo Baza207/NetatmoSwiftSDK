@@ -21,7 +21,7 @@ public class NetatmoSecurity {
             return
         }
         
-        guard var urlComponents = URLComponents(string: "https://api.netatmo.com/api/gethomedata") else {
+        guard var urlComponents = URLComponents(string: "\(NetatmoManager.baseAPIURL)/gethomedata") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }
@@ -115,7 +115,7 @@ public class NetatmoSecurity {
             return
         }
         
-        guard var urlComponents = URLComponents(string: "https://api.netatmo.com/api/geteventsuntil") else {
+        guard var urlComponents = URLComponents(string: "\(NetatmoManager.baseAPIURL)/geteventsuntil") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }
@@ -202,7 +202,7 @@ public class NetatmoSecurity {
             return
         }
         
-        guard var urlComponents = URLComponents(string: "https://api.netatmo.com/api/getlasteventof") else {
+        guard var urlComponents = URLComponents(string: "\(NetatmoManager.baseAPIURL)/getlasteventof") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }
@@ -289,7 +289,7 @@ public class NetatmoSecurity {
             return
         }
         
-        guard var urlComponents = URLComponents(string: "https://api.netatmo.com/api/getnextevents") else {
+        guard var urlComponents = URLComponents(string: "\(NetatmoManager.baseAPIURL)/getnextevents") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }
@@ -374,7 +374,7 @@ public class NetatmoSecurity {
             return
         }
         
-        guard var urlComponents = URLComponents(string: "https://api.netatmo.com/api/getcamerapicture") else {
+        guard var urlComponents = URLComponents(string: "\(NetatmoManager.baseAPIURL)/getcamerapicture") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }
@@ -441,7 +441,7 @@ public class NetatmoSecurity {
             return
         }
         
-        guard var urlComponents = URLComponents(string: "https://api.netatmo.com/api/setpersonsaway") else {
+        guard var urlComponents = URLComponents(string: "\(NetatmoManager.baseAPIURL)/setpersonsaway") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }
@@ -535,7 +535,7 @@ public class NetatmoSecurity {
             return
         }
         
-        guard var urlComponents = URLComponents(string: "https://api.netatmo.com/api/setpersonshome") else {
+        guard var urlComponents = URLComponents(string: "\(NetatmoManager.baseAPIURL)/setpersonshome") else {
             completed(Result.failure(NetatmoError.badURL))
             return
         }
