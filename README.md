@@ -13,7 +13,7 @@ This is currently a work in progress. There is a list of currently supported fea
 
 - [x] Authentication with OAuth2  
 - [x] Weather  
-- [ ] Security 📝 **[IN PROGRESS]**  
+- [x] Security
 - [ ] Energy  
 - [ ] AirCare  
 - [x] Error Handling 📝 **[CONTINUOUS]**  
@@ -40,4 +40,4 @@ Coming Soon!
 
 ## License
 
-[MIT Licence](LICENSE).
+[MIT Licence](LICENSE)
