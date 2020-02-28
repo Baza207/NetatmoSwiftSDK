@@ -42,7 +42,7 @@ class NetatmoManagerTests: XCTestCase {
             expectation.fulfill()
         }
         
-        waitForExpectations(timeout: 10)
+        waitForExpectations(timeout: 30)
     }
     
 }
