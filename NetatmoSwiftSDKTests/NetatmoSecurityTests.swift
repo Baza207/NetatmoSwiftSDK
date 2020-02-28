@@ -385,4 +385,148 @@ class NetatmoSecurityTests: XCTestCase {
         waitForExpectations(timeout: 30)
     }
     
+    func testSetPersonAway() {
+        
+        guard let config = self.config else {
+            XCTAssertFalse(true, "Requires a test config to be setup before calling login!")
+            return
+        }
+        
+        let expectation = self.expectation(description: #function)
+        
+        NetatmoManager.login(username: config.username, password: config.password, scope: [.writeCamera]) { (result) in
+            
+            switch result {
+            case .success(let authState):
+                XCTAssertTrue(authState == .authorized)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            NetatmoSecurity.setPersonAway(homeId: config.homeId, personId: config.personId) { (result) in
+                
+                switch result {
+                case .success:
+                    XCTAssertTrue(true)
+                case .failure(let error):
+                    XCTFail(error.localizedDescription)
+                }
+                
+                try? NetatmoManager.logout()
+                
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
+    func testSetAllPeopleAway() {
+        
+        guard let config = self.config else {
+            XCTAssertFalse(true, "Requires a test config to be setup before calling login!")
+            return
+        }
+        
+        let expectation = self.expectation(description: #function)
+        
+        NetatmoManager.login(username: config.username, password: config.password, scope: [.writeCamera]) { (result) in
+            
+            switch result {
+            case .success(let authState):
+                XCTAssertTrue(authState == .authorized)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            NetatmoSecurity.setPersonAway(homeId: config.homeId) { (result) in
+                
+                switch result {
+                case .success:
+                    XCTAssertTrue(true)
+                case .failure(let error):
+                    XCTFail(error.localizedDescription)
+                }
+                
+                try? NetatmoManager.logout()
+                
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
+    func testSetPersonHome() {
+        
+        guard let config = self.config else {
+            XCTAssertFalse(true, "Requires a test config to be setup before calling login!")
+            return
+        }
+        
+        let expectation = self.expectation(description: #function)
+        
+        NetatmoManager.login(username: config.username, password: config.password, scope: [.writeCamera]) { (result) in
+            
+            switch result {
+            case .success(let authState):
+                XCTAssertTrue(authState == .authorized)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            NetatmoSecurity.setPersonHome(homeId: config.homeId, personIds: [config.personId]) { (result) in
+                
+                switch result {
+                case .success:
+                    XCTAssertTrue(true)
+                case .failure(let error):
+                    XCTFail(error.localizedDescription)
+                }
+                
+                try? NetatmoManager.logout()
+                
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
+    func testSetPeopleHome() {
+        
+        guard let config = self.config else {
+            XCTAssertFalse(true, "Requires a test config to be setup before calling login!")
+            return
+        }
+        
+        let expectation = self.expectation(description: #function)
+        
+        NetatmoManager.login(username: config.username, password: config.password, scope: [.writeCamera]) { (result) in
+            
+            switch result {
+            case .success(let authState):
+                XCTAssertTrue(authState == .authorized)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            NetatmoSecurity.setPersonHome(homeId: config.homeId, personIds: [config.personId, config.personId2]) { (result) in
+                
+                switch result {
+                case .success:
+                    XCTAssertTrue(true)
+                case .failure(let error):
+                    XCTFail(error.localizedDescription)
+                }
+                
+                try? NetatmoManager.logout()
+                
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
 }

@@ -22,6 +22,7 @@ struct TestConfig: Decodable {
     let homeId: String
     let eventId: String
     let personId: String
+    let personId2: String
     let faceId: String
     let faceKey: String
     let snapshotId: String
