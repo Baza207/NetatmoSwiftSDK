@@ -8,6 +8,7 @@
 
 import UIKit
 
+// swiftlint:disable deployment_target
 @available(iOS 2, *)
 public extension NetatmoSecurity {
     
@@ -32,3 +33,4 @@ public extension NetatmoSecurity {
     }
     
 }
+// swiftlint:enable deployment_target
