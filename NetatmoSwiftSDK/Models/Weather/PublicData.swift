@@ -39,7 +39,7 @@ public extension NetatmoWeather {
         /// MAC address of the device.
         public let identifier: String
         /// Describes the place where the weather station is.
-        public let place: Place
+        public let place: NetatmoManager.Place
         public let mark: Int
         public let measures: [String: Measure]
         public let modules: [String]

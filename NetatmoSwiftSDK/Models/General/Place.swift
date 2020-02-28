@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-public extension NetatmoWeather {
+public extension NetatmoManager {
     
     struct Place: Decodable, CustomStringConvertible {
         
@@ -22,18 +22,30 @@ public extension NetatmoWeather {
         /// The country the weather station is in.
         public let country: String
         /// The altitude the weather station is at.
-        public let altitude: Int
-        private let location: [Double]
+        public let altitude: Int?
+        private let location: [Double]?
         /// The latitude and longitude coordinate the weather station is at.
-        public var coordinate: CLLocationCoordinate2D {
-            CLLocationCoordinate2D(latitude: location[0], longitude: location[1])
+        public var coordinate: CLLocationCoordinate2D? {
+            guard let location = self.location, location.count == 2 else { return nil }
+            return CLLocationCoordinate2D(latitude: location[0], longitude: location[1])
         }
         
         public var description: String {
+            var description = "Place(timeZone: \(timeZone), country: \(country)"
+            
             if let city = self.city {
-                return "Place(city: \(city), country: \(country), timeZone: \(timeZone), altitude: \(altitude), coordinate: \(coordinate))"
+                description += ", city: \(city)"
             }
-            return "Place(country: \(country), timeZone: \(timeZone), altitude: \(altitude), coordinate: \(coordinate))"
+            
+            if let altitude = self.altitude {
+                description += ", altitude: \(altitude)"
+            }
+            
+            if let coordinate = self.coordinate {
+                description += ", coordinate: \(coordinate)"
+            }
+            
+            return description + ")"
         }
         
         // MARK: - Coding

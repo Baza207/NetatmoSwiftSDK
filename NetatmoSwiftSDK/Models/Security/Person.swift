@@ -1,0 +1,40 @@
+//
+//  Person.swift
+//  NetatmoSwiftSDK
+//
+//  Created by James Barrow on 2020-02-27.
+//  Copyright © 2020 Pig on a Hill Productions. All rights reserved.
+//
+
+import Foundation
+
+public extension NetatmoSecurity {
+    
+    struct Person: Decodable, CustomStringConvertible {
+        
+        // MARK: - Properties
+        
+        public let identifier: String
+        private let lastSeen: TimeInterval
+        public var lastSeenDate: Date { Date(timeIntervalSince1970: lastSeen) }
+        public let outOfSight: Bool
+        public let face: Face
+        /// If pseudo is missing, the person is unknown
+        public let pseudo: String?
+        
+        public var description: String {
+            "Person(identifier: \(identifier), lastSeenDate: \(lastSeenDate), outOfSight: \(outOfSight), face: \(face), pseudo: \(pseudo ?? "Unknown"))"
+        }
+        
+        // MARK: - Coding
+        
+        private enum CodingKeys: String, CodingKey {
+            case identifier = "id"
+            case lastSeen = "last_seen"
+            case outOfSight = "out_of_sight"
+            case face
+            case pseudo
+        }
+    }
+    
+}

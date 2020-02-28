@@ -37,6 +37,20 @@
                BlueprintName = "NetatmoSwiftSDKTests"
                ReferencedContainer = "container:NetatmoSwiftSDK.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "NetatmoSecurityTests/testSetAllPeopleAway()">
+               </Test>
+               <Test
+                  Identifier = "NetatmoSecurityTests/testSetPeopleHome()">
+               </Test>
+               <Test
+                  Identifier = "NetatmoSecurityTests/testSetPersonAway()">
+               </Test>
+               <Test
+                  Identifier = "NetatmoSecurityTests/testSetPersonHome()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

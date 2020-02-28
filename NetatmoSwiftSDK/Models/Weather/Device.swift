@@ -45,7 +45,7 @@ public extension NetatmoWeather {
         /// Array of data measured by the device (e.g. "Temperature", "Humidity").
         public let dataType: [String]
         /// Describes the place where the weather station is.
-        public let place: Place
+        public let place: NetatmoManager.Place
         /// `true` if the user owns the station, `false` if he is invited to a station.
         public let readOnly: Bool?
         public let dashboard: Dashboard
