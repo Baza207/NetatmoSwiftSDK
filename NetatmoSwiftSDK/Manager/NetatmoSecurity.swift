@@ -505,12 +505,12 @@ public class NetatmoSecurity {
                 completed(Result.failure(error))
                 return
             }
-
+            
             guard let baseResult = result else {
                 completed(Result.failure(NetatmoError.generalError))
                 return
             }
-
+            
             if baseResult.status == "ok" {
                 completed(Result.success(()))
             } else if let error = baseResult.error {
@@ -599,12 +599,12 @@ public class NetatmoSecurity {
                 completed(Result.failure(error))
                 return
             }
-
+            
             guard let baseResult = result else {
                 completed(Result.failure(NetatmoError.generalError))
                 return
             }
-
+            
             if baseResult.status == "ok" {
                 completed(Result.success(()))
             } else if let error = baseResult.error {
