@@ -40,13 +40,13 @@ Once you have these items, you can import the `NetatmoSwiftSDK` framework in you
 
 1. Import `NetatmoSwiftAPI` in your `AppDelegate`:
 
-```
+```swift
 import NetatmoSwiftSDK
 ```
 
 2. Setup `NetatmoSwiftAPI` by calling `configure(clientId:clientSecret:redirectURI:)` in `application(_:didFinishLaunchingWithOptions:)`, passing in your client ID and client secret from [Netatmo Developer Portal](https://dev.netatmo.com) as well as the URI you setup in Xcode Info tab.
 
-```
+```swift
 NetatmoManager.configure(clientId: "<Client ID>", clientSecret: "<Client Secret>", redirectURI: "<Redirect URI>")
 ```
 
@@ -54,7 +54,7 @@ NetatmoManager.configure(clientId: "<Client ID>", clientSecret: "<Client Secret>
 
 If you use a `SceneDelegate` then use the following:
 
-```
+```swift
 func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
     
     guard let url = URLContexts.first?.url else {
@@ -72,7 +72,7 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 
 Otherwise use this in your `AppDelegate`:
 
-```
+```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
     
     if (url.scheme == "<Redirect URI>") {
@@ -93,7 +93,7 @@ Once you've done the basic setup, you can now authenticate the user.
 
 1.  Listen to changes to authentication state:
 
-```
+```swift
 listener = NetatmoManager.addAuthStateDidChangeListener { (authState) in
     // Handle state change
 }
@@ -101,7 +101,7 @@ listener = NetatmoManager.addAuthStateDidChangeListener { (authState) in
 
 You should keep track of the `listener` so that you can remove it when no longer needed with the following:
 
-```
+```swift
 if let listener = self.listener {
     NetatmoManager.removeAuthStateDidChangeListener(with: listener)
 }
@@ -109,7 +109,7 @@ if let listener = self.listener {
 
 2. Once you're listening to the authentication state, now you can get the URL to allow the user to login and present it with `SafariViewController` or `open(_:options:completionHandler:)`.
 
-```
+```swift
 let url: URL
 do {
     url = try NetatmoManager.authorizeURL(scope: [.readStation])
@@ -127,7 +127,7 @@ present(viewController, animated: true, completion: nil)
 
 4. `NetatmoSwiftAPI` will keep track of the user's authentication state in the keychain across launches, and will refresh the token if required. However to logout the user and clear the keychain, call the following:
 
-```
+```swift
 do {
     try NetatmoManager.logout()
 } catch {
