@@ -137,8 +137,8 @@
 		18021FAC2360D35F00E3D20A = {
 			isa = PBXGroup;
 			children = (
-				18021FB82360D35F00E3D20A /* NetatmoSwiftSDK */,
-				18021FC32360D36000E3D20A /* NetatmoSwiftSDKTests */,
+				18021FB82360D35F00E3D20A /* Source */,
+				18021FC32360D36000E3D20A /* Tests */,
 				18021FB72360D35F00E3D20A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -152,7 +152,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		18021FB82360D35F00E3D20A /* NetatmoSwiftSDK */ = {
+		18021FB82360D35F00E3D20A /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				18021FB92360D35F00E3D20A /* NetatmoSwiftSDK.h */,
@@ -162,10 +162,10 @@
 				18FBF6272409C26500DF7366 /* Extensions */,
 				18021FBA2360D35F00E3D20A /* Info.plist */,
 			);
-			path = NetatmoSwiftSDK;
+			path = Source;
 			sourceTree = "<group>";
 		};
-		18021FC32360D36000E3D20A /* NetatmoSwiftSDKTests */ = {
+		18021FC32360D36000E3D20A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				1860AFCF23F33C4600FA36B1 /* Test Config */,
@@ -174,7 +174,7 @@
 				18AA34F12404667E006EC67A /* NetatmoSecurityTests.swift */,
 				18021FC62360D36000E3D20A /* Info.plist */,
 			);
-			path = NetatmoSwiftSDKTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		18021FD12360D56300E3D20A /* Models */ = {
@@ -610,7 +610,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = NetatmoSwiftSDK/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -638,7 +638,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = NetatmoSwiftSDK/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -661,7 +661,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M5BBZ59SV2;
-				INFOPLIST_FILE = NetatmoSwiftSDKTests/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -680,7 +680,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M5BBZ59SV2;
-				INFOPLIST_FILE = NetatmoSwiftSDKTests/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
