@@ -141,8 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				18D92A9D240DBAF900D078A7 /* README.md */,
-				18D92A46240DB13200D078A7 /* NetatmoSwiftSDK.podspec */,
 				18D92A21240DA43A00D078A7 /* Package.swift */,
+				18D92A46240DB13200D078A7 /* NetatmoSwiftSDK.podspec */,
 				18021FB82360D35F00E3D20A /* Source */,
 				18021FC32360D36000E3D20A /* Tests */,
 				18021FB72360D35F00E3D20A /* Products */,
