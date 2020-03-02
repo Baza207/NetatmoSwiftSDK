@@ -111,6 +111,7 @@
 		18D3E0422407322E00A64E62 /* GlobalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalInfo.swift; sourceTree = "<group>"; };
 		18D92A21240DA43A00D078A7 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		18D92A46240DB13200D078A7 /* NetatmoSwiftSDK.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = NetatmoSwiftSDK.podspec; sourceTree = "<group>"; };
+		18D92A9D240DBAF900D078A7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		18E6901623FDEA4D0038435B /* PublicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicData.swift; sourceTree = "<group>"; };
 		18E6901823FDEADD0038435B /* StationMeasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationMeasure.swift; sourceTree = "<group>"; };
 		18FBF6282409C27F00DF7366 /* URLRequestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtensions.swift; sourceTree = "<group>"; };
@@ -139,6 +140,7 @@
 		18021FAC2360D35F00E3D20A = {
 			isa = PBXGroup;
 			children = (
+				18D92A9D240DBAF900D078A7 /* README.md */,
 				18D92A46240DB13200D078A7 /* NetatmoSwiftSDK.podspec */,
 				18D92A21240DA43A00D078A7 /* Package.swift */,
 				18021FB82360D35F00E3D20A /* Source */,

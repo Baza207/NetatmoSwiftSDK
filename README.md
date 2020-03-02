@@ -1,10 +1,10 @@
 # NetatmoSwiftSDK
 
-<!-- [![SwiftPM](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage) -->
-<!-- [![Carthage](https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage) -->
-
 ![Swift](https://img.shields.io/badge/Swift-5.1-orange.svg)
 ![Platforms](https://img.shields.io/badge/Platforms-iOS-brightgreen.svg?style=flat)
+[![SwiftPM](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg?style=flat)](https://swift.org/package-manager)
+[![Carthage](https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![CocoaPods](https://img.shields.io/badge/CocoaPods-compatible-brightgreen.svg?style=flat)](https://cocoapods.org)
 [![Twitter](https://img.shields.io/badge/Twitter-@baza207-blue.svg?style=flat)](https://twitter.com/baza207)
 
 NetatmoSwiftSDK is a Swift wrapper around the [Netatmo API](https://dev.netatmo.com).
@@ -28,7 +28,31 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installation
 
-Coming Soon!
+### Swift Package Manager
+
+To integrate `NetatmoSwiftAPI` into your Xcode project using [Swift Package Manager](https://swift.org/package-manager), add `NetatmoSwiftAPI` as a dependency to the `dependencies` value of your `Package.swift`.
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/Baza207/NetatmoSwiftAPI.git", .upToNextMajor(from: "0.0.1"))
+]
+```
+
+### Carthage
+
+To integrate `NetatmoSwiftAPI` into your Xcode project using [Carthage](https://github.com/Carthage/Carthage), specify it in your `Cartfile` with the following:
+
+```ogdl
+github "Baza207/NetatmoSwiftAPI" "0.0.1"
+```
+
+### CocoaPods
+
+To integrate `NetatmoSwiftAPI` into your Xcode project using [CocoaPods](https://cocoapods.org), specify it in your `Podfile` with the following:
+
+```ruby
+pod 'NetatmoSwiftAPI', '~> 0.0.1'
+```
 
 ## Usage
 
