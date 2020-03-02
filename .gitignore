@@ -53,4 +53,4 @@ fastlane/screenshots
 fastlane/test_output
 
 # Test Config
-NetatmoSwiftSDKTests/Test Config/TestConfig.json
+Tests/Test Config/TestConfig.json

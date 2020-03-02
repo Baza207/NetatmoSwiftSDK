@@ -86,7 +86,9 @@ public class NetatmoManager {
             guard oldValue != authState else { return }
             authStateListenerQueue.async(flags: .barrier) { [weak self] in
                 guard let self = self else { return }
-                self.authStateDidChangeListeners.values.forEach { $0(self.authState) }
+                self.authStateDidChangeListeners.values.forEach { (listener) in
+                    DispatchQueue.main.async { listener(self.authState) }
+                }
             }
         }
     }
