@@ -71,7 +71,7 @@ import NetatmoSwiftSDK
 2. Setup `NetatmoSwiftAPI` by calling `configure(clientId:clientSecret:redirectURI:)` in `application(_:didFinishLaunchingWithOptions:)`, passing in your client ID and client secret from [Netatmo Developer Portal](https://dev.netatmo.com) as well as the URI you setup in Xcode Info tab.
 
 ```swift
-NetatmoManager.configure(clientId: "<Client ID>", clientSecret: "<Client Secret>", redirectURI: "<Redirect URI>")
+NetatmoManager.configure(clientId: "<Client ID>", clientSecret: "<Client Secret>", redirectURI: "<Redirect URI>://auth")
 ```
 
 3. To deal with authentication callbacks you need to handle URL callbacks.
@@ -86,7 +86,7 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
         return
     }
     
-    if (url.scheme == "<Redirect URI>") {
+    if url.scheme == "<Redirect URI>" && url.host == "auth" else {
         NetatmoManager.authorizationCallback(with: url)
     } else {
         NSLog("No matching URL contexts")
@@ -99,7 +99,7 @@ Otherwise use this in your `AppDelegate`:
 ```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
     
-    if (url.scheme == "<Redirect URI>") {
+    if url.scheme == "<Redirect URI>" && url.host == "auth" else {
         NetatmoManager.authorizationCallback(with: url)
         return true
     }
@@ -141,8 +141,7 @@ do {
     // Handle error
     return
 }
-let viewController = SafariViewController(url: url)
-present(viewController, animated: true, completion: nil)
+UIApplication.shared.open(url, options: [:], completionHandler: nil)
 ```
 
 **Note:** Make sure you pass in the correct scopes for the requests you wish to make. Each request will state what scope it requires, otherwise it can be found at [https://dev.netatmo.com](https://dev.netatmo.com).
