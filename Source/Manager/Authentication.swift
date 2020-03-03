@@ -12,7 +12,7 @@ public extension NetatmoManager {
     
     // MARK: - Authentication
     
-    static func authorizeURL(scope: [AuthScope] = [.readStation]) throws -> URL {
+    static func authorizeURL(scope: [AuthScope] = []) throws -> URL {
         
         let manager = NetatmoManager.shared
         manager.requestedScope = scope
