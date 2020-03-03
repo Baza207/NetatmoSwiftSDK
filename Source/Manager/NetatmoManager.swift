@@ -44,12 +44,27 @@ public class NetatmoManager {
         }
     }
     
-    public enum AuthState: Equatable {
+    public enum AuthState: Equatable, CustomStringConvertible {
         case unknown
         case authorized
         case tokenExpired
         case unauthorized
         case failed(_ error: Error)
+        
+        public var description: String {
+            switch self {
+            case .unknown:
+                return "Unknown authentication state"
+            case .authorized:
+                return "User authorized"
+            case .tokenExpired:
+                return "Token expired"
+            case .unauthorized:
+                return "User unauthorized"
+            case .failed(let error):
+                return "Authentication error: \(error.localizedDescription)"
+            }
+        }
         
         public static func == (lhs: NetatmoManager.AuthState, rhs: NetatmoManager.AuthState) -> Bool {
             
