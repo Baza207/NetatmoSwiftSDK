@@ -230,7 +230,7 @@ public extension NetatmoManager {
         manager.requestedScope = nil
         manager.stateUUID = nil
         
-        manager.authState = .unknown
+        manager.authState = .unauthorized
     }
     
     // MARK: - Auth State Changed Listner

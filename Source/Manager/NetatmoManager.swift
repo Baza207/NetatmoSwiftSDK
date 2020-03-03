@@ -48,6 +48,7 @@ public class NetatmoManager {
         case unknown
         case authorized
         case tokenExpired
+        case unauthorized
         case failed(_ error: Error)
         
         public static func == (lhs: NetatmoManager.AuthState, rhs: NetatmoManager.AuthState) -> Bool {
@@ -58,6 +59,8 @@ public class NetatmoManager {
             case (.authorized, .authorized):
                 return true
             case (.tokenExpired, .tokenExpired):
+                return true
+            case (.unauthorized, .unauthorized):
                 return true
             case (let .failed(lhError), let .failed(rhError)):
                 return lhError.localizedDescription == rhError.localizedDescription
@@ -108,7 +111,6 @@ public class NetatmoManager {
         guard let stateUUID = shared.loadStateUUID() else {
             do {
                 try NetatmoManager.logout()
-                shared.authState = .unknown
             } catch {
                 shared.authState = .failed(error)
             }
@@ -120,7 +122,6 @@ public class NetatmoManager {
         guard let keychainAuthState = try? KeychainPasswordItem(service: NetatmoManager.keychainServiceName, account: stateUUID).readObject() as OAuthState else {
             do {
                 try NetatmoManager.logout()
-                shared.authState = .unknown
             } catch {
                 shared.authState = .failed(error)
             }
