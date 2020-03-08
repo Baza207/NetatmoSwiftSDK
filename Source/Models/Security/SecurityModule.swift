@@ -77,6 +77,25 @@ public extension NetatmoSecurity {
             case room
             case lastActivityDate = "last_activity"
         }
+        
+        // MARK: - Init
+        
+        init(identifier: String, type: ProductType, batteryPercent: Int, rfStatus: Int, status: String, monitoring: String? = nil, alimSource: String? = nil, tamperDetectionEnabled: Bool, name: String? = nil, category: String? = nil, room: String? = nil, lastActivityDate: Date? = nil) {
+            
+            self.identifier = identifier
+            self.rawType = type.rawValue
+            self.batteryPercent = batteryPercent
+            self.rfStatus = rfStatus
+            self.status = status
+            self.monitoring = monitoring
+            self.alimSource = alimSource
+            self.rawTamperDetectionEnabled = tamperDetectionEnabled
+            self.name = name
+            self.category = category
+            self.room = room
+            self.lastActivityDate = lastActivityDate
+        }
+        
     }
     
 }

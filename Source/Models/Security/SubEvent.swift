@@ -38,6 +38,20 @@ public extension NetatmoSecurity {
             case vignette
             case message
         }
+        
+        // MARK: - Init
+        
+        init(identifier: String, type: SubEventType, date: Date, offset: Int, snapshot: Snapshot, vignette: Vignette, message: String) {
+            
+            self.identifier = identifier
+            self.rawType = type.rawValue
+            self.date = date
+            self.offset = offset
+            self.snapshot = snapshot
+            self.vignette = vignette
+            self.message = message
+        }
+        
     }
     
 }

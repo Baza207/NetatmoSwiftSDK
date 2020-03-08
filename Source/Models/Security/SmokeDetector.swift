@@ -32,6 +32,17 @@ public extension NetatmoSecurity {
             case lastSetupDate = "last_setup"
             case name
         }
+        
+        // MARK: - Init
+        
+        init(identifier: String, type: ProductType, lastSetupDate: Date, name: String) {
+            
+            self.identifier = identifier
+            self.rawType = type.rawValue
+            self.lastSetupDate = lastSetupDate
+            self.name = name
+        }
+        
     }
     
 }

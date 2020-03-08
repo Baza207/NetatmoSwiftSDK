@@ -47,6 +47,24 @@ public extension NetatmoSecurity {
             case rawUsePinCode = "use_pin_code"
             case lastSetupDate = "last_setup"
         }
+        
+        // MARK: - Init
+        
+        public init(identifier: String, type: ProductType, status: String, vpnURL: String? = nil, isLocal: Bool, sdCardStatus: String, alimStatus: String, name: String, modules: [Module]? = nil, usePinCode: Bool, lastSetupDate: Date) {
+            
+            self.identifier = identifier
+            self.rawType = type.rawValue
+            self.status = status
+            self.vpnURL = vpnURL
+            self.isLocal = isLocal
+            self.sdCardStatus = sdCardStatus
+            self.alimStatus = alimStatus
+            self.name = name
+            self.modules = modules
+            self.rawUsePinCode = usePinCode
+            self.lastSetupDate = lastSetupDate
+        }
+        
     }
     
 }

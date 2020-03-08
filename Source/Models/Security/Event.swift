@@ -114,6 +114,27 @@ public extension NetatmoSecurity {
             case rawIsArrival = "is_arrival"
             case message
         }
+        
+        // MARK: - Init
+        
+        init(identifier: String, type: EventType, subType: Int? = nil, date: Date, cameraId: String, deviceId: String, personId: String? = nil, snapshot: Snapshot? = nil, vignette: Vignette? = nil, eventList: [SubEvent]? = nil, videoId: String? = nil, videoStatus: String? = nil, isArrival: Bool, message: String? = nil) {
+            
+            self.identifier = identifier
+            self.rawType = type.rawValue
+            self.subType = subType
+            self.date = date
+            self.cameraId = cameraId
+            self.deviceId = deviceId
+            self.personId = personId
+            self.snapshot = snapshot
+            self.vignette = vignette
+            self.eventList = eventList
+            self.videoId = videoId
+            self.videoStatus = videoStatus
+            self.rawIsArrival = isArrival
+            self.message = message
+        }
+        
     }
     
 }
