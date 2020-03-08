@@ -17,8 +17,7 @@ public extension NetatmoSecurity {
         public let identifier: String
         private let rawType: String
         public var type: ProductType { ProductType(rawValue: rawType) }
-        private let lastSetup: TimeInterval
-        public var lastSetupDate: Date { Date(timeIntervalSince1970: lastSetup) }
+        public let lastSetupDate: Date
         public let name: String
         
         public var description: String {
@@ -30,7 +29,7 @@ public extension NetatmoSecurity {
         private enum CodingKeys: String, CodingKey {
             case identifier = "id"
             case rawType = "type"
-            case lastSetup = "last_setup"
+            case lastSetupDate = "last_setup"
             case name
         }
     }

@@ -36,8 +36,7 @@ public extension NetatmoSecurity {
                 return nil
             }
         }
-        private let time: TimeInterval
-        public var date: Date { Date(timeIntervalSince1970: time) }
+        public let date: Date
         public let cameraId: String
         public let deviceId: String
         public let personId: String?
@@ -103,7 +102,7 @@ public extension NetatmoSecurity {
             case identifier = "id"
             case rawType = "type"
             case subType = "sub_type"
-            case time
+            case date = "time"
             case cameraId = "camera_id"
             case deviceId = "device_id"
             case personId = "person_id"

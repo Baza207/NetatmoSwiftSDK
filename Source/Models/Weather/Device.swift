@@ -16,24 +16,20 @@ public extension NetatmoWeather {
         
         /// MAC address of the device.
         public let identifier: String
-        private let setup: TimeInterval
         /// Date when the weather station was set up.
-        public var setupDate: Date { Date(timeIntervalSince1970: setup) }
-        private let lastSetup: TimeInterval
+        public let setupDate: Date
         /// Date of the last installation.
-        public var lastSetupDate: Date { Date(timeIntervalSince1970: lastSetup) }
+        public let lastSetupDate: Date
         /// Type of the device.
         public let type: String
-        private let lastStatusStore: TimeInterval
         /// Date of the last status update.
-        public var lastStatusStoreDate: Date { Date(timeIntervalSince1970: lastStatusStore) }
+        public let lastStatusStoreDate: Date
         /// Name of the module.
         public let name: String
         /// Version of the software.
         public let firmware: Int
-        private let lastUpgrade: TimeInterval
         /// Date of the last upgrade.
-        public var lastUpgradeDate: Date { Date(timeIntervalSince1970: lastUpgrade) }
+        public let lastUpgradeDate: Date
         /// WiFi status per Base station. (86=bad, 56=good)
         public let wifiStatus: Int
         /// `true` if the station connected to Netatmo cloud within the last 4 hours.
@@ -59,13 +55,13 @@ public extension NetatmoWeather {
         
         private enum CodingKeys: String, CodingKey {
             case identifier = "_id"
-            case setup = "date_setup"
-            case lastSetup = "last_setup"
+            case setupDate = "date_setup"
+            case lastSetupDate = "last_setup"
             case type
-            case lastStatusStore = "last_status_store"
+            case lastStatusStoreDate = "last_status_store"
             case name = "module_name"
             case firmware
-            case lastUpgrade = "last_upgrade"
+            case lastUpgradeDate = "last_upgrade"
             case wifiStatus = "wifi_status"
             case reachable
             case co2Calibrating = "co2_calibrating"

@@ -22,12 +22,8 @@ public extension NetatmoWeather {
         public let rain24HourSummary: Double?
         /// Current rain in mm.
         public let rainLive: Double?
-        private let rainTime: TimeInterval?
         /// Date when rain data was measured in UTC.
-        public var rainDate: Date? {
-            guard let rainTime = self.rainTime else { return nil }
-            return Date(timeIntervalSince1970: rainTime)
-        }
+        public let rainDate: Date?
         /// Wind strength in km/h.
         public let windStrength: Double?
         /// Wind angle.
@@ -36,12 +32,8 @@ public extension NetatmoWeather {
         public let gustStrength: Double?
         /// Gust angle.
         public let gustAngle: Double?
-        private let windTime: TimeInterval?
         /// Date when wind data was measured in UTC.
-        public var windDate: Date? {
-            guard let windTime = self.windTime else { return nil }
-            return Date(timeIntervalSince1970: windTime)
-        }
+        public let windDate: Date?
         
         public var description: String {
             if let res = self.res, let type = self.type {
@@ -62,12 +54,12 @@ public extension NetatmoWeather {
             case rain1HourSummary = "rain_60min"
             case rain24HourSummary = "rain_24h"
             case rainLive = "rain_live"
-            case rainTime = "rain_timeutc"
+            case rainDate = "rain_timeutc"
             case windStrength = "wind_strengh"
             case windAngle = "wind_angle"
             case gustStrength = "gust_strenght"
             case gustAngle = "gust_angle"
-            case windTime = "wind_timeutc"
+            case windDate = "wind_timeutc"
         }
     }
     

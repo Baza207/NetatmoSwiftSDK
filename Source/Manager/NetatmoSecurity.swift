@@ -75,7 +75,7 @@ public class NetatmoSecurity {
                 return
             }
             
-            let decoder = JSONDecoder()
+            let decoder = JSONDecoder.secondsSince1970JSONDecoder
             let result: NetatmoSecurity.HomeDataBase?
             do {
                 result = try decoder.decode(NetatmoSecurity.HomeDataBase.self, from: data)
@@ -160,7 +160,7 @@ public class NetatmoSecurity {
                 return
             }
             
-            let decoder = JSONDecoder()
+            let decoder = JSONDecoder.secondsSince1970JSONDecoder
             let result: NetatmoSecurity.EventListBase?
             do {
                 result = try decoder.decode(NetatmoSecurity.EventListBase.self, from: data)
@@ -245,7 +245,7 @@ public class NetatmoSecurity {
                 return
             }
             
-            let decoder = JSONDecoder()
+            let decoder = JSONDecoder.secondsSince1970JSONDecoder
             let result: NetatmoSecurity.EventListBase?
             do {
                 result = try decoder.decode(NetatmoSecurity.EventListBase.self, from: data)
@@ -330,7 +330,7 @@ public class NetatmoSecurity {
                 return
             }
             
-            let decoder = JSONDecoder()
+            let decoder = JSONDecoder.secondsSince1970JSONDecoder
             let result: NetatmoSecurity.EventListBase?
             do {
                 result = try decoder.decode(NetatmoSecurity.EventListBase.self, from: data)
@@ -483,7 +483,7 @@ public class NetatmoSecurity {
                 return
             }
             
-            let decoder = JSONDecoder()
+            let decoder = JSONDecoder.secondsSince1970JSONDecoder
             let result: NetatmoManager.DataBase?
             do {
                 result = try decoder.decode(NetatmoManager.DataBase.self, from: data)
@@ -573,7 +573,7 @@ public class NetatmoSecurity {
                 return
             }
             
-            let decoder = JSONDecoder()
+            let decoder = JSONDecoder.secondsSince1970JSONDecoder
             let result: NetatmoManager.DataBase?
             do {
                 result = try decoder.decode(NetatmoManager.DataBase.self, from: data)

@@ -22,19 +22,16 @@ public extension NetatmoWeather {
         public let name: String
         /// Array of data measured by the device (e.g. "Temperature", "Humidity").
         public let dataType: [String]
-        private let lastSetup: TimeInterval
         /// Date of the last installation.
-        public var lastSetupDate: Date { Date(timeIntervalSince1970: lastSetup) }
+        public let lastSetupDate: Date
         /// `true` if the station connected to Netatmo cloud within the last 4 hours.
         public let reachable: Bool
         /// Version of the software.
         public let firmware: Int
-        private let lastMessage: TimeInterval
         /// Date of the last measure update.
-        public var lastMessageDate: Date { Date(timeIntervalSince1970: lastMessage) }
-        private let lastSeen: TimeInterval
+        public let lastMessageDate: Date
         /// Date of the last status update.
-        public var lastSeenDate: Date { Date(timeIntervalSince1970: lastSeen) }
+        public let lastSeenDate: Date
         /// Current radio status per module. (90=low, 60=highest).
         public let rfStatus: Int
         /// Current battery status per module/
@@ -54,11 +51,11 @@ public extension NetatmoWeather {
             case type
             case name = "module_name"
             case dataType = "data_type"
-            case lastSetup = "last_setup"
+            case lastSetupDate = "last_setup"
             case reachable
             case firmware
-            case lastMessage = "last_message"
-            case lastSeen = "last_seen"
+            case lastMessageDate = "last_message"
+            case lastSeenDate = "last_seen"
             case rfStatus = "rf_status"
             case batteryVp = "battery_vp"
             case batteryPercent = "battery_percent"

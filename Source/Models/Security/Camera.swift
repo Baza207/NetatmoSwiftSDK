@@ -26,8 +26,7 @@ public extension NetatmoSecurity {
         public var modules: [Module]?
         private let rawUsePinCode: Bool?
         public var usePinCode: Bool { rawUsePinCode ?? false }
-        private let lastSetup: TimeInterval
-        public var lastSetupDate: Date { Date(timeIntervalSince1970: lastSetup) }
+        public let lastSetupDate: Date
         
         public var description: String {
             "Camera(identifier: \(identifier), type: \(type), status: \(status), isLocal: \(isLocal), sdCardStatus: \(sdCardStatus), alimentationStatus: \(alimStatus), name: \(name), modules: \(modules ?? []), usePinCode: \(usePinCode), lastSetupDate: \(lastSetupDate))"
@@ -46,7 +45,7 @@ public extension NetatmoSecurity {
             case name
             case modules
             case rawUsePinCode = "use_pin_code"
-            case lastSetup = "last_setup"
+            case lastSetupDate = "last_setup"
         }
     }
     

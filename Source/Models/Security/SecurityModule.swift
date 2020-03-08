@@ -27,11 +27,7 @@ public extension NetatmoSecurity {
         public let name: String?
         public let category: String?
         public let room: String?
-        private let lastActivity: TimeInterval?
-        public var lastActivityDate: Date? {
-            guard let lastActivity = self.lastActivity else { return nil }
-            return Date(timeIntervalSince1970: lastActivity)
-        }
+        public let lastActivityDate: Date?
         
         public var description: String {
             var description = "Module(identifier: \(identifier)), type: \(type), batteryPercent: \(batteryPercent), rfStatus: \(rfStatus), status: \(status)"
@@ -79,7 +75,7 @@ public extension NetatmoSecurity {
             case name
             case category
             case room
-            case lastActivity = "last_activity"
+            case lastActivityDate = "last_activity"
         }
     }
     

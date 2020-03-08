@@ -36,9 +36,8 @@ public extension NetatmoWeather {
         
         // MARK: - Properties
         
-        internal let beginTime: TimeInterval // UTC
         /// The begining date of the mesurements.
-        public var beginDate: Date { Date(timeIntervalSince1970: beginTime) }
+        public let beginDate: Date
         /// The step interval between measurements.
         public let stepTimeInterval: TimeInterval
         /// The values of the mesurements.
@@ -51,7 +50,7 @@ public extension NetatmoWeather {
         // MARK: - Coding
         
         private enum CodingKeys: String, CodingKey {
-            case beginTime = "beg_time"
+            case beginDate = "beg_time"
             case stepTimeInterval = "step_time"
             case values = "value"
         }

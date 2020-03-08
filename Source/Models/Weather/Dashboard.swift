@@ -14,9 +14,8 @@ public extension NetatmoWeather {
         
         // MARK: - Properties
         
-        private let time: TimeInterval // UTC
         /// Date when data was measured in UTC.
-        public var date: Date { Date(timeIntervalSince1970: time) }
+        public let date: Date
         /// Temperature in °C.
         public let temperature: Double?
         /// CO2 level in ppm.
@@ -33,18 +32,10 @@ public extension NetatmoWeather {
         public let minTemperature: Double?
         /// Maximum temperature in °C.
         public let maxTemperature: Double?
-        private let minTemperatureTime: TimeInterval?
         /// Minimum temperature date masured.
-        public var minTemperatureDate: Date? {
-            guard let minTemperatureTime = self.minTemperatureTime else { return nil }
-            return Date(timeIntervalSince1970: minTemperatureTime)
-        }
-        private let maxTemperatureTime: TimeInterval?
+        public let minTemperatureDate: Date?
         /// Maximum temperature date masured.
-        public var maxTemperatureDate: Date? {
-            guard let maxTemperatureTime = self.maxTemperatureTime else { return nil }
-            return Date(timeIntervalSince1970: maxTemperatureTime)
-        }
+        public let maxTemperatureDate: Date?
         /// Trend for the last 12 hours (up, down, stable).
         public let temperatureTrend: Trend?
         /// Trend for the last 12 hours (up, down, stable).
@@ -67,12 +58,8 @@ public extension NetatmoWeather {
         public let maxWindStrength: Double?
         /// Maximum wind angle.
         public let maxWindAngle: Double?
-        private let maxWindStrengthTime: TimeInterval?
         /// Maximum wind strength date masured.
-        public var maxWindStrengthDate: Date? {
-            guard let maxWindStrengthTime = self.maxWindStrengthTime else { return nil }
-            return Date(timeIntervalSince1970: maxWindStrengthTime)
-        }
+        public let maxWindStrengthDate: Date?
         
         public var description: String {
             if let temperature = self.temperature {
@@ -88,7 +75,7 @@ public extension NetatmoWeather {
         // MARK: - Coding
         
         private enum CodingKeys: String, CodingKey {
-            case time = "time_utc"
+            case date = "time_utc"
             case temperature = "Temperature"
             case co2 = "CO2"
             case humidity = "Humidity"
@@ -97,8 +84,8 @@ public extension NetatmoWeather {
             case absolutePressure = "AbsolutePressure"
             case minTemperature = "min_temp"
             case maxTemperature = "max_temp"
-            case minTemperatureTime = "date_min_temp"
-            case maxTemperatureTime = "date_max_temp"
+            case minTemperatureDate = "date_min_temp"
+            case maxTemperatureDate = "date_max_temp"
             case temperatureTrend = "temp_trend"
             case pressureTrend = "pressure_trend"
             case rain = "Rain"
@@ -110,7 +97,7 @@ public extension NetatmoWeather {
             case gustAngle = "GustAngle"
             case maxWindStrength = "max_wind_str"
             case maxWindAngle = "max_wind_angle"
-            case maxWindStrengthTime = "date_max_wind_str"
+            case maxWindStrengthDate = "date_max_wind_str"
         }
     }
     

@@ -17,8 +17,7 @@ public extension NetatmoSecurity {
         public let identifier: String
         public let rawType: String
         public var type: SubEventType { SubEventType(rawValue: rawType) }
-        private let time: TimeInterval
-        public var date: Date { Date(timeIntervalSince1970: time) }
+        public let date: Date
         public let offset: Int
         public let snapshot: Snapshot
         public let vignette: Vignette
@@ -33,7 +32,7 @@ public extension NetatmoSecurity {
         private enum CodingKeys: String, CodingKey {
             case identifier = "id"
             case rawType = "type"
-            case time
+            case date = "time"
             case offset
             case snapshot
             case vignette

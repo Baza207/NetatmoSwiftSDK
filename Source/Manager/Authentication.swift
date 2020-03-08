@@ -106,7 +106,7 @@ public extension NetatmoManager {
                 return
             }
             
-            let decoder = JSONDecoder()
+            let decoder = JSONDecoder.secondsSince1970JSONDecoder
             let result: AuthResult?
             do {
                 result = try decoder.decode(AuthResult.self, from: data)
@@ -177,7 +177,7 @@ public extension NetatmoManager {
                 return
             }
             
-            let decoder = JSONDecoder()
+            let decoder = JSONDecoder.secondsSince1970JSONDecoder
             let result: AuthResult?
             do {
                 result = try decoder.decode(AuthResult.self, from: data)
@@ -308,7 +308,7 @@ internal extension NetatmoManager {
                 return
             }
             
-            let decoder = JSONDecoder()
+            let decoder = JSONDecoder.secondsSince1970JSONDecoder
             let result: AuthResult?
             do {
                 result = try decoder.decode(AuthResult.self, from: data)

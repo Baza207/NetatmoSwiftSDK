@@ -29,6 +29,7 @@
 		1862DB3E24031CF900DE4B75 /* NetatmoSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862DB3D24031CF900DE4B75 /* NetatmoSecurity.swift */; };
 		187D9A9924033550009DD7FB /* NetatmoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D9A9824033550009DD7FB /* NetatmoError.swift */; };
 		188A9A5D24157C9E00A95897 /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A9A5C24157C9E00A95897 /* Measure.swift */; };
+		188A9A5F24158AE400A95897 /* JSONDecoderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A9A5E24158AE400A95897 /* JSONDecoderExtensions.swift */; };
 		189C927C24073598008492A0 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C927B24073598008492A0 /* EventList.swift */; };
 		189C927E24073BCA008492A0 /* NetatmoSecurityiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C927D24073BCA008492A0 /* NetatmoSecurityiOS.swift */; };
 		18AA34F024046265006EC67A /* HomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA34EF24046265006EC67A /* HomeData.swift */; };
@@ -91,6 +92,7 @@
 		1862DB3D24031CF900DE4B75 /* NetatmoSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoSecurity.swift; sourceTree = "<group>"; };
 		187D9A9824033550009DD7FB /* NetatmoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoError.swift; sourceTree = "<group>"; };
 		188A9A5C24157C9E00A95897 /* Measure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
+		188A9A5E24158AE400A95897 /* JSONDecoderExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderExtensions.swift; sourceTree = "<group>"; };
 		189C927B24073598008492A0 /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
 		189C927D24073BCA008492A0 /* NetatmoSecurityiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoSecurityiOS.swift; sourceTree = "<group>"; };
 		18AA34EF24046265006EC67A /* HomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeData.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				18FBF6282409C27F00DF7366 /* URLRequestExtensions.swift */,
+				188A9A5E24158AE400A95897 /* JSONDecoderExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				18FBF6292409C27F00DF7366 /* URLRequestExtensions.swift in Sources */,
 				18ACFCF023FF369600BA6B03 /* Dashboard.swift in Sources */,
 				1854E32724031492005FA858 /* SecurityTypes.swift in Sources */,
+				188A9A5F24158AE400A95897 /* JSONDecoderExtensions.swift in Sources */,
 				18021FED2360E29200E3D20A /* NetatmoWeather.swift in Sources */,
 				18021FD92360D5FC00E3D20A /* WeatherUser.swift in Sources */,
 				18D3E02F2407303C00A64E62 /* Person.swift in Sources */,
