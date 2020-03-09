@@ -8,13 +8,15 @@
 
 import Foundation
 
-public class NetatmoSecurity {
+public class NetatmoSecurity { }
+
+public extension NetatmoSecurity {
     
     /// Retrieve user's homes and their topology.
     ///
     /// Scope required: `read_camera`, `acces_camera`, `read_presence`, `access_presence` and `read_smokedetector`.
     ///
-    public static func getHomeData(homeId: String? = nil, numberOfEvents size: Int? = nil, completed: @escaping (Result<NetatmoSecurity.HomeData, Error>) -> Void) {
+    static func getHomeData(homeId: String? = nil, numberOfEvents size: Int? = nil, completed: @escaping (Result<NetatmoSecurity.HomeData, Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -106,7 +108,7 @@ public class NetatmoSecurity {
     ///
     ///  - Note: This method is available for Welcome (Indoor Camera), Presence (Outdoor Camera) and the Smart Smoke Alarm
     ///
-    public static func getEventsUntil(homeId: String, eventId: String, completed: @escaping (Result<[Event], Error>) -> Void) {
+    static func getEventsUntil(homeId: String, eventId: String, completed: @escaping (Result<[Event], Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -191,7 +193,7 @@ public class NetatmoSecurity {
     ///
     /// - Note: This method is only available for Welcome (Indoor Camera).
     ///
-    public static func getLatestEventsOfPerson(homeId: String, personId: String, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Event], Error>) -> Void) {
+    static func getLatestEventsOfPerson(homeId: String, personId: String, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Event], Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -276,7 +278,7 @@ public class NetatmoSecurity {
     ///
     /// - Note: This method is available for Welcome (Indoor Camera), Presence (Outdoor Camera) and the Smart Smoke Alarm
     ///
-    public static func getNextEvents(homeId: String, eventId: String, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Event], Error>) -> Void) {
+    static func getNextEvents(homeId: String, eventId: String, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Event], Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -359,7 +361,7 @@ public class NetatmoSecurity {
     ///
     /// No scope required.
     ///
-    public static func getCameraPicture(imageId: String, key: String, completed: @escaping (Result<Data, Error>) -> Void) {
+    static func getCameraPicture(imageId: String, key: String, completed: @escaping (Result<Data, Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -424,7 +426,7 @@ public class NetatmoSecurity {
     ///
     /// - Note: This method is only available for Welcome.
     ///
-    public static func setPersonAway(homeId: String, personId: String? = nil, completed: @escaping (Result<Void, Error>) -> Void) {
+    static func setPersonAway(homeId: String, personId: String? = nil, completed: @escaping (Result<Void, Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -514,7 +516,7 @@ public class NetatmoSecurity {
     ///
     /// - Note: This method is only available for Welcome.
     ///
-    public static func setPersonHome(homeId: String, personIds: [String], completed: @escaping (Result<Void, Error>) -> Void) {
+    static func setPersonHome(homeId: String, personIds: [String], completed: @escaping (Result<Void, Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
