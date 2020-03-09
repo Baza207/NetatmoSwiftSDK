@@ -59,6 +59,19 @@ public extension NetatmoWeather {
             case modules
             case moduleTypes = "module_types"
         }
+        
+        // MARK: - Init
+        
+        public init(identifier: String, place: NetatmoManager.Place, mark: Int, measures: [String: Measure], modules: [String], moduleTypes: [String: String]) {
+            
+            self.identifier = identifier
+            self.place = place
+            self.mark = mark
+            self.measures = measures
+            self.modules = modules
+            self.moduleTypes = moduleTypes
+        }
+        
     }
     
 }

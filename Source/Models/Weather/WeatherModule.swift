@@ -61,5 +61,25 @@ public extension NetatmoWeather {
             case batteryPercent = "battery_percent"
             case dashboard = "dashboard_data"
         }
+        
+        // MARK: - Init
+        
+        public init(identifier: String, type: String, name: String, dataType: [String], lastSetupDate: Date, reachable: Bool, firmware: Int, lastMessageDate: Date, lastSeenDate: Date, rfStatus: Int, batteryVp: Int, batteryPercent: Int, dashboard: Dashboard) {
+            
+            self.identifier = identifier
+            self.type = type
+            self.name = name
+            self.dataType = dataType
+            self.lastSetupDate = lastSetupDate
+            self.reachable = reachable
+            self.firmware = firmware
+            self.lastMessageDate = lastMessageDate
+            self.lastSeenDate = lastSeenDate
+            self.rfStatus = rfStatus
+            self.batteryVp = batteryVp
+            self.batteryPercent = batteryPercent
+            self.dashboard = dashboard
+        }
+        
     }
 }

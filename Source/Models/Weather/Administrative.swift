@@ -44,6 +44,20 @@ public extension NetatmoWeather {
             case pressureUnit = "pressureunit"
             case feelsLikeAlgorithm = "feel_like_algo"
         }
+        
+        // MARK: - Init
+        
+        public init(localeCode: String, languageCode: String, country: String? = nil, unit: Unit, windUnit: WindUnit, pressureUnit: PressureUnit, feelsLikeAlgorithm: FeelsLikeAlgorithm) {
+            
+            self.localeCode = localeCode
+            self.languageCode = languageCode
+            self.country = country
+            self.unit = unit
+            self.windUnit = windUnit
+            self.pressureUnit = pressureUnit
+            self.feelsLikeAlgorithm = feelsLikeAlgorithm
+        }
+        
     }
     
 }

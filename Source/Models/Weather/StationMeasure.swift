@@ -54,6 +54,16 @@ public extension NetatmoWeather {
             case stepTimeInterval = "step_time"
             case values = "value"
         }
+        
+        // MARK: - Init
+        
+        public init(beginDate: Date, stepTimeInterval: TimeInterval, values: [[Double]]) {
+            
+            self.beginDate = beginDate
+            self.stepTimeInterval = stepTimeInterval
+            self.values = values
+        }
+        
     }
     
 }

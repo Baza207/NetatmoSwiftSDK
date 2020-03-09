@@ -99,6 +99,36 @@ public extension NetatmoWeather {
             case maxWindAngle = "max_wind_angle"
             case maxWindStrengthDate = "date_max_wind_str"
         }
+        
+        // MARK: - Init
+        
+        public init(date: Date, temperature: Double? = nil, co2: Int? = nil, humidity: Int? = nil, noise: Int? = nil, pressure: Double? = nil, absolutePressure: Double? = nil, minTemperature: Double? = nil, maxTemperature: Double? = nil, minTemperatureDate: Date? = nil, maxTemperatureDate: Date? = nil, temperatureTrend: Trend? = nil, pressureTrend: Trend? = nil, rain: Double? = nil, rain24HourSummary: Double? = nil, rain1HourSummary: Double? = nil, windStrength: Double? = nil, windAngle: Double? = nil, gustStrength: Double? = nil, gustAngle: Double? = nil, maxWindStrength: Double? = nil, maxWindAngle: Double? = nil, maxWindStrengthDate: Date? = nil) {
+            
+            self.date = date
+            self.temperature = temperature
+            self.co2 = co2
+            self.humidity = humidity
+            self.noise = noise
+            self.pressure = pressure
+            self.absolutePressure = absolutePressure
+            self.minTemperature = minTemperature
+            self.maxTemperature = maxTemperature
+            self.minTemperatureDate = minTemperatureDate
+            self.maxTemperatureDate = maxTemperatureDate
+            self.temperatureTrend = temperatureTrend
+            self.pressureTrend = pressureTrend
+            self.rain = rain
+            self.rain24HourSummary = rain24HourSummary
+            self.rain1HourSummary = rain1HourSummary
+            self.windStrength = windStrength
+            self.windAngle = windAngle
+            self.gustStrength = gustStrength
+            self.gustAngle = gustAngle
+            self.maxWindStrength = maxWindStrength
+            self.maxWindAngle = maxWindAngle
+            self.maxWindStrengthDate = maxWindStrengthDate
+        }
+        
     }
     
 }

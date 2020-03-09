@@ -72,6 +72,30 @@ public extension NetatmoWeather {
             case dashboard = "dashboard_data"
             case modules
         }
+        
+        // MARK: - Init
+        
+        public init(identifier: String, setupDate: Date, lastSetupDate: Date, type: String, lastStatusStoreDate: Date, name: String, firmware: Int, lastUpgradeDate: Date, wifiStatus: Int, reachable: Bool, co2Calibrating: Bool, stationName: String, dataType: [String], place: NetatmoManager.Place, readOnly: Bool? = nil, dashboard: Dashboard, modules: [Module]) {
+            
+            self.identifier = identifier
+            self.setupDate = setupDate
+            self.lastSetupDate = lastSetupDate
+            self.type = type
+            self.lastStatusStoreDate = lastStatusStoreDate
+            self.name = name
+            self.firmware = firmware
+            self.lastUpgradeDate = lastUpgradeDate
+            self.wifiStatus = wifiStatus
+            self.reachable = reachable
+            self.co2Calibrating = co2Calibrating
+            self.stationName = stationName
+            self.dataType = dataType
+            self.place = place
+            self.readOnly = readOnly
+            self.dashboard = dashboard
+            self.modules = modules
+        }
+        
     }
     
 }

@@ -61,6 +61,24 @@ public extension NetatmoWeather {
             case gustAngle = "gust_angle"
             case windDate = "wind_timeutc"
         }
+        
+        // MARK: - Init
+        
+        public init(res: [String: [Double]]? = nil, type: [String]? = nil, rain1HourSummary: Double? = nil, rain24HourSummary: Double? = nil, rainLive: Double? = nil, rainDate: Date? = nil, windStrength: Double? = nil, windAngle: Double? = nil, gustStrength: Double? = nil, gustAngle: Double? = nil, windDate: Date? = nil) {
+            
+            self.res = res
+            self.type = type
+            self.rain1HourSummary = rain1HourSummary
+            self.rain24HourSummary = rain24HourSummary
+            self.rainLive = rainLive
+            self.rainDate = rainDate
+            self.windStrength = windStrength
+            self.windAngle = windAngle
+            self.gustStrength = gustStrength
+            self.gustAngle = gustAngle
+            self.windDate = windDate
+        }
+        
     }
     
 }

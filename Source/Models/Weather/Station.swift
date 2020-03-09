@@ -44,6 +44,15 @@ public extension NetatmoWeather {
         public var description: String {
             "Station(user: \(user), devices: \(devices))"
         }
+        
+        // MARK: - Init
+        
+        public init(user: User, devices: [Device]) {
+            
+            self.user = user
+            self.devices = devices
+        }
+        
     }
     
 }

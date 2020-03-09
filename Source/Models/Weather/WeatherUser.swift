@@ -20,6 +20,15 @@ public extension NetatmoWeather {
         public var description: String {
             "User(mail: \(mail), administrative: \(administrative))"
         }
+        
+        // MARK: - Init
+        
+        public init(mail: String, administrative: Administrative) {
+            
+            self.mail = mail
+            self.administrative = administrative
+        }
+        
     }
     
 }
