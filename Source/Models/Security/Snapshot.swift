@@ -38,6 +38,18 @@ public extension NetatmoSecurity {
             case url
             case filename
         }
+        
+        // MARK: - Init
+        
+        public init(identifier: String? = nil, version: Int? = nil, key: String? = nil, url: String? = nil, filename: String? = nil) {
+            
+            self.identifier = identifier
+            self.version = version
+            self.key = key
+            self.url = url
+            self.filename = filename
+        }
+        
     }
     
 }

@@ -34,6 +34,18 @@ public extension NetatmoSecurity {
             case face
             case pseudo
         }
+        
+        // MARK: - Init
+        
+        public init(identifier: String, lastSeenDate: Date, outOfSight: Bool, face: Face, pseudo: String? = nil) {
+            
+            self.identifier = identifier
+            self.lastSeenDate = lastSeenDate
+            self.outOfSight = outOfSight
+            self.face = face
+            self.pseudo = pseudo
+        }
+        
     }
     
 }

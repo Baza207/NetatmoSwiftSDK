@@ -35,7 +35,7 @@ public extension NetatmoSecurity {
         
         // MARK: - Init
         
-        init(identifier: String, type: ProductType, lastSetupDate: Date, name: String) {
+        public init(identifier: String, type: ProductType, lastSetupDate: Date, name: String) {
             
             self.identifier = identifier
             self.rawType = type.rawValue

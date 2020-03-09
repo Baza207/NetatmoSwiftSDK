@@ -117,7 +117,7 @@ public extension NetatmoSecurity {
         
         // MARK: - Init
         
-        init(identifier: String, type: EventType, subType: Int? = nil, date: Date, cameraId: String, deviceId: String, personId: String? = nil, snapshot: Snapshot? = nil, vignette: Vignette? = nil, eventList: [SubEvent]? = nil, videoId: String? = nil, videoStatus: String? = nil, isArrival: Bool, message: String? = nil) {
+        public init(identifier: String, type: EventType, subType: Int? = nil, date: Date, cameraId: String, deviceId: String, personId: String? = nil, snapshot: Snapshot? = nil, vignette: Vignette? = nil, eventList: [SubEvent]? = nil, videoId: String? = nil, videoStatus: String? = nil, isArrival: Bool, message: String? = nil) {
             
             self.identifier = identifier
             self.rawType = type.rawValue

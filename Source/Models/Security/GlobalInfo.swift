@@ -25,6 +25,14 @@ public extension NetatmoSecurity {
         private enum CodingKeys: String, CodingKey {
             case showTags = "show_tags"
         }
+        
+        // MARK: - Init
+        
+        public init(showTags: Bool) {
+            
+            self.showTags = showTags
+        }
+        
     }
     
 }

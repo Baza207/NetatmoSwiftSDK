@@ -41,7 +41,7 @@ public extension NetatmoSecurity {
         
         // MARK: - Init
         
-        init(identifier: String, type: SubEventType, date: Date, offset: Int, snapshot: Snapshot, vignette: Vignette, message: String) {
+        public init(identifier: String, type: SubEventType, date: Date, offset: Int, snapshot: Snapshot, vignette: Vignette, message: String) {
             
             self.identifier = identifier
             self.rawType = type.rawValue

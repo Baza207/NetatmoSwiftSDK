@@ -39,6 +39,20 @@ public extension NetatmoSecurity {
             case smokeDetectors = "smokedetectors"
             case events
         }
+        
+        // MARK: - Init
+        
+        public init(identifier: String, name: String, people: [Person], place: NetatmoManager.Place, cameras: [Camera], smokeDetectors: [SmokeDetector], events: [Event]) {
+            
+            self.identifier = identifier
+            self.name = name
+            self.people = people
+            self.place = place
+            self.cameras = cameras
+            self.smokeDetectors = smokeDetectors
+            self.events = events
+        }
+        
     }
     
 }

@@ -80,7 +80,7 @@ public extension NetatmoSecurity {
         
         // MARK: - Init
         
-        init(identifier: String, type: ProductType, batteryPercent: Int, rfStatus: Int, status: String, monitoring: String? = nil, alimSource: String? = nil, tamperDetectionEnabled: Bool, name: String? = nil, category: String? = nil, room: String? = nil, lastActivityDate: Date? = nil) {
+        public init(identifier: String, type: ProductType, batteryPercent: Int, rfStatus: Int, status: String, monitoring: String? = nil, alimSource: String? = nil, tamperDetectionEnabled: Bool, name: String? = nil, category: String? = nil, room: String? = nil, lastActivityDate: Date? = nil) {
             
             self.identifier = identifier
             self.rawType = type.rawValue
