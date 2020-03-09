@@ -9,9 +9,7 @@
 import Foundation
 import CoreLocation
 
-public class NetatmoWeather { }
-    
-public extension NetatmoWeather {
+public class NetatmoWeather {
     
     // MARK: - Public Weather Data
     
@@ -25,7 +23,7 @@ public extension NetatmoWeather {
     ///   - requiredData: To filter stations based on relevant measurements you want (e.g. rain will only return stations with rain gauges). Default is no filter `nil`.
     ///   - filter: `true` to exclude station with abnormal temperature measures. Default is `false`.
     ///   - completed: The result of the request as `PublicData` or `Error` on failure.
-    static func getPublicData(northEast: CLLocationCoordinate2D, southWest: CLLocationCoordinate2D, requiredData: String? = nil, filter: Bool = false, completed: @escaping (Result<[PublicData], Error>) -> Void) {
+    public static func getPublicData(northEast: CLLocationCoordinate2D, southWest: CLLocationCoordinate2D, requiredData: String? = nil, filter: Bool = false, completed: @escaping (Result<[PublicData], Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -123,7 +121,7 @@ public extension NetatmoWeather {
     ///   - deviceId: Weather station mac address.
     ///   - favorites: To retrieve user's favorite weather stations. Default is false.
     ///   - completed: The result of the request as `Station` or `Error` on failure.
-    static func getWeatherStationData(deviceId: String? = nil, favorites: Bool = false, completed: @escaping (Result<Station, Error>) -> Void) {
+    public static func getWeatherStationData(deviceId: String? = nil, favorites: Bool = false, completed: @escaping (Result<Station, Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -224,7 +222,7 @@ public extension NetatmoWeather {
     ///   - optimize: Determines the format of the answer. Default is `true`. For mobile apps we recommend `true` and `false` if bandwidth isn't an issue as it is easier to parse.
     ///   - realTime: If scale different than max, timestamps are by default offset + scale/2. To get exact timestamps, use `true`. Default is `false`.
     ///   - completed: The result of the request as `StationMeasure` or `Error` on failure.
-    static func getMeasure(deviceId: String, moduleId: String? = nil, scale: TimeScale, type: MeasureType, beginDate: Date? = nil, endDate: Date? = nil, limit: Int? = nil, optimize: Bool = true, realTime: Bool = false, completed: @escaping (Result<[StationMeasure], Error>) -> Void) {
+    public static func getMeasure(deviceId: String, moduleId: String? = nil, scale: TimeScale, type: MeasureType, beginDate: Date? = nil, endDate: Date? = nil, limit: Int? = nil, optimize: Bool = true, realTime: Bool = false, completed: @escaping (Result<[StationMeasure], Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
