@@ -16,8 +16,9 @@ public extension NetatmoWeather {
         
         /// MAC address of the module.
         public let identifier: String
+        private let rawType: String
         /// Type of the device.
-        public let type: String
+        public var type: ProductType { ProductType(rawValue: rawType) }
         /// Name of the module.
         public let name: String
         /// Array of data measured by the device (e.g. "Temperature", "Humidity").
@@ -41,14 +42,14 @@ public extension NetatmoWeather {
         public let dashboard: Dashboard
         
         public var description: String {
-            "Module(name: \(name), dashboard: \(dashboard))"
+            "Module(type: \(type), name: \(name), dashboard: \(dashboard))"
         }
         
         // MARK: - Coding
         
         private enum CodingKeys: String, CodingKey {
             case identifier = "_id"
-            case type
+            case rawType = "type"
             case name = "module_name"
             case dataType = "data_type"
             case lastSetupDate = "last_setup"
@@ -64,10 +65,10 @@ public extension NetatmoWeather {
         
         // MARK: - Init
         
-        public init(identifier: String, type: String, name: String, dataType: [String], lastSetupDate: Date, reachable: Bool, firmware: Int, lastMessageDate: Date, lastSeenDate: Date, rfStatus: Int, batteryVp: Int, batteryPercent: Int, dashboard: Dashboard) {
+        public init(identifier: String, type: ProductType, name: String, dataType: [String], lastSetupDate: Date, reachable: Bool, firmware: Int, lastMessageDate: Date, lastSeenDate: Date, rfStatus: Int, batteryVp: Int, batteryPercent: Int, dashboard: Dashboard) {
             
             self.identifier = identifier
-            self.type = type
+            self.rawType = type.rawValue
             self.name = name
             self.dataType = dataType
             self.lastSetupDate = lastSetupDate

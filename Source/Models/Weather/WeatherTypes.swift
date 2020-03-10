@@ -12,6 +12,66 @@ public extension NetatmoWeather {
     
     // MARK: - Types
     
+    enum ProductType: CustomStringConvertible {
+        case baseStation
+        case outdoorModule
+        case rainModule
+        case windModule
+        case indoorModule
+        case other(String)
+        
+        init(rawValue: String) {
+            switch rawValue {
+            case "NAMain":
+                self = .baseStation
+            case "NAModule1":
+                self = .outdoorModule
+            case "NAModule2":
+                self = .rainModule
+            case "NAModule3":
+                self = .windModule
+            case "NAModule4":
+                self = .indoorModule
+            default:
+                self = .other(rawValue)
+            }
+        }
+        
+        var rawValue: String {
+            switch self {
+            case .baseStation:
+                return "NAMain"
+            case .outdoorModule:
+                return "NAModule1"
+            case .rainModule:
+                return "NAModule2"
+            case .windModule:
+                return "NAModule3"
+            case .indoorModule:
+                return "NAModule4"
+            case .other(let rawValue):
+                return rawValue
+            }
+        }
+        
+        public var description: String {
+            switch self {
+            case .baseStation:
+                return "Base Station"
+            case .outdoorModule:
+                return "Outdoor Module"
+            case .rainModule:
+                return "Rain Module"
+            case .windModule:
+                return "Wind Module"
+            case .indoorModule:
+                return "Indoor Module"
+            case .other(let rawValue):
+                return "Other [\(rawValue)]"
+            }
+        }
+    }
+    
     enum TimeScale: String {
         case thirtyMin = "30min"
         case oneHour = "1hour"

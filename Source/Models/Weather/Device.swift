@@ -20,8 +20,9 @@ public extension NetatmoWeather {
         public let setupDate: Date
         /// Date of the last installation.
         public let lastSetupDate: Date
+        private let rawType: String
         /// Type of the device.
-        public let type: String
+        public var type: ProductType { ProductType(rawValue: rawType) }
         /// Date of the last status update.
         public let lastStatusStoreDate: Date
         /// Name of the module.
@@ -48,7 +49,7 @@ public extension NetatmoWeather {
         public let modules: [Module]
         
         public var description: String {
-            "Device(name: \(name), stationName: \(stationName), place: \(place), dashboard: \(dashboard), modules: \(modules))"
+            "Device(type: \(type), name: \(name), stationName: \(stationName), place: \(place), dashboard: \(dashboard), modules: \(modules))"
         }
         
         // MARK: - Coding
@@ -57,7 +58,7 @@ public extension NetatmoWeather {
             case identifier = "_id"
             case setupDate = "date_setup"
             case lastSetupDate = "last_setup"
-            case type
+            case rawType = "type"
             case lastStatusStoreDate = "last_status_store"
             case name = "module_name"
             case firmware
@@ -75,12 +76,12 @@ public extension NetatmoWeather {
         
         // MARK: - Init
         
-        public init(identifier: String, setupDate: Date, lastSetupDate: Date, type: String, lastStatusStoreDate: Date, name: String, firmware: Int, lastUpgradeDate: Date, wifiStatus: Int, reachable: Bool, co2Calibrating: Bool, stationName: String, dataType: [String], place: NetatmoManager.Place, readOnly: Bool? = nil, dashboard: Dashboard, modules: [Module]) {
+        public init(identifier: String, setupDate: Date, lastSetupDate: Date, type: ProductType, lastStatusStoreDate: Date, name: String, firmware: Int, lastUpgradeDate: Date, wifiStatus: Int, reachable: Bool, co2Calibrating: Bool, stationName: String, dataType: [String], place: NetatmoManager.Place, readOnly: Bool? = nil, dashboard: Dashboard, modules: [Module]) {
             
             self.identifier = identifier
             self.setupDate = setupDate
             self.lastSetupDate = lastSetupDate
-            self.type = type
+            self.rawType = type.rawValue
             self.lastStatusStoreDate = lastStatusStoreDate
             self.name = name
             self.firmware = firmware
