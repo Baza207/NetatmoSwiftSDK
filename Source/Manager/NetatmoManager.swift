@@ -152,7 +152,7 @@ public class NetatmoManager {
             return
         }
         
-        // Attempt tokenn refresh
+        // Attempt token refresh
         NetatmoManager.refreshToken { (result) in
             
             let authState: AuthState
