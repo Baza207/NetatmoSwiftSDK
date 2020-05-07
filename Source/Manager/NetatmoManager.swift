@@ -93,7 +93,7 @@ public class NetatmoManager {
     internal var accessToken: String?
     internal var refreshToken: String?
     internal var expires: Date?
-    var isValid: Bool {
+    internal var isValid: Bool {
         guard let expires = self.expires else { return false }
         return Date() < expires
     }
