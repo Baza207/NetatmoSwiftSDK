@@ -30,28 +30,28 @@ Before you begin, ensure you have met the following requirements:
 
 ### Swift Package Manager
 
-To integrate `NetatmoSwiftAPI` into your Xcode project using [Swift Package Manager](https://swift.org/package-manager), add `NetatmoSwiftAPI` as a dependency to the `dependencies` value of your `Package.swift`.
+To integrate `NetatmoSwiftSDK` into your Xcode project using [Swift Package Manager](https://swift.org/package-manager), add `NetatmoSwiftSDK` as a dependency to the `dependencies` value of your `Package.swift`.
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/Baza207/NetatmoSwiftAPI.git", .upToNextMajor(from: "0.0.1"))
+    .package(url: "https://github.com/Baza207/NetatmoSwiftSDK.git", .upToNextMajor(from: "0.0.1"))
 ]
 ```
 
 ### Carthage
 
-To integrate `NetatmoSwiftAPI` into your Xcode project using [Carthage](https://github.com/Carthage/Carthage), specify it in your `Cartfile` with the following:
+To integrate `NetatmoSwiftSDK` into your Xcode project using [Carthage](https://github.com/Carthage/Carthage), specify it in your `Cartfile` with the following:
 
 ```ogdl
-github "Baza207/NetatmoSwiftAPI" "0.0.1"
+github "Baza207/NetatmoSwiftSDK" "0.0.1"
 ```
 
 ### CocoaPods
 
-To integrate `NetatmoSwiftAPI` into your Xcode project using [CocoaPods](https://cocoapods.org), specify it in your `Podfile` with the following:
+To integrate `NetatmoSwiftSDK` into your Xcode project using [CocoaPods](https://cocoapods.org), specify it in your `Podfile` with the following:
 
 ```ruby
-pod 'NetatmoSwiftAPI', '~> 0.0.1'
+pod 'NetatmoSwiftSDK', '~> 0.0.1'
 ```
 
 ## Usage
@@ -62,13 +62,13 @@ Once you have a client ID and client secret from [Netatmo Developer Portal](http
 
 Once you have these items, you can import the `NetatmoSwiftSDK` framework in your project and set it up for use.
 
-1. Import `NetatmoSwiftAPI` in your `AppDelegate`:
+1. Import `NetatmoSwiftSDK` in your `AppDelegate`:
 
 ```swift
 import NetatmoSwiftSDK
 ```
 
-2. Setup `NetatmoSwiftAPI` by calling `configure(clientId:clientSecret:redirectURI:)` in `application(_:didFinishLaunchingWithOptions:)`, passing in your client ID and client secret from [Netatmo Developer Portal](https://dev.netatmo.com) as well as the URI you setup in Xcode Info tab.
+2. Setup `NetatmoSwiftSDK` by calling `configure(clientId:clientSecret:redirectURI:)` in `application(_:didFinishLaunchingWithOptions:)`, passing in your client ID and client secret from [Netatmo Developer Portal](https://dev.netatmo.com) as well as the URI you setup in Xcode Info tab.
 
 ```swift
 NetatmoManager.configure(clientId: "<Client ID>", clientSecret: "<Client Secret>", redirectURI: "<Redirect URI>://auth")
@@ -148,7 +148,7 @@ UIApplication.shared.open(url, options: [:], completionHandler: nil)
 
 3. Once the user is brought back to the app, the authentication state will change and trigger the listeners. From here you can then use all the `NetatmoWeather`, `NetatmoSecurity`, `NetatmoEnergy` and `NetatmoAircare` functions.
 
-4. `NetatmoSwiftAPI` will keep track of the user's authentication state in the keychain across launches, and will refresh the token if required. However to logout the user and clear the keychain, call the following:
+4. `NetatmoSwiftSDK` will keep track of the user's authentication state in the keychain across launches, and will refresh the token if required. However to logout the user and clear the keychain, call the following:
 
 ```swift
 do {
