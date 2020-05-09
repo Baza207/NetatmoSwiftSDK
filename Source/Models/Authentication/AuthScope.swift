@@ -9,7 +9,7 @@
 import Foundation
 
 /// If no scope is provided during the token request, the default is "read_station"
-public enum AuthScope: String, Decodable {
+public enum AuthScope: String, Decodable, CaseIterable {
     /// To retrieve weather station data (Getstationsdata, Getmeasure)
     case readStation = "read_station"
     /// To retrieve thermostat data ( Homestatus, Getroommeasure)
