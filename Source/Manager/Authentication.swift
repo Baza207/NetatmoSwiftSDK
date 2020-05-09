@@ -287,7 +287,7 @@ internal extension NetatmoManager {
         
         let manager = NetatmoManager.shared
         
-        let body = "grant_type=password&client_id=\(manager.clientId)&client_secret=\(manager.clientSecret)&username=\(username)&password=\(password)&scope=\(AuthScope.string(from: scope, separationType: .space))"
+        let body = "grant_type=password&client_id=\(manager.clientId)&client_secret=\(manager.clientSecret)&username=\(username)&password=\(password)&scope=\(AuthScope.string(from: scope))"
         urlRequest.httpBody = body.data(using: .utf8)!
         
         let requestDate = Date()
