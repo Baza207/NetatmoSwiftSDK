@@ -13,7 +13,7 @@ public class NetatmoWeather {
     
     // MARK: - Public Weather Data
     
-    /// Retrieves publicly shared weather data from Outdoor Modules within a predefined area.
+    /// Fetches publicly shared weather data from Outdoor Modules within a predefined area.
     ///
     /// No scope required.
     ///
@@ -23,7 +23,7 @@ public class NetatmoWeather {
     ///   - requiredData: To filter stations based on relevant measurements you want (e.g. rain will only return stations with rain gauges). Default is no filter `nil`.
     ///   - filter: `true` to exclude station with abnormal temperature measures. Default is `false`.
     ///   - completed: The result of the request as `PublicData` or `Error` on failure.
-    public static func getPublicData(northEast: CLLocationCoordinate2D, southWest: CLLocationCoordinate2D, requiredData: String? = nil, filter: Bool = false, completed: @escaping (Result<[PublicData], Error>) -> Void) {
+    public static func fetchPublicData(northEast: CLLocationCoordinate2D, southWest: CLLocationCoordinate2D, requiredData: String? = nil, filter: Bool = false, completed: @escaping (Result<[PublicData], Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -55,7 +55,7 @@ public class NetatmoWeather {
         }
         
         guard NetatmoManager.shared.isValid == false else {
-            NetatmoWeather.getPublicData(accessToken: accessToken, url: url, completed: completed)
+            NetatmoWeather.fetchPublicData(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
@@ -64,14 +64,14 @@ public class NetatmoWeather {
             
             switch result {
             case .success:
-                NetatmoWeather.getPublicData(accessToken: accessToken, url: url, completed: completed)
+                NetatmoWeather.fetchPublicData(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
         }
     }
     
-    private static func getPublicData(accessToken: String, url: URL, completed: @escaping (Result<[PublicData], Error>) -> Void) {
+    private static func fetchPublicData(accessToken: String, url: URL, completed: @escaping (Result<[PublicData], Error>) -> Void) {
         
         let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
@@ -113,7 +113,7 @@ public class NetatmoWeather {
     
     // MARK: - Weather Station Data
     
-    /// Returns data from a user Weather Stations (measures and device specific data).
+    /// Fetches data from a user's Weather Stations (measures and device specific data).
     ///
     /// Scope required: `readStation`.
     ///
@@ -121,7 +121,7 @@ public class NetatmoWeather {
     ///   - deviceId: Weather station mac address.
     ///   - favorites: To retrieve user's favorite weather stations. Default is false.
     ///   - completed: The result of the request as `Station` or `Error` on failure.
-    public static func getWeatherStationData(deviceId: String? = nil, favorites: Bool = false, completed: @escaping (Result<Station, Error>) -> Void) {
+    public static func fetchWeatherStationData(deviceId: String? = nil, favorites: Bool = false, completed: @escaping (Result<Station, Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -149,7 +149,7 @@ public class NetatmoWeather {
         }
         
         guard NetatmoManager.shared.isValid == false else {
-            NetatmoWeather.getWeatherStationData(accessToken: accessToken, url: url, completed: completed)
+            NetatmoWeather.fetchWeatherStationData(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
@@ -158,14 +158,14 @@ public class NetatmoWeather {
             
             switch result {
             case .success:
-                NetatmoWeather.getWeatherStationData(accessToken: accessToken, url: url, completed: completed)
+                NetatmoWeather.fetchWeatherStationData(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
         }
     }
     
-    private static func getWeatherStationData(accessToken: String, url: URL, completed: @escaping (Result<Station, Error>) -> Void) {
+    private static func fetchWeatherStationData(accessToken: String, url: URL, completed: @escaping (Result<Station, Error>) -> Void) {
         
         let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
@@ -207,7 +207,7 @@ public class NetatmoWeather {
     
     // MARK: - Weather Station Measurement
     
-    /// Retrieve data from a device or module.
+    /// Fetch data from a device or module.
     ///
     /// Scope required: `readStation`.
     ///
@@ -222,7 +222,7 @@ public class NetatmoWeather {
     ///   - optimize: Determines the format of the answer. Default is `true`. For mobile apps we recommend `true` and `false` if bandwidth isn't an issue as it is easier to parse.
     ///   - realTime: If scale different than max, timestamps are by default offset + scale/2. To get exact timestamps, use `true`. Default is `false`.
     ///   - completed: The result of the request as `StationMeasure` or `Error` on failure.
-    public static func getMeasure(deviceId: String, moduleId: String? = nil, scale: TimeScale, type: MeasureType, beginDate: Date? = nil, endDate: Date? = nil, limit: Int? = nil, optimize: Bool = true, realTime: Bool = false, completed: @escaping (Result<[StationMeasure], Error>) -> Void) {
+    public static func fetchMeasure(deviceId: String, moduleId: String? = nil, scale: TimeScale, type: MeasureType, beginDate: Date? = nil, endDate: Date? = nil, limit: Int? = nil, optimize: Bool = true, realTime: Bool = false, completed: @escaping (Result<[StationMeasure], Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -266,7 +266,7 @@ public class NetatmoWeather {
         }
         
         guard NetatmoManager.shared.isValid == false else {
-            NetatmoWeather.getMeasure(accessToken: accessToken, url: url, completed: completed)
+            NetatmoWeather.fetchMeasure(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
@@ -275,14 +275,14 @@ public class NetatmoWeather {
             
             switch result {
             case .success:
-                NetatmoWeather.getMeasure(accessToken: accessToken, url: url, completed: completed)
+                NetatmoWeather.fetchMeasure(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
         }
     }
     
-    private static func getMeasure(accessToken: String, url: URL, completed: @escaping (Result<[StationMeasure], Error>) -> Void) {
+    private static func fetchMeasure(accessToken: String, url: URL, completed: @escaping (Result<[StationMeasure], Error>) -> Void) {
         
         let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in

@@ -16,9 +16,9 @@ public extension NetatmoSecurity {
     ///
     /// No scope required.
     ///
-    static func getCameraUIImage(imageId: String, key: String, completed: @escaping (Result<UIImage, Error>) -> Void) {
+    static func fetchCameraUIImage(imageId: String, key: String, completed: @escaping (Result<UIImage, Error>) -> Void) {
         
-        NetatmoSecurity.getCameraPicture(imageId: imageId, key: key) { (result) in
+        NetatmoSecurity.fetchCameraPicture(imageId: imageId, key: key) { (result) in
             switch result {
             case .success(let data):
                 if let image = UIImage(data: data) {
