@@ -36,8 +36,7 @@ public extension NetatmoSecurity {
                 return nil
             }
         }
-        private let time: TimeInterval
-        public var date: Date { Date(timeIntervalSince1970: time) }
+        public let date: Date
         public let cameraId: String
         public let deviceId: String
         public let personId: String?
@@ -103,7 +102,7 @@ public extension NetatmoSecurity {
             case identifier = "id"
             case rawType = "type"
             case subType = "sub_type"
-            case time
+            case date = "time"
             case cameraId = "camera_id"
             case deviceId = "device_id"
             case personId = "person_id"
@@ -115,6 +114,27 @@ public extension NetatmoSecurity {
             case rawIsArrival = "is_arrival"
             case message
         }
+        
+        // MARK: - Init
+        
+        public init(identifier: String, type: EventType, subType: Int? = nil, date: Date, cameraId: String, deviceId: String, personId: String? = nil, snapshot: Snapshot? = nil, vignette: Vignette? = nil, eventList: [SubEvent]? = nil, videoId: String? = nil, videoStatus: String? = nil, isArrival: Bool, message: String? = nil) {
+            
+            self.identifier = identifier
+            self.rawType = type.rawValue
+            self.subType = subType
+            self.date = date
+            self.cameraId = cameraId
+            self.deviceId = deviceId
+            self.personId = personId
+            self.snapshot = snapshot
+            self.vignette = vignette
+            self.eventList = eventList
+            self.videoId = videoId
+            self.videoStatus = videoStatus
+            self.rawIsArrival = isArrival
+            self.message = message
+        }
+        
     }
     
 }

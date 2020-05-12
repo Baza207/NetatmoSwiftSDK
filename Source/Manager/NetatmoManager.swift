@@ -44,11 +44,27 @@ public class NetatmoManager {
         }
     }
     
-    public enum AuthState: Equatable {
+    public enum AuthState: Equatable, CustomStringConvertible {
         case unknown
         case authorized
         case tokenExpired
+        case unauthorized
         case failed(_ error: Error)
+        
+        public var description: String {
+            switch self {
+            case .unknown:
+                return "Unknown authentication state"
+            case .authorized:
+                return "User authorized"
+            case .tokenExpired:
+                return "Token expired"
+            case .unauthorized:
+                return "User unauthorized"
+            case .failed(let error):
+                return "Authentication error: \(error.localizedDescription)"
+            }
+        }
         
         public static func == (lhs: NetatmoManager.AuthState, rhs: NetatmoManager.AuthState) -> Bool {
             
@@ -58,6 +74,8 @@ public class NetatmoManager {
             case (.authorized, .authorized):
                 return true
             case (.tokenExpired, .tokenExpired):
+                return true
+            case (.unauthorized, .unauthorized):
                 return true
             case (let .failed(lhError), let .failed(rhError)):
                 return lhError.localizedDescription == rhError.localizedDescription
@@ -75,7 +93,7 @@ public class NetatmoManager {
     internal var accessToken: String?
     internal var refreshToken: String?
     internal var expires: Date?
-    var isValid: Bool {
+    internal var isValid: Bool {
         guard let expires = self.expires else { return false }
         return Date() < expires
     }
@@ -108,7 +126,6 @@ public class NetatmoManager {
         guard let stateUUID = shared.loadStateUUID() else {
             do {
                 try NetatmoManager.logout()
-                shared.authState = .unknown
             } catch {
                 shared.authState = .failed(error)
             }
@@ -120,7 +137,6 @@ public class NetatmoManager {
         guard let keychainAuthState = try? KeychainPasswordItem(service: NetatmoManager.keychainServiceName, account: stateUUID).readObject() as OAuthState else {
             do {
                 try NetatmoManager.logout()
-                shared.authState = .unknown
             } catch {
                 shared.authState = .failed(error)
             }
@@ -136,7 +152,7 @@ public class NetatmoManager {
             return
         }
         
-        // Attempt tokenn refresh
+        // Attempt token refresh
         NetatmoManager.refreshToken { (result) in
             
             let authState: AuthState

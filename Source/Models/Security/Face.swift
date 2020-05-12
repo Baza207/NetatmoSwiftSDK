@@ -31,6 +31,17 @@ public extension NetatmoSecurity {
             case key
             case url
         }
+        
+        // MARK: - Init
+        
+        public init(identifier: String, version: Int, key: String, url: String) {
+            
+            self.identifier = identifier
+            self.version = version
+            self.key = key
+            self.url = url
+        }
+        
     }
     
 }

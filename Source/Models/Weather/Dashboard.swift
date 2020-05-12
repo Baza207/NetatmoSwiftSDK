@@ -14,9 +14,8 @@ public extension NetatmoWeather {
         
         // MARK: - Properties
         
-        private let time: TimeInterval // UTC
         /// Date when data was measured in UTC.
-        public var date: Date { Date(timeIntervalSince1970: time) }
+        public let date: Date
         /// Temperature in °C.
         public let temperature: Double?
         /// CO2 level in ppm.
@@ -33,18 +32,10 @@ public extension NetatmoWeather {
         public let minTemperature: Double?
         /// Maximum temperature in °C.
         public let maxTemperature: Double?
-        private let minTemperatureTime: TimeInterval?
         /// Minimum temperature date masured.
-        public var minTemperatureDate: Date? {
-            guard let minTemperatureTime = self.minTemperatureTime else { return nil }
-            return Date(timeIntervalSince1970: minTemperatureTime)
-        }
-        private let maxTemperatureTime: TimeInterval?
+        public let minTemperatureDate: Date?
         /// Maximum temperature date masured.
-        public var maxTemperatureDate: Date? {
-            guard let maxTemperatureTime = self.maxTemperatureTime else { return nil }
-            return Date(timeIntervalSince1970: maxTemperatureTime)
-        }
+        public let maxTemperatureDate: Date?
         /// Trend for the last 12 hours (up, down, stable).
         public let temperatureTrend: Trend?
         /// Trend for the last 12 hours (up, down, stable).
@@ -67,12 +58,8 @@ public extension NetatmoWeather {
         public let maxWindStrength: Double?
         /// Maximum wind angle.
         public let maxWindAngle: Double?
-        private let maxWindStrengthTime: TimeInterval?
         /// Maximum wind strength date masured.
-        public var maxWindStrengthDate: Date? {
-            guard let maxWindStrengthTime = self.maxWindStrengthTime else { return nil }
-            return Date(timeIntervalSince1970: maxWindStrengthTime)
-        }
+        public let maxWindStrengthDate: Date?
         
         public var description: String {
             if let temperature = self.temperature {
@@ -88,7 +75,7 @@ public extension NetatmoWeather {
         // MARK: - Coding
         
         private enum CodingKeys: String, CodingKey {
-            case time = "time_utc"
+            case date = "time_utc"
             case temperature = "Temperature"
             case co2 = "CO2"
             case humidity = "Humidity"
@@ -97,8 +84,8 @@ public extension NetatmoWeather {
             case absolutePressure = "AbsolutePressure"
             case minTemperature = "min_temp"
             case maxTemperature = "max_temp"
-            case minTemperatureTime = "date_min_temp"
-            case maxTemperatureTime = "date_max_temp"
+            case minTemperatureDate = "date_min_temp"
+            case maxTemperatureDate = "date_max_temp"
             case temperatureTrend = "temp_trend"
             case pressureTrend = "pressure_trend"
             case rain = "Rain"
@@ -110,8 +97,38 @@ public extension NetatmoWeather {
             case gustAngle = "GustAngle"
             case maxWindStrength = "max_wind_str"
             case maxWindAngle = "max_wind_angle"
-            case maxWindStrengthTime = "date_max_wind_str"
+            case maxWindStrengthDate = "date_max_wind_str"
         }
+        
+        // MARK: - Init
+        
+        public init(date: Date, temperature: Double? = nil, co2: Int? = nil, humidity: Int? = nil, noise: Int? = nil, pressure: Double? = nil, absolutePressure: Double? = nil, minTemperature: Double? = nil, maxTemperature: Double? = nil, minTemperatureDate: Date? = nil, maxTemperatureDate: Date? = nil, temperatureTrend: Trend? = nil, pressureTrend: Trend? = nil, rain: Double? = nil, rain24HourSummary: Double? = nil, rain1HourSummary: Double? = nil, windStrength: Double? = nil, windAngle: Double? = nil, gustStrength: Double? = nil, gustAngle: Double? = nil, maxWindStrength: Double? = nil, maxWindAngle: Double? = nil, maxWindStrengthDate: Date? = nil) {
+            
+            self.date = date
+            self.temperature = temperature
+            self.co2 = co2
+            self.humidity = humidity
+            self.noise = noise
+            self.pressure = pressure
+            self.absolutePressure = absolutePressure
+            self.minTemperature = minTemperature
+            self.maxTemperature = maxTemperature
+            self.minTemperatureDate = minTemperatureDate
+            self.maxTemperatureDate = maxTemperatureDate
+            self.temperatureTrend = temperatureTrend
+            self.pressureTrend = pressureTrend
+            self.rain = rain
+            self.rain24HourSummary = rain24HourSummary
+            self.rain1HourSummary = rain1HourSummary
+            self.windStrength = windStrength
+            self.windAngle = windAngle
+            self.gustStrength = gustStrength
+            self.gustAngle = gustAngle
+            self.maxWindStrength = maxWindStrength
+            self.maxWindAngle = maxWindAngle
+            self.maxWindStrengthDate = maxWindStrengthDate
+        }
+        
     }
     
 }

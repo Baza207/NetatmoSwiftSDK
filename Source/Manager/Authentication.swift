@@ -12,7 +12,7 @@ public extension NetatmoManager {
     
     // MARK: - Authentication
     
-    static func authorizeURL(scope: [AuthScope] = [.readStation]) throws -> URL {
+    static func authorizeURL(scope: [AuthScope] = []) throws -> URL {
         
         let manager = NetatmoManager.shared
         manager.requestedScope = scope
@@ -106,7 +106,7 @@ public extension NetatmoManager {
                 return
             }
             
-            let decoder = JSONDecoder()
+            let decoder = JSONDecoder.secondsSince1970JSONDecoder
             let result: AuthResult?
             do {
                 result = try decoder.decode(AuthResult.self, from: data)
@@ -177,7 +177,7 @@ public extension NetatmoManager {
                 return
             }
             
-            let decoder = JSONDecoder()
+            let decoder = JSONDecoder.secondsSince1970JSONDecoder
             let result: AuthResult?
             do {
                 result = try decoder.decode(AuthResult.self, from: data)
@@ -230,7 +230,7 @@ public extension NetatmoManager {
         manager.requestedScope = nil
         manager.stateUUID = nil
         
-        manager.authState = .unknown
+        manager.authState = .unauthorized
     }
     
     // MARK: - Auth State Changed Listner
@@ -287,7 +287,7 @@ internal extension NetatmoManager {
         
         let manager = NetatmoManager.shared
         
-        let body = "grant_type=password&client_id=\(manager.clientId)&client_secret=\(manager.clientSecret)&username=\(username)&password=\(password)&scope=\(AuthScope.string(from: scope, separationType: .space))"
+        let body = "grant_type=password&client_id=\(manager.clientId)&client_secret=\(manager.clientSecret)&username=\(username)&password=\(password)&scope=\(AuthScope.string(from: scope))"
         urlRequest.httpBody = body.data(using: .utf8)!
         
         let requestDate = Date()
@@ -308,7 +308,7 @@ internal extension NetatmoManager {
                 return
             }
             
-            let decoder = JSONDecoder()
+            let decoder = JSONDecoder.secondsSince1970JSONDecoder
             let result: AuthResult?
             do {
                 result = try decoder.decode(AuthResult.self, from: data)

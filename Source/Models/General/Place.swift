@@ -57,6 +57,23 @@ public extension NetatmoManager {
             case altitude
             case location
         }
+        
+        // MARK: - Init
+        
+        public init(timeZone: String, city: String? = nil, country: String, altitude: Int? = nil, coordinate: CLLocationCoordinate2D? = nil) {
+            
+            self.timeZone = timeZone
+            self.city = city
+            self.country = country
+            self.altitude = altitude
+            
+            if let coordinate = coordinate {
+                location = [coordinate.latitude, coordinate.longitude]
+            } else {
+                location = nil
+            }
+        }
+        
     }
     
 }

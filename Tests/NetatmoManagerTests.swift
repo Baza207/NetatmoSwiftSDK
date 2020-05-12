@@ -21,6 +21,28 @@ class NetatmoManagerTests: XCTestCase {
         NetatmoManager.configure(clientId: config.clientId, clientSecret: config.clientSecret, redirectURI: config.redirectURI)
     }
     
+    func testUnauthedListener() {
+        
+        let expectation = self.expectation(description: #function)
+        
+        let listener = NetatmoManager.addAuthStateDidChangeListener { (authState) in
+            
+            switch authState {
+            case .unauthorized:
+                XCTAssertTrue(authState == .unauthorized)
+                expectation.fulfill()
+            default:
+                break
+            }
+        }
+        
+        waitForExpectations(timeout: 30) { (error) in
+            
+            XCTAssertNil(error, error?.localizedDescription ?? "")
+            NetatmoManager.removeAuthStateDidChangeListener(with: listener)
+        }
+    }
+    
     func testLogin() {
         
         guard let config = self.config else {

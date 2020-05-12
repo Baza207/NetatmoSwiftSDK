@@ -15,8 +15,7 @@ public extension NetatmoSecurity {
         // MARK: - Properties
         
         public let identifier: String
-        private let lastSeen: TimeInterval
-        public var lastSeenDate: Date { Date(timeIntervalSince1970: lastSeen) }
+        public let lastSeenDate: Date
         public let outOfSight: Bool
         public let face: Face
         /// If pseudo is missing, the person is unknown
@@ -30,11 +29,23 @@ public extension NetatmoSecurity {
         
         private enum CodingKeys: String, CodingKey {
             case identifier = "id"
-            case lastSeen = "last_seen"
+            case lastSeenDate = "last_seen"
             case outOfSight = "out_of_sight"
             case face
             case pseudo
         }
+        
+        // MARK: - Init
+        
+        public init(identifier: String, lastSeenDate: Date, outOfSight: Bool, face: Face, pseudo: String? = nil) {
+            
+            self.identifier = identifier
+            self.lastSeenDate = lastSeenDate
+            self.outOfSight = outOfSight
+            self.face = face
+            self.pseudo = pseudo
+        }
+        
     }
     
 }

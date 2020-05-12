@@ -34,6 +34,17 @@ public extension NetatmoSecurity {
             case country
             case mail
         }
+        
+        // MARK: - Init
+        
+        public init(regionLocale: String, language: String, country: String? = nil, mail: String) {
+            
+            self.regionLocale = regionLocale
+            self.language = language
+            self.country = country
+            self.mail = mail
+        }
+        
     }
     
 }

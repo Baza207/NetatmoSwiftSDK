@@ -47,6 +47,14 @@ public extension NetatmoSecurity {
         private enum CodingKeys: String, CodingKey {
             case eventsList = "events_list"
         }
+        
+        // MARK: - Init
+        
+        public init(eventsList: [Event]) {
+            
+            self.eventsList = eventsList
+        }
+        
     }
     
 }

@@ -51,6 +51,16 @@ public extension NetatmoSecurity {
             case user
             case globalInfo = "global_info"
         }
+        
+        // MARK: - Init
+        
+        public init(homes: [Home], user: User, globalInfo: GlobalInfo) {
+            
+            self.homes = homes
+            self.user = user
+            self.globalInfo = globalInfo
+        }
+        
     }
     
 }

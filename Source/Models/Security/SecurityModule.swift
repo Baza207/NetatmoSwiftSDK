@@ -27,11 +27,7 @@ public extension NetatmoSecurity {
         public let name: String?
         public let category: String?
         public let room: String?
-        private let lastActivity: TimeInterval?
-        public var lastActivityDate: Date? {
-            guard let lastActivity = self.lastActivity else { return nil }
-            return Date(timeIntervalSince1970: lastActivity)
-        }
+        public let lastActivityDate: Date?
         
         public var description: String {
             var description = "Module(identifier: \(identifier)), type: \(type), batteryPercent: \(batteryPercent), rfStatus: \(rfStatus), status: \(status)"
@@ -79,8 +75,27 @@ public extension NetatmoSecurity {
             case name
             case category
             case room
-            case lastActivity = "last_activity"
+            case lastActivityDate = "last_activity"
         }
+        
+        // MARK: - Init
+        
+        public init(identifier: String, type: ProductType, batteryPercent: Int, rfStatus: Int, status: String, monitoring: String? = nil, alimSource: String? = nil, tamperDetectionEnabled: Bool, name: String? = nil, category: String? = nil, room: String? = nil, lastActivityDate: Date? = nil) {
+            
+            self.identifier = identifier
+            self.rawType = type.rawValue
+            self.batteryPercent = batteryPercent
+            self.rfStatus = rfStatus
+            self.status = status
+            self.monitoring = monitoring
+            self.alimSource = alimSource
+            self.rawTamperDetectionEnabled = tamperDetectionEnabled
+            self.name = name
+            self.category = category
+            self.room = room
+            self.lastActivityDate = lastActivityDate
+        }
+        
     }
     
 }

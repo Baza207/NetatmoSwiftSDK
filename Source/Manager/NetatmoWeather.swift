@@ -86,7 +86,7 @@ public class NetatmoWeather {
                 return
             }
             
-            let decoder = JSONDecoder()
+            let decoder = JSONDecoder.secondsSince1970JSONDecoder
             let result: PublicDataBase?
             do {
                 result = try decoder.decode(PublicDataBase.self, from: data)
@@ -180,7 +180,7 @@ public class NetatmoWeather {
                 return
             }
             
-            let decoder = JSONDecoder()
+            let decoder = JSONDecoder.secondsSince1970JSONDecoder
             let result: StationBase?
             do {
                 result = try decoder.decode(StationBase.self, from: data)
@@ -297,7 +297,7 @@ public class NetatmoWeather {
                 return
             }
             
-            let decoder = JSONDecoder()
+            let decoder = JSONDecoder.secondsSince1970JSONDecoder
             let result: StationMeasureBase?
             do {
                 result = try decoder.decode(StationMeasureBase.self, from: data)
