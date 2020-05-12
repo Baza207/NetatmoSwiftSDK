@@ -40,7 +40,7 @@ class NetatmoSecurityTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
             
-            NetatmoSecurity.fetchHomeData { (result) in
+            NetatmoSecurity.getHomeData { (result) in
                 
                 switch result {
                 case .success(let homeData):
@@ -77,7 +77,7 @@ class NetatmoSecurityTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
             
-            NetatmoSecurity.fetchEventsUntil(homeId: config.homeId, eventId: config.eventId) { (result) in
+            NetatmoSecurity.getEventsUntil(homeId: config.homeId, eventId: config.eventId) { (result) in
                 
                 switch result {
                 case .success(let events):
@@ -114,7 +114,7 @@ class NetatmoSecurityTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
             
-            NetatmoSecurity.fetchLatestEventsOfPerson(homeId: config.homeId, personId: config.personId) { (result) in
+            NetatmoSecurity.getLatestEventsOfPerson(homeId: config.homeId, personId: config.personId) { (result) in
                 
                 switch result {
                 case .success(let events):
@@ -151,7 +151,7 @@ class NetatmoSecurityTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
             
-            NetatmoSecurity.fetchNextEvents(homeId: config.homeId, eventId: config.eventId) { (result) in
+            NetatmoSecurity.getNextEvents(homeId: config.homeId, eventId: config.eventId) { (result) in
                 
                 switch result {
                 case .success(let events):
@@ -187,7 +187,7 @@ class NetatmoSecurityTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
             
-            NetatmoSecurity.fetchCameraPicture(imageId: config.faceId, key: config.faceKey) { (result) in
+            NetatmoSecurity.getCameraPicture(imageId: config.faceId, key: config.faceKey) { (result) in
                 
                 switch result {
                 case .success(let data):
@@ -223,7 +223,7 @@ class NetatmoSecurityTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
             
-            NetatmoSecurity.fetchCameraUIImage(imageId: config.faceId, key: config.faceKey) { (result) in
+            NetatmoSecurity.getCameraUIImage(imageId: config.faceId, key: config.faceKey) { (result) in
                 
                 switch result {
                 case .success(let image):
@@ -259,7 +259,7 @@ class NetatmoSecurityTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
             
-            NetatmoSecurity.fetchCameraPicture(imageId: config.snapshotId, key: config.snapshotKey) { (result) in
+            NetatmoSecurity.getCameraPicture(imageId: config.snapshotId, key: config.snapshotKey) { (result) in
                 
                 switch result {
                 case .success(let data):
@@ -295,7 +295,7 @@ class NetatmoSecurityTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
             
-            NetatmoSecurity.fetchCameraUIImage(imageId: config.snapshotId, key: config.snapshotKey) { (result) in
+            NetatmoSecurity.getCameraUIImage(imageId: config.snapshotId, key: config.snapshotKey) { (result) in
                 
                 switch result {
                 case .success(let image):
@@ -331,7 +331,7 @@ class NetatmoSecurityTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
             
-            NetatmoSecurity.fetchCameraPicture(imageId: config.vignetteId, key: config.vignetteKey) { (result) in
+            NetatmoSecurity.getCameraPicture(imageId: config.vignetteId, key: config.vignetteKey) { (result) in
                 
                 switch result {
                 case .success(let data):
@@ -367,7 +367,7 @@ class NetatmoSecurityTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
             
-            NetatmoSecurity.fetchCameraUIImage(imageId: config.vignetteId, key: config.vignetteKey) { (result) in
+            NetatmoSecurity.getCameraUIImage(imageId: config.vignetteId, key: config.vignetteKey) { (result) in
                 
                 switch result {
                 case .success(let image):

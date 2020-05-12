@@ -10,11 +10,11 @@ import Foundation
 
 public class NetatmoSecurity {
     
-    /// Fetch user's homes and their topology.
+    /// Retrieve user's homes and their topology.
     ///
     /// Scope required: `read_camera`, `acces_camera`, `read_presence`, `access_presence` and `read_smokedetector`.
     ///
-    public static func fetchHomeData(homeId: String? = nil, numberOfEvents size: Int? = nil, completed: @escaping (Result<NetatmoSecurity.HomeData, Error>) -> Void) {
+    public static func getHomeData(homeId: String? = nil, numberOfEvents size: Int? = nil, completed: @escaping (Result<NetatmoSecurity.HomeData, Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -44,7 +44,7 @@ public class NetatmoSecurity {
         }
         
         guard NetatmoManager.shared.isValid == false else {
-            NetatmoSecurity.fetchHomeData(accessToken: accessToken, url: url, completed: completed)
+            NetatmoSecurity.getHomeData(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
@@ -53,14 +53,14 @@ public class NetatmoSecurity {
             
             switch result {
             case .success:
-                NetatmoSecurity.fetchHomeData(accessToken: accessToken, url: url, completed: completed)
+                NetatmoSecurity.getHomeData(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
         }
     }
     
-    private static func fetchHomeData(accessToken: String, url: URL, completed: @escaping (Result<NetatmoSecurity.HomeData, Error>) -> Void) {
+    private static func getHomeData(accessToken: String, url: URL, completed: @escaping (Result<NetatmoSecurity.HomeData, Error>) -> Void) {
         
         let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
@@ -100,13 +100,13 @@ public class NetatmoSecurity {
         downloadTask.resume()
     }
     
-    /// Fetch all the events until the one specified in the request.
+    /// Returns all the events until the one specified in the request.
     ///
     /// Scope required: `read_camera`, `acces_camera`, `read_presence`, `access_presence` and `read_smokedetector`.
     ///
     ///  - Note: This method is available for Welcome (Indoor Camera), Presence (Outdoor Camera) and the Smart Smoke Alarm
     ///
-    public static func fetchEventsUntil(homeId: String, eventId: String, completed: @escaping (Result<[Event], Error>) -> Void) {
+    public static func getEventsUntil(homeId: String, eventId: String, completed: @escaping (Result<[Event], Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -129,7 +129,7 @@ public class NetatmoSecurity {
         }
         
         guard NetatmoManager.shared.isValid == false else {
-            NetatmoSecurity.fetchEventsUntil(accessToken: accessToken, url: url, completed: completed)
+            NetatmoSecurity.getEventsUntil(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
@@ -138,14 +138,14 @@ public class NetatmoSecurity {
             
             switch result {
             case .success:
-                NetatmoSecurity.fetchEventsUntil(accessToken: accessToken, url: url, completed: completed)
+                NetatmoSecurity.getEventsUntil(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
         }
     }
     
-    private static func fetchEventsUntil(accessToken: String, url: URL, completed: @escaping (Result<[Event], Error>) -> Void) {
+    private static func getEventsUntil(accessToken: String, url: URL, completed: @escaping (Result<[Event], Error>) -> Void) {
         
         let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
@@ -185,13 +185,13 @@ public class NetatmoSecurity {
         downloadTask.resume()
     }
     
-    /// Fetch the most recent events.
+    /// Returns most recent events.
     ///
     /// Scope required: `read_camera` and `acces_camera`
     ///
     /// - Note: This method is only available for Welcome (Indoor Camera).
     ///
-    public static func fetchLatestEventsOfPerson(homeId: String, personId: String, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Event], Error>) -> Void) {
+    public static func getLatestEventsOfPerson(homeId: String, personId: String, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Event], Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -214,7 +214,7 @@ public class NetatmoSecurity {
         }
         
         guard NetatmoManager.shared.isValid == false else {
-            NetatmoSecurity.fetchLatestEventsOfPerson(accessToken: accessToken, url: url, completed: completed)
+            NetatmoSecurity.getLatestEventsOfPerson(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
@@ -223,14 +223,14 @@ public class NetatmoSecurity {
             
             switch result {
             case .success:
-                NetatmoSecurity.fetchLatestEventsOfPerson(accessToken: accessToken, url: url, completed: completed)
+                NetatmoSecurity.getLatestEventsOfPerson(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
         }
     }
     
-    private static func fetchLatestEventsOfPerson(accessToken: String, url: URL, completed: @escaping (Result<[Event], Error>) -> Void) {
+    private static func getLatestEventsOfPerson(accessToken: String, url: URL, completed: @escaping (Result<[Event], Error>) -> Void) {
         
         let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
@@ -270,13 +270,13 @@ public class NetatmoSecurity {
         downloadTask.resume()
     }
     
-    /// Fetch previous events.
+    /// Returns previous events.
     ///
     /// Scope required: `read_camera`, `acces_camera`, `read_presence`, `access_presence` and `read_smokedetector`.
     ///
     /// - Note: This method is available for Welcome (Indoor Camera), Presence (Outdoor Camera) and the Smart Smoke Alarm
     ///
-    public static func fetchNextEvents(homeId: String, eventId: String, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Event], Error>) -> Void) {
+    public static func getNextEvents(homeId: String, eventId: String, numberOfEvents size: Int? = nil, completed: @escaping (Result<[Event], Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -299,7 +299,7 @@ public class NetatmoSecurity {
         }
         
         guard NetatmoManager.shared.isValid == false else {
-            NetatmoSecurity.fetchNextEvents(accessToken: accessToken, url: url, completed: completed)
+            NetatmoSecurity.getNextEvents(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
@@ -308,14 +308,14 @@ public class NetatmoSecurity {
             
             switch result {
             case .success:
-                NetatmoSecurity.fetchNextEvents(accessToken: accessToken, url: url, completed: completed)
+                NetatmoSecurity.getNextEvents(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
         }
     }
     
-    private static func fetchNextEvents(accessToken: String, url: URL, completed: @escaping (Result<[Event], Error>) -> Void) {
+    private static func getNextEvents(accessToken: String, url: URL, completed: @escaping (Result<[Event], Error>) -> Void) {
         
         let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
@@ -355,11 +355,11 @@ public class NetatmoSecurity {
         downloadTask.resume()
     }
     
-    /// Fetch the snapshot associated to an event.
+    /// Returns the snapshot associated to an event.
     ///
     /// No scope required.
     ///
-    public static func fetchCameraPicture(imageId: String, key: String, completed: @escaping (Result<Data, Error>) -> Void) {
+    public static func getCameraPicture(imageId: String, key: String, completed: @escaping (Result<Data, Error>) -> Void) {
         
         guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
             completed(Result.failure(NetatmoError.noAccessToken))
@@ -382,7 +382,7 @@ public class NetatmoSecurity {
         }
         
         guard NetatmoManager.shared.isValid == false else {
-            NetatmoSecurity.fetchCameraPicture(accessToken: accessToken, url: url, completed: completed)
+            NetatmoSecurity.getCameraPicture(accessToken: accessToken, url: url, completed: completed)
             return
         }
         
@@ -391,14 +391,14 @@ public class NetatmoSecurity {
             
             switch result {
             case .success:
-                NetatmoSecurity.fetchCameraPicture(accessToken: accessToken, url: url, completed: completed)
+                NetatmoSecurity.getCameraPicture(accessToken: accessToken, url: url, completed: completed)
             case .failure(let error):
                 completed(Result.failure(error))
             }
         }
     }
     
-    private static func fetchCameraPicture(accessToken: String, url: URL, completed: @escaping (Result<Data, Error>) -> Void) {
+    private static func getCameraPicture(accessToken: String, url: URL, completed: @escaping (Result<Data, Error>) -> Void) {
         
         let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
         let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in

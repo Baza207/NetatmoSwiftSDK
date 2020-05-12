@@ -42,7 +42,7 @@ class NetatmoWeatherTests: XCTestCase {
             
             let ne = CLLocationCoordinate2D(latitude: config.neLatitude, longitude: config.neLongitude)
             let sw = CLLocationCoordinate2D(latitude: config.swLatitude, longitude: config.swLongitude)
-            NetatmoWeather.fetchPublicData(northEast: ne, southWest: sw) { (result) in
+            NetatmoWeather.getPublicData(northEast: ne, southWest: sw) { (result) in
                 
                 switch result {
                 case .success(let publicData):
@@ -79,7 +79,7 @@ class NetatmoWeatherTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
             
-            NetatmoWeather.fetchWeatherStationData { (result) in
+            NetatmoWeather.getWeatherStationData { (result) in
                 
                 switch result {
                 case .success(let stationData):
@@ -116,7 +116,7 @@ class NetatmoWeatherTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
             
-            NetatmoWeather.fetchMeasure(deviceId: config.weatherDeviceId, scale: .thirtyMin, type: .temperature, limit: 32) { (result) in
+            NetatmoWeather.getMeasure(deviceId: config.weatherDeviceId, scale: .thirtyMin, type: .temperature, limit: 32) { (result) in
                 
                 switch result {
                 case .success(let measureData):
