@@ -32,6 +32,7 @@
 		188A9A5F24158AE400A95897 /* JSONDecoderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A9A5E24158AE400A95897 /* JSONDecoderExtensions.swift */; };
 		189C927C24073598008492A0 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C927B24073598008492A0 /* EventList.swift */; };
 		189C927E24073BCA008492A0 /* NetatmoSecurityiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C927D24073BCA008492A0 /* NetatmoSecurityiOS.swift */; };
+		189F94B4246B323D006D9016 /* Authentication-Setup.md in Resources */ = {isa = PBXBuildFile; fileRef = 189F94B2246B323D006D9016 /* Authentication-Setup.md */; };
 		18AA34F024046265006EC67A /* HomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA34EF24046265006EC67A /* HomeData.swift */; };
 		18AA34F22404667E006EC67A /* NetatmoSecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA34F12404667E006EC67A /* NetatmoSecurityTests.swift */; };
 		18ACFCEA23FF15D400BA6B03 /* WeatherTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCE923FF15D400BA6B03 /* WeatherTypes.swift */; };
@@ -95,6 +96,7 @@
 		188A9A5E24158AE400A95897 /* JSONDecoderExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderExtensions.swift; sourceTree = "<group>"; };
 		189C927B24073598008492A0 /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
 		189C927D24073BCA008492A0 /* NetatmoSecurityiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoSecurityiOS.swift; sourceTree = "<group>"; };
+		189F94B2246B323D006D9016 /* Authentication-Setup.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "Authentication-Setup.md"; sourceTree = "<group>"; };
 		18AA34EF24046265006EC67A /* HomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeData.swift; sourceTree = "<group>"; };
 		18AA34F12404667E006EC67A /* NetatmoSecurityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoSecurityTests.swift; sourceTree = "<group>"; };
 		18ACFCE923FF15D400BA6B03 /* WeatherTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTypes.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				18D92A9D240DBAF900D078A7 /* README.md */,
+				189F94B0246B323D006D9016 /* Documentation */,
 				18D92A21240DA43A00D078A7 /* Package.swift */,
 				18D92A46240DB13200D078A7 /* NetatmoSwiftSDK.podspec */,
 				18021FB82360D35F00E3D20A /* Source */,
@@ -258,6 +261,14 @@
 				18ACFCED23FF28D200BA6B03 /* Place.swift */,
 			);
 			path = General;
+			sourceTree = "<group>";
+		};
+		189F94B0246B323D006D9016 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				189F94B2246B323D006D9016 /* Authentication-Setup.md */,
+			);
+			path = Documentation;
 			sourceTree = "<group>";
 		};
 		18E6901423FDE7C20038435B /* Authentication */ = {
@@ -390,6 +401,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189F94B4246B323D006D9016 /* Authentication-Setup.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
