@@ -28,9 +28,64 @@ Once you've done this you have setup your custom URL Scheme and are ready to cod
 
 [Defining a Custom URL Scheme for your app](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app)
 
-## Setup in Code
+## Configure Framework
 
-Once you've setup you're Custom URL Scheme, you can now authenticate the user.
+Once you have these items, you can import the `NetatmoSwiftSDK` framework in your project and set it up for use.
+
+Import `NetatmoSwiftSDK` in your `AppDelegate`:
+
+```swift
+import NetatmoSwiftSDK
+```
+
+Then setup `NetatmoSwiftSDK` by calling `configure(clientId:clientSecret:redirectURI:)` in `application(_:didFinishLaunchingWithOptions:)`, passing in your client ID and client secret from [Netatmo Developer Portal](https://dev.netatmo.com) as well as the URI you setup in Xcode Info tab.
+
+```swift
+NetatmoManager.configure(clientId: "<Client ID>", clientSecret: "<Client Secret>", redirectURI: "<Redirect URI>://auth")
+```
+
+**Note:** The `redirectURI` parameter should contain your Custom URL Scheme followed by `://auth`. However `auth` can be whatever you choose, it's just used in this example as a brief explanation of what this callback does.  If we used `my-netatmo-app` as our Custom URL Scheme then that would be our redirect URI, so we would pass `"my-netatmo-app://auth"` to `redirectURI` here.
+
+To deal with authentication callbacks you need to handle URL callbacks.
+
+If you use a `SceneDelegate` then use the following:
+
+```swift
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+    
+    guard let url = URLContexts.first?.url else {
+        NSLog("No valid URL contexts")
+        return
+    }
+    
+    if url.scheme == "<Redirect URI>" && url.host == "auth" else {
+        NetatmoManager.authorizationCallback(with: url)
+    } else {
+        NSLog("No matching URL contexts")
+    }
+}
+```
+
+Otherwise use this in your `AppDelegate`:
+
+```swift
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    
+    if url.scheme == "<Redirect URI>" && url.host == "auth" else {
+        NetatmoManager.authorizationCallback(with: url)
+        return true
+    }
+    
+    NSLog("No matching URL contexts")
+    return false
+}
+```
+
+**Note:** If your app supports `UIWindowSceneDelegate`, then the url callback will not be called in you `UIApplicationDelegate`. However, if you support iOS versions before iOS 13, then you will require both code blacks in your `AppDelegate` and `SceneDelegate`.
+
+## Setup Authentication Logic
+
+Once you've setup you're Custom URL Scheme and configured the framework with your keys, you can now request to authenticate the user.
 
 First, we listen to changes to authentication state:
 
@@ -79,9 +134,9 @@ UIApplication.shared.open(url, options: [:], completionHandler: nil)
 
 **Note:** Make sure you pass in the correct scopes for the requests you wish to make. Each request will state what scope it requires, otherwise it can be found at [https://dev.netatmo.com](https://dev.netatmo.com).
 
-3. Once the user is brought back to the app, the authentication state will change and trigger the listeners. From here you can then use all the `NetatmoWeather`, `NetatmoSecurity`, `NetatmoEnergy` and `NetatmoAircare` functions.
+Once the user is brought back to the app, the authentication state will change and trigger the listeners. From here you can then use all the `NetatmoWeather`, `NetatmoSecurity`, `NetatmoEnergy` and `NetatmoAircare` functions.
 
-4. `NetatmoSwiftSDK` will keep track of the user's authentication state in the keychain across launches, and will refresh the token if required. However to logout the user and clear the keychain, call the following:
+`NetatmoSwiftSDK` will keep track of the user's authentication state in the keychain across launches, and will refresh the token if required. However to logout the user and clear the keychain, call the following:
 
 ```swift
 do {
