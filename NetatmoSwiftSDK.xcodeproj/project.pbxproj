@@ -32,7 +32,6 @@
 		188A9A5F24158AE400A95897 /* JSONDecoderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A9A5E24158AE400A95897 /* JSONDecoderExtensions.swift */; };
 		189C927C24073598008492A0 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C927B24073598008492A0 /* EventList.swift */; };
 		189C927E24073BCA008492A0 /* NetatmoSecurityiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C927D24073BCA008492A0 /* NetatmoSecurityiOS.swift */; };
-		189F94B4246B323D006D9016 /* Authentication-Setup.md in Resources */ = {isa = PBXBuildFile; fileRef = 189F94B2246B323D006D9016 /* Authentication-Setup.md */; };
 		18AA34F024046265006EC67A /* HomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA34EF24046265006EC67A /* HomeData.swift */; };
 		18AA34F22404667E006EC67A /* NetatmoSecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA34F12404667E006EC67A /* NetatmoSecurityTests.swift */; };
 		18ACFCEA23FF15D400BA6B03 /* WeatherTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCE923FF15D400BA6B03 /* WeatherTypes.swift */; };
@@ -401,7 +400,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				189F94B4246B323D006D9016 /* Authentication-Setup.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
