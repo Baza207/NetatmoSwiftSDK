@@ -82,6 +82,7 @@
 		18021FEC2360E29200E3D20A /* NetatmoWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoWeather.swift; sourceTree = "<group>"; };
 		1821A11E23F6EC3F002688DA /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		1821A12223FB276F002688DA /* OAuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthState.swift; sourceTree = "<group>"; };
+		1843844A246E9CC90097CEBB /* Testing.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Testing.md; sourceTree = "<group>"; };
 		184494DD23BD515C00479929 /* AuthScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScope.swift; sourceTree = "<group>"; };
 		184EC813240966E6002A1574 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		1854E32624031492005FA858 /* SecurityTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityTypes.swift; sourceTree = "<group>"; };
@@ -266,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				189F94B2246B323D006D9016 /* Authentication-Setup.md */,
+				1843844A246E9CC90097CEBB /* Testing.md */,
 			);
 			path = Documentation;
 			sourceTree = "<group>";
