@@ -43,7 +43,7 @@ public extension NetatmoWeather {
         public let dataType: [String]
         /// Describes the place where the weather station is.
         public let place: NetatmoManager.Place
-        /// `true` if the user owns the station, `false` if he is invited to a station.
+        /// `true` if the user owns the station, `false` if they are invited to a station.
         public let readOnly: Bool?
         public let dashboard: Dashboard
         public let modules: [Module]
