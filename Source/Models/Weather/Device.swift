@@ -30,7 +30,7 @@ public extension NetatmoWeather {
         /// Version of the software.
         public let firmware: Int
         /// Date of the last upgrade.
-        public let lastUpgradeDate: Date
+        public let lastUpgradeDate: Date?
         /// WiFi status per Base station. (86=bad, 56=good)
         public let wifiStatus: Int
         /// `true` if the station connected to Netatmo cloud within the last 4 hours.
