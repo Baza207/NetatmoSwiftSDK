@@ -46,7 +46,8 @@ public extension NetatmoWeather {
         /// `true` if the user owns the station, `false` if they are invited to a station.
         public let readOnly: Bool?
         public let dashboard: Dashboard
-        public let modules: [Module]
+        private let rawModules: [Module]?
+        public var modules: [Module] { rawModules ?? [] }
         
         public var description: String {
             "Device(type: \(type), name: \(name), stationName: \(stationName), place: \(place), dashboard: \(dashboard), modules: \(modules))"
@@ -71,7 +72,7 @@ public extension NetatmoWeather {
             case place
             case readOnly = "read_only"
             case dashboard = "dashboard_data"
-            case modules
+            case rawModules = "modules"
         }
         
         // MARK: - Init
@@ -94,7 +95,7 @@ public extension NetatmoWeather {
             self.place = place
             self.readOnly = readOnly
             self.dashboard = dashboard
-            self.modules = modules
+            self.rawModules = modules
         }
         
     }
