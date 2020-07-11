@@ -23,13 +23,14 @@ public extension NetatmoSecurity {
         public let sdCardStatus: String
         public let alimStatus: String
         public let name: String
-        public var modules: [Module]?
+        private let rawModules: [Module]?
+        public var modules: [Module] { rawModules ?? [] }
         private let rawUsePinCode: Bool?
         public var usePinCode: Bool { rawUsePinCode ?? false }
         public let lastSetupDate: Date
         
         public var description: String {
-            "Camera(identifier: \(identifier), type: \(type), status: \(status), isLocal: \(isLocal), sdCardStatus: \(sdCardStatus), alimentationStatus: \(alimStatus), name: \(name), modules: \(modules ?? []), usePinCode: \(usePinCode), lastSetupDate: \(lastSetupDate))"
+            "Camera(identifier: \(identifier), type: \(type), status: \(status), isLocal: \(isLocal), sdCardStatus: \(sdCardStatus), alimentationStatus: \(alimStatus), name: \(name), modules: \(modules), usePinCode: \(usePinCode), lastSetupDate: \(lastSetupDate))"
         }
         
         // MARK: - Coding
@@ -43,7 +44,7 @@ public extension NetatmoSecurity {
             case sdCardStatus = "sd_status"
             case alimStatus = "alim_status"
             case name
-            case modules
+            case rawModules = "modules"
             case rawUsePinCode = "use_pin_code"
             case lastSetupDate = "last_setup"
         }
@@ -60,7 +61,7 @@ public extension NetatmoSecurity {
             self.sdCardStatus = sdCardStatus
             self.alimStatus = alimStatus
             self.name = name
-            self.modules = modules
+            self.rawModules = modules
             self.rawUsePinCode = usePinCode
             self.lastSetupDate = lastSetupDate
         }

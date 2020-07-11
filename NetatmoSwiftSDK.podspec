@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "NetatmoSwiftSDK"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "NetatmoSwiftSDK is a Swift wrapper around the Netatmo API."
   s.homepage     = "https://github.com/Baza207/NetatmoSwiftSDK"
   s.license      = { :type => "MIT", :file => "LICENSE" }

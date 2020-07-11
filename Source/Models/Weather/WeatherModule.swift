@@ -21,8 +21,9 @@ public extension NetatmoWeather {
         public var type: ProductType { ProductType(rawValue: rawType) }
         /// Name of the module.
         public let name: String
+        private let rawDataType: [String]?
         /// Array of data measured by the device (e.g. "Temperature", "Humidity").
-        public let dataType: [String]
+        public var dataType: [String] { rawDataType ?? [] }
         /// Date of the last installation.
         public let lastSetupDate: Date
         /// `true` if the station connected to Netatmo cloud within the last 4 hours.
@@ -51,7 +52,7 @@ public extension NetatmoWeather {
             case identifier = "_id"
             case rawType = "type"
             case name = "module_name"
-            case dataType = "data_type"
+            case rawDataType = "data_type"
             case lastSetupDate = "last_setup"
             case reachable
             case firmware
@@ -70,7 +71,7 @@ public extension NetatmoWeather {
             self.identifier = identifier
             self.rawType = type.rawValue
             self.name = name
-            self.dataType = dataType
+            self.rawDataType = dataType
             self.lastSetupDate = lastSetupDate
             self.reachable = reachable
             self.firmware = firmware
