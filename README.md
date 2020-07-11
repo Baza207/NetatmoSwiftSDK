@@ -158,6 +158,15 @@ do {
 }
 ```
 
+### Advanced Authentication Setup
+
+For a more detailed explination on how to setup authentication, please refer to [Authentication Setup](https://github.com/Baza207/NetatmoSwiftSDK/blob/master/Documentation/Authentication-Setup.md) in the Documentation directory.
+
+
+### Testing
+
+For more details on running the tests, please refer to [Testing](https://github.com/Baza207/NetatmoSwiftSDK/blob/master/Documentation/Testing.md) in the Documentation directory.
+
 ## Contributors
 
 [James Barrow](https://github.com/baza207)
