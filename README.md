@@ -173,4 +173,4 @@ For more details on running the tests, please refer to [Testing](https://github.
 
 ## License
 
-[MIT Licence](LICENSE)
+[MIT License](LICENSE)
