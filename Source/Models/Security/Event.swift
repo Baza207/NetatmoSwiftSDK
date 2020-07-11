@@ -42,7 +42,8 @@ public extension NetatmoSecurity {
         public let personId: String?
         public let snapshot: Snapshot?
         public let vignette: Vignette?
-        public let eventList: [SubEvent]?
+        private let rawEventList: [SubEvent]?
+        public var eventList: [SubEvent] { rawEventList ?? [] }
         public let videoId: String?
         public let videoStatus: String?
         private let rawIsArrival: Bool?
@@ -75,9 +76,7 @@ public extension NetatmoSecurity {
                 description += ", vignette: \(vignette)"
             }
             
-            if let eventList = self.eventList {
-                description += ", eventList: \(eventList)"
-            }
+            description += ", eventList: \(eventList)"
             
             if let videoId = self.videoId {
                 description += ", videoId: \(videoId)"
@@ -108,7 +107,7 @@ public extension NetatmoSecurity {
             case personId = "person_id"
             case snapshot
             case vignette
-            case eventList = "event_list"
+            case rawEventList = "event_list"
             case videoId = "video_id"
             case videoStatus = "video_status"
             case rawIsArrival = "is_arrival"
@@ -128,7 +127,7 @@ public extension NetatmoSecurity {
             self.personId = personId
             self.snapshot = snapshot
             self.vignette = vignette
-            self.eventList = eventList
+            self.rawEventList = eventList
             self.videoId = videoId
             self.videoStatus = videoStatus
             self.rawIsArrival = isArrival

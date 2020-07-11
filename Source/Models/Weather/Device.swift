@@ -39,8 +39,9 @@ public extension NetatmoWeather {
         public let co2Calibrating: Bool
         /// Name of the station.
         public let stationName: String
+        private let rawDataType: [String]?
         /// Array of data measured by the device (e.g. "Temperature", "Humidity").
-        public let dataType: [String]
+        public var dataType: [String] { rawDataType ?? [] }
         /// Describes the place where the weather station is.
         public let place: NetatmoManager.Place
         /// `true` if the user owns the station, `false` if they are invited to a station.
@@ -68,7 +69,7 @@ public extension NetatmoWeather {
             case reachable
             case co2Calibrating = "co2_calibrating"
             case stationName = "station_name"
-            case dataType = "data_type"
+            case rawDataType = "data_type"
             case place
             case readOnly = "read_only"
             case dashboard = "dashboard_data"
@@ -91,7 +92,7 @@ public extension NetatmoWeather {
             self.reachable = reachable
             self.co2Calibrating = co2Calibrating
             self.stationName = stationName
-            self.dataType = dataType
+            self.rawDataType = dataType
             self.place = place
             self.readOnly = readOnly
             self.dashboard = dashboard

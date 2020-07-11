@@ -18,11 +18,15 @@ public extension NetatmoSecurity {
         public let identifier: String
         /// Name of the home.
         public let name: String
-        public let people: [Person]
+        private let rawPeople: [Person]?
+        public var people: [Person] { rawPeople ?? [] }
         public let place: NetatmoManager.Place
-        public let cameras: [Camera]
-        public let smokeDetectors: [SmokeDetector]
-        public let events: [Event]
+        private let rawCameras: [Camera]?
+        public var cameras: [Camera] { rawCameras ?? [] }
+        private let rawSmokeDetectors: [SmokeDetector]?
+        public var smokeDetectors: [SmokeDetector] { rawSmokeDetectors ?? [] }
+        private let rawEvents: [Event]?
+        public var events: [Event] { rawEvents ?? [] }
         
         public var description: String {
             "Home(identifier: \(identifier), name: \(name), peopleCount: \(people.count), place: \(place), cameras: \(cameras), smokeDetectors: \(smokeDetectors), eventsCount: \(events.count))"
@@ -33,11 +37,11 @@ public extension NetatmoSecurity {
         private enum CodingKeys: String, CodingKey {
             case identifier = "id"
             case name
-            case people = "persons"
+            case rawPeople = "persons"
             case place
-            case cameras
-            case smokeDetectors = "smokedetectors"
-            case events
+            case rawCameras = "cameras"
+            case rawSmokeDetectors = "smokedetectors"
+            case rawEvents = "events"
         }
         
         // MARK: - Init
@@ -46,11 +50,11 @@ public extension NetatmoSecurity {
             
             self.identifier = identifier
             self.name = name
-            self.people = people
+            self.rawPeople = people
             self.place = place
-            self.cameras = cameras
-            self.smokeDetectors = smokeDetectors
-            self.events = events
+            self.rawCameras = cameras
+            self.rawSmokeDetectors = smokeDetectors
+            self.rawEvents = events
         }
         
     }
