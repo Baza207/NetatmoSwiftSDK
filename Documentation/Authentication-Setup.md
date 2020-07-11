@@ -10,7 +10,7 @@ Once you have an account, you need to create an "app" in the Netatmo developer p
 
 Once you've filled in the required fields and save, you will be given a client ID and a client secret. Keep these handy as they'll be needed in your application.
 
-Do *not* fill in redirect URI or webhook URI. This will cause the Netatmo API to try and redirect to a web service with that URI and cause the authentication process in your app to fail or not complete. If you require access for a seperate web app, it might be best to create a seperate app for it in the Netatmo Developer Portal. 
+You don't *need* to fill in any more details here (such as redirect URI or webhook URI), as you wont need these for your app (though you will need them if you want to have a web app as well).
 
 **Please Note:** If you have any issues with any of the above, please contact Netatmo directly for support.
 
