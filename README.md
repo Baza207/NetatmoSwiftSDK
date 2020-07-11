@@ -34,7 +34,7 @@ To integrate `NetatmoSwiftSDK` into your Xcode project using [Swift Package Mana
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/Baza207/NetatmoSwiftSDK.git", .upToNextMajor(from: "0.0.2"))
+    .package(url: "https://github.com/Baza207/NetatmoSwiftSDK.git", .upToNextMajor(from: "0.0.3"))
 ]
 ```
 
@@ -43,7 +43,7 @@ dependencies: [
 To integrate `NetatmoSwiftSDK` into your Xcode project using [Carthage](https://github.com/Carthage/Carthage), specify it in your `Cartfile` with the following:
 
 ```ogdl
-github "Baza207/NetatmoSwiftSDK" "0.0.2"
+github "Baza207/NetatmoSwiftSDK" "0.0.3"
 ```
 
 ### CocoaPods
@@ -51,7 +51,7 @@ github "Baza207/NetatmoSwiftSDK" "0.0.2"
 To integrate `NetatmoSwiftSDK` into your Xcode project using [CocoaPods](https://cocoapods.org), specify it in your `Podfile` with the following:
 
 ```ruby
-pod 'NetatmoSwiftSDK', '~> 0.0.2'
+pod 'NetatmoSwiftSDK', '~> 0.0.3'
 ```
 
 ## Usage
