@@ -20,6 +20,7 @@ public extension NetatmoSecurity {
         public let face: Face
         /// If pseudo is missing, the person is unknown
         public let pseudo: String?
+        public var isKnown: Bool { pseudo != nil }
         
         public var description: String {
             "Person(identifier: \(identifier), lastSeenDate: \(lastSeenDate), outOfSight: \(outOfSight), face: \(face), pseudo: \(pseudo ?? "Unknown"))"
