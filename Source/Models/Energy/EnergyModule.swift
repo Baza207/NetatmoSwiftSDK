@@ -21,6 +21,8 @@ public extension NetatmoEnergy {
         public let setupDate: Date?
         private let rawModuleBridged: [String]?
         public var moduleBridged: [String] { rawModuleBridged ?? [] }
+        public var roomId: String?
+        public var bridge: String?
         
         public var description: String {
             "Module(identifier: \(identifier)), type: \(type), moduleBridged: \(moduleBridged))"
@@ -34,6 +36,8 @@ public extension NetatmoEnergy {
             case name
             case setupDate = "setup_date"
             case rawModuleBridged = "module_bridged"
+            case roomId = "room_id"
+            case bridge
         }
         
         // MARK: - Init
