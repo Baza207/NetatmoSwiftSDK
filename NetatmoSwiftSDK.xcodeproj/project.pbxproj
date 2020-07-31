@@ -57,6 +57,7 @@
 		18F0EA9724D4A74500AFFD3C /* EnergyHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EA9624D4A74500AFFD3C /* EnergyHomeData.swift */; };
 		18F0EA9924D4AB3300AFFD3C /* EnergyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EA9824D4AB3300AFFD3C /* EnergyUser.swift */; };
 		18F0EA9B24D4ADA600AFFD3C /* EnergyHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EA9A24D4ADA600AFFD3C /* EnergyHome.swift */; };
+		18F0EA9D24D4BCCA00AFFD3C /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EA9C24D4BCCA00AFFD3C /* Room.swift */; };
 		18FBF6292409C27F00DF7366 /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBF6282409C27F00DF7366 /* URLRequestExtensions.swift */; };
 		18FBF62B2409C41A00DF7366 /* NetatmoWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBF62A2409C41A00DF7366 /* NetatmoWeatherTests.swift */; };
 /* End PBXBuildFile section */
@@ -130,6 +131,7 @@
 		18F0EA9624D4A74500AFFD3C /* EnergyHomeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyHomeData.swift; sourceTree = "<group>"; };
 		18F0EA9824D4AB3300AFFD3C /* EnergyUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyUser.swift; sourceTree = "<group>"; };
 		18F0EA9A24D4ADA600AFFD3C /* EnergyHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyHome.swift; sourceTree = "<group>"; };
+		18F0EA9C24D4BCCA00AFFD3C /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		18FBF6282409C27F00DF7366 /* URLRequestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtensions.swift; sourceTree = "<group>"; };
 		18FBF62A2409C41A00DF7366 /* NetatmoWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoWeatherTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -318,6 +320,7 @@
 				18F0EA9624D4A74500AFFD3C /* EnergyHomeData.swift */,
 				18F0EA9824D4AB3300AFFD3C /* EnergyUser.swift */,
 				18F0EA9A24D4ADA600AFFD3C /* EnergyHome.swift */,
+				18F0EA9C24D4BCCA00AFFD3C /* Room.swift */,
 			);
 			path = Energy;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				18021FD92360D5FC00E3D20A /* WeatherUser.swift in Sources */,
 				18D3E02F2407303C00A64E62 /* Person.swift in Sources */,
 				184EC814240966E6002A1574 /* DataBase.swift in Sources */,
+				18F0EA9D24D4BCCA00AFFD3C /* Room.swift in Sources */,
 				18ACFCEA23FF15D400BA6B03 /* WeatherTypes.swift in Sources */,
 				18F0EA9B24D4ADA600AFFD3C /* EnergyHome.swift in Sources */,
 				18021FD32360D58A00E3D20A /* AuthResult.swift in Sources */,
