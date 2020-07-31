@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 public extension NetatmoEnergy {
     
     enum ProductType: CustomStringConvertible {
@@ -57,4 +55,51 @@ public extension NetatmoEnergy {
             }
         }
     }
+    
+    enum ThermalMode: CustomStringConvertible {
+        case schedule
+        case away
+        case frostGuard
+        case other(String)
+        
+        init(rawValue: String) {
+            switch rawValue {
+            case "schedule":
+                self = .schedule
+            case "away":
+                self = .away
+            case "frost_guard":
+                self = .frostGuard
+            default:
+                self = .other(rawValue)
+            }
+        }
+        
+        var rawValue: String {
+            switch self {
+            case .schedule:
+                return "schedule"
+            case .away:
+                return "away"
+            case .frostGuard:
+                return "frost_guard"
+            case .other(let rawValue):
+                return rawValue
+            }
+        }
+        
+        public var description: String {
+            switch self {
+            case .schedule:
+                return "Schedule"
+            case .away:
+                return "Away"
+            case .frostGuard:
+                return "Frost Guard"
+            case .other(let rawValue):
+                return "Other [\(rawValue)]"
+            }
+        }
+    }
+    
 }

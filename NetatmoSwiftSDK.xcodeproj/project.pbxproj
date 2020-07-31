@@ -32,13 +32,13 @@
 		188A9A5F24158AE400A95897 /* JSONDecoderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A9A5E24158AE400A95897 /* JSONDecoderExtensions.swift */; };
 		189C927C24073598008492A0 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C927B24073598008492A0 /* EventList.swift */; };
 		189C927E24073BCA008492A0 /* NetatmoSecurityiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C927D24073BCA008492A0 /* NetatmoSecurityiOS.swift */; };
-		18AA34F024046265006EC67A /* HomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA34EF24046265006EC67A /* HomeData.swift */; };
+		18AA34F024046265006EC67A /* SecurityHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA34EF24046265006EC67A /* SecurityHomeData.swift */; };
 		18AA34F22404667E006EC67A /* NetatmoSecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA34F12404667E006EC67A /* NetatmoSecurityTests.swift */; };
 		18ACFCEA23FF15D400BA6B03 /* WeatherTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCE923FF15D400BA6B03 /* WeatherTypes.swift */; };
 		18ACFCEE23FF28D200BA6B03 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCED23FF28D200BA6B03 /* Place.swift */; };
 		18ACFCF023FF369600BA6B03 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCEF23FF369600BA6B03 /* Dashboard.swift */; };
 		18ACFCF223FF36D600BA6B03 /* WeatherModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCF123FF36D600BA6B03 /* WeatherModule.swift */; };
-		18D3E02D2407302400A64E62 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E02C2407302400A64E62 /* Home.swift */; };
+		18D3E02D2407302400A64E62 /* SecurityHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E02C2407302400A64E62 /* SecurityHome.swift */; };
 		18D3E02F2407303C00A64E62 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E02E2407303C00A64E62 /* Person.swift */; };
 		18D3E0312407304F00A64E62 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E0302407304F00A64E62 /* Face.swift */; };
 		18D3E0332407306400A64E62 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E0322407306400A64E62 /* Camera.swift */; };
@@ -52,7 +52,11 @@
 		18D3E0432407322E00A64E62 /* GlobalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E0422407322E00A64E62 /* GlobalInfo.swift */; };
 		18E6901723FDEA4D0038435B /* PublicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E6901623FDEA4D0038435B /* PublicData.swift */; };
 		18E6901923FDEADD0038435B /* StationMeasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E6901823FDEADD0038435B /* StationMeasure.swift */; };
+		18F0EA9224D47BBA00AFFD3C /* NetatmoEnergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EA9124D47BBA00AFFD3C /* NetatmoEnergy.swift */; };
 		18F0EA9524D47D3E00AFFD3C /* EnergyTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EA9424D47D3E00AFFD3C /* EnergyTypes.swift */; };
+		18F0EA9724D4A74500AFFD3C /* EnergyHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EA9624D4A74500AFFD3C /* EnergyHomeData.swift */; };
+		18F0EA9924D4AB3300AFFD3C /* EnergyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EA9824D4AB3300AFFD3C /* EnergyUser.swift */; };
+		18F0EA9B24D4ADA600AFFD3C /* EnergyHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EA9A24D4ADA600AFFD3C /* EnergyHome.swift */; };
 		18FBF6292409C27F00DF7366 /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBF6282409C27F00DF7366 /* URLRequestExtensions.swift */; };
 		18FBF62B2409C41A00DF7366 /* NetatmoWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBF62A2409C41A00DF7366 /* NetatmoWeatherTests.swift */; };
 /* End PBXBuildFile section */
@@ -98,13 +102,13 @@
 		189C927B24073598008492A0 /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
 		189C927D24073BCA008492A0 /* NetatmoSecurityiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoSecurityiOS.swift; sourceTree = "<group>"; };
 		189F94B2246B323D006D9016 /* Authentication-Setup.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "Authentication-Setup.md"; sourceTree = "<group>"; };
-		18AA34EF24046265006EC67A /* HomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeData.swift; sourceTree = "<group>"; };
+		18AA34EF24046265006EC67A /* SecurityHomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityHomeData.swift; sourceTree = "<group>"; };
 		18AA34F12404667E006EC67A /* NetatmoSecurityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoSecurityTests.swift; sourceTree = "<group>"; };
 		18ACFCE923FF15D400BA6B03 /* WeatherTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTypes.swift; sourceTree = "<group>"; };
 		18ACFCED23FF28D200BA6B03 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		18ACFCEF23FF369600BA6B03 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		18ACFCF123FF36D600BA6B03 /* WeatherModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModule.swift; sourceTree = "<group>"; };
-		18D3E02C2407302400A64E62 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		18D3E02C2407302400A64E62 /* SecurityHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityHome.swift; sourceTree = "<group>"; };
 		18D3E02E2407303C00A64E62 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		18D3E0302407304F00A64E62 /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
 		18D3E0322407306400A64E62 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
@@ -121,7 +125,11 @@
 		18D92A9D240DBAF900D078A7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		18E6901623FDEA4D0038435B /* PublicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicData.swift; sourceTree = "<group>"; };
 		18E6901823FDEADD0038435B /* StationMeasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationMeasure.swift; sourceTree = "<group>"; };
+		18F0EA9124D47BBA00AFFD3C /* NetatmoEnergy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoEnergy.swift; sourceTree = "<group>"; };
 		18F0EA9424D47D3E00AFFD3C /* EnergyTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyTypes.swift; sourceTree = "<group>"; };
+		18F0EA9624D4A74500AFFD3C /* EnergyHomeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyHomeData.swift; sourceTree = "<group>"; };
+		18F0EA9824D4AB3300AFFD3C /* EnergyUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyUser.swift; sourceTree = "<group>"; };
+		18F0EA9A24D4ADA600AFFD3C /* EnergyHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyHome.swift; sourceTree = "<group>"; };
 		18FBF6282409C27F00DF7366 /* URLRequestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtensions.swift; sourceTree = "<group>"; };
 		18FBF62A2409C41A00DF7366 /* NetatmoWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoWeatherTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,6 +221,7 @@
 				18021FEC2360E29200E3D20A /* NetatmoWeather.swift */,
 				1862DB3D24031CF900DE4B75 /* NetatmoSecurity.swift */,
 				189C927D24073BCA008492A0 /* NetatmoSecurityiOS.swift */,
+				18F0EA9124D47BBA00AFFD3C /* NetatmoEnergy.swift */,
 				187D9A9824033550009DD7FB /* NetatmoError.swift */,
 			);
 			path = Manager;
@@ -230,9 +239,9 @@
 			isa = PBXGroup;
 			children = (
 				1854E32624031492005FA858 /* SecurityTypes.swift */,
-				18AA34EF24046265006EC67A /* HomeData.swift */,
+				18AA34EF24046265006EC67A /* SecurityHomeData.swift */,
 				189C927B24073598008492A0 /* EventList.swift */,
-				18D3E02C2407302400A64E62 /* Home.swift */,
+				18D3E02C2407302400A64E62 /* SecurityHome.swift */,
 				18D3E02E2407303C00A64E62 /* Person.swift */,
 				18D3E0302407304F00A64E62 /* Face.swift */,
 				18D3E0322407306400A64E62 /* Camera.swift */,
@@ -306,6 +315,9 @@
 			isa = PBXGroup;
 			children = (
 				18F0EA9424D47D3E00AFFD3C /* EnergyTypes.swift */,
+				18F0EA9624D4A74500AFFD3C /* EnergyHomeData.swift */,
+				18F0EA9824D4AB3300AFFD3C /* EnergyUser.swift */,
+				18F0EA9A24D4ADA600AFFD3C /* EnergyHome.swift */,
 			);
 			path = Energy;
 			sourceTree = "<group>";
@@ -457,6 +469,7 @@
 				18D3E0352407308400A64E62 /* SecurityModule.swift in Sources */,
 				18FBF6292409C27F00DF7366 /* URLRequestExtensions.swift in Sources */,
 				18ACFCF023FF369600BA6B03 /* Dashboard.swift in Sources */,
+				18F0EA9724D4A74500AFFD3C /* EnergyHomeData.swift in Sources */,
 				1854E32724031492005FA858 /* SecurityTypes.swift in Sources */,
 				188A9A5F24158AE400A95897 /* JSONDecoderExtensions.swift in Sources */,
 				18021FED2360E29200E3D20A /* NetatmoWeather.swift in Sources */,
@@ -464,18 +477,20 @@
 				18D3E02F2407303C00A64E62 /* Person.swift in Sources */,
 				184EC814240966E6002A1574 /* DataBase.swift in Sources */,
 				18ACFCEA23FF15D400BA6B03 /* WeatherTypes.swift in Sources */,
+				18F0EA9B24D4ADA600AFFD3C /* EnergyHome.swift in Sources */,
 				18021FD32360D58A00E3D20A /* AuthResult.swift in Sources */,
 				184494DE23BD515C00479929 /* AuthScope.swift in Sources */,
 				18D3E0332407306400A64E62 /* Camera.swift in Sources */,
 				18021FDD2360D62500E3D20A /* Device.swift in Sources */,
-				18AA34F024046265006EC67A /* HomeData.swift in Sources */,
+				18AA34F024046265006EC67A /* SecurityHomeData.swift in Sources */,
 				189C927E24073BCA008492A0 /* NetatmoSecurityiOS.swift in Sources */,
 				18D3E0312407304F00A64E62 /* Face.swift in Sources */,
 				18D3E03F240731F000A64E62 /* Vignette.swift in Sources */,
 				18D3E037240730A500A64E62 /* SmokeDetector.swift in Sources */,
 				1862DB3E24031CF900DE4B75 /* NetatmoSecurity.swift in Sources */,
 				18E6901923FDEADD0038435B /* StationMeasure.swift in Sources */,
-				18D3E02D2407302400A64E62 /* Home.swift in Sources */,
+				18F0EA9224D47BBA00AFFD3C /* NetatmoEnergy.swift in Sources */,
+				18D3E02D2407302400A64E62 /* SecurityHome.swift in Sources */,
 				18D3E039240730EA00A64E62 /* Event.swift in Sources */,
 				187D9A9924033550009DD7FB /* NetatmoError.swift in Sources */,
 				18D3E03B2407310B00A64E62 /* SubEvent.swift in Sources */,
@@ -486,6 +501,7 @@
 				18021FD72360D5EA00E3D20A /* Station.swift in Sources */,
 				189C927C24073598008492A0 /* EventList.swift in Sources */,
 				188A9A5D24157C9E00A95897 /* Measure.swift in Sources */,
+				18F0EA9924D4AB3300AFFD3C /* EnergyUser.swift in Sources */,
 				18F0EA9524D47D3E00AFFD3C /* EnergyTypes.swift in Sources */,
 				18D3E0432407322E00A64E62 /* GlobalInfo.swift in Sources */,
 				18021FEB2360E1FA00E3D20A /* Authentication.swift in Sources */,
