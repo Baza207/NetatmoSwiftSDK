@@ -19,7 +19,7 @@ public extension NetatmoSecurity {
         public var type: ProductType { ProductType(rawValue: rawType) }
         public let status: String
         public let vpnURL: String?
-        public let isLocal: Bool
+        public let isLocal: Bool?
         public let sdCardStatus: String
         public let alimStatus: String
         public let name: String
@@ -30,7 +30,7 @@ public extension NetatmoSecurity {
         public let lastSetupDate: Date
         
         public var description: String {
-            "Camera(identifier: \(identifier), type: \(type), status: \(status), isLocal: \(isLocal), sdCardStatus: \(sdCardStatus), alimentationStatus: \(alimStatus), name: \(name), modules: \(modules), usePinCode: \(usePinCode), lastSetupDate: \(lastSetupDate))"
+            "Camera(identifier: \(identifier), type: \(type), status: \(status), sdCardStatus: \(sdCardStatus), alimentationStatus: \(alimStatus), name: \(name), modules: \(modules), usePinCode: \(usePinCode), lastSetupDate: \(lastSetupDate))"
         }
         
         // MARK: - Coding
