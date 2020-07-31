@@ -31,10 +31,10 @@ public extension NetatmoEnergy {
         public let timeZone: String
         /// The country the home is in.
         public let country: String
-//        /// The modules in the home.
-//        public let modules: [Module]
         /// The rooms in the home.
         public let rooms: [Room]
+        /// The modules in the home.
+        public let modules: [Module]
         /// Default duration for a set point.
         public let thermalSetPointDefaultDuration: Int?
 //        /// The schedules for the home.
@@ -77,8 +77,8 @@ public extension NetatmoEnergy {
             case location = "coordinates"
             case timeZone = "timezone"
             case country
-//            case modules
             case rooms = "room"
+            case modules
             case thermalSetPointDefaultDuration = "therm_set_point_default_duration"
 //            case schedules
             case rawThermalMode = "therm_mode"
@@ -86,15 +86,15 @@ public extension NetatmoEnergy {
         
         // MARK: - Init
         
-        public init(identifier: String, name: String, timeZone: String, country: String, altitude: Int? = nil, coordinate: CLLocationCoordinate2D? = nil, rooms: [Room] = []/*, modules: [Modules] = []*/, thermalSetPointDefaultDuration: Int? = nil/*, schedules: [Schedules] = []*/, thermalMode: ThermalMode? = nil) {
+        public init(identifier: String, name: String, timeZone: String, country: String, altitude: Int? = nil, coordinate: CLLocationCoordinate2D? = nil, rooms: [Room] = [], modules: [Module] = [], thermalSetPointDefaultDuration: Int? = nil/*, schedules: [Schedule] = []*/, thermalMode: ThermalMode? = nil) {
             
             self.identifier = identifier
             self.name = name
             self.timeZone = timeZone
             self.country = country
             self.altitude = altitude
-//            self.modules = modules
             self.rooms = rooms
+            self.modules = modules
             self.thermalSetPointDefaultDuration = thermalSetPointDefaultDuration
 //            self.schedules = schedules
             self.rawThermalMode = thermalMode?.rawValue

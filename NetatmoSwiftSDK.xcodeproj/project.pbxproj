@@ -58,6 +58,7 @@
 		18F0EA9924D4AB3300AFFD3C /* EnergyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EA9824D4AB3300AFFD3C /* EnergyUser.swift */; };
 		18F0EA9B24D4ADA600AFFD3C /* EnergyHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EA9A24D4ADA600AFFD3C /* EnergyHome.swift */; };
 		18F0EA9D24D4BCCA00AFFD3C /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EA9C24D4BCCA00AFFD3C /* Room.swift */; };
+		18F0EA9F24D4BD1800AFFD3C /* EnergyModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0EA9E24D4BD1800AFFD3C /* EnergyModule.swift */; };
 		18FBF6292409C27F00DF7366 /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBF6282409C27F00DF7366 /* URLRequestExtensions.swift */; };
 		18FBF62B2409C41A00DF7366 /* NetatmoWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBF62A2409C41A00DF7366 /* NetatmoWeatherTests.swift */; };
 /* End PBXBuildFile section */
@@ -132,6 +133,7 @@
 		18F0EA9824D4AB3300AFFD3C /* EnergyUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyUser.swift; sourceTree = "<group>"; };
 		18F0EA9A24D4ADA600AFFD3C /* EnergyHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyHome.swift; sourceTree = "<group>"; };
 		18F0EA9C24D4BCCA00AFFD3C /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		18F0EA9E24D4BD1800AFFD3C /* EnergyModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyModule.swift; sourceTree = "<group>"; };
 		18FBF6282409C27F00DF7366 /* URLRequestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtensions.swift; sourceTree = "<group>"; };
 		18FBF62A2409C41A00DF7366 /* NetatmoWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetatmoWeatherTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -321,6 +323,7 @@
 				18F0EA9824D4AB3300AFFD3C /* EnergyUser.swift */,
 				18F0EA9A24D4ADA600AFFD3C /* EnergyHome.swift */,
 				18F0EA9C24D4BCCA00AFFD3C /* Room.swift */,
+				18F0EA9E24D4BD1800AFFD3C /* EnergyModule.swift */,
 			);
 			path = Energy;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				184494DE23BD515C00479929 /* AuthScope.swift in Sources */,
 				18D3E0332407306400A64E62 /* Camera.swift in Sources */,
 				18021FDD2360D62500E3D20A /* Device.swift in Sources */,
+				18F0EA9F24D4BD1800AFFD3C /* EnergyModule.swift in Sources */,
 				18AA34F024046265006EC67A /* SecurityHomeData.swift in Sources */,
 				189C927E24073BCA008492A0 /* NetatmoSecurityiOS.swift in Sources */,
 				18D3E0312407304F00A64E62 /* Face.swift in Sources */,
