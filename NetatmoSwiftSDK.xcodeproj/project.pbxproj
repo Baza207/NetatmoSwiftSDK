@@ -38,6 +38,8 @@
 		18ACFCEE23FF28D200BA6B03 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCED23FF28D200BA6B03 /* Place.swift */; };
 		18ACFCF023FF369600BA6B03 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCEF23FF369600BA6B03 /* Dashboard.swift */; };
 		18ACFCF223FF36D600BA6B03 /* WeatherModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACFCF123FF36D600BA6B03 /* WeatherModule.swift */; };
+		18AE54E324D5F869008E9217 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE54E224D5F869008E9217 /* Timetable.swift */; };
+		18AE54E524D5F898008E9217 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE54E424D5F898008E9217 /* Zone.swift */; };
 		18D3E02D2407302400A64E62 /* SecurityHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E02C2407302400A64E62 /* SecurityHome.swift */; };
 		18D3E02F2407303C00A64E62 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E02E2407303C00A64E62 /* Person.swift */; };
 		18D3E0312407304F00A64E62 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D3E0302407304F00A64E62 /* Face.swift */; };
@@ -111,6 +113,8 @@
 		18ACFCED23FF28D200BA6B03 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		18ACFCEF23FF369600BA6B03 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		18ACFCF123FF36D600BA6B03 /* WeatherModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModule.swift; sourceTree = "<group>"; };
+		18AE54E224D5F869008E9217 /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
+		18AE54E424D5F898008E9217 /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
 		18D3E02C2407302400A64E62 /* SecurityHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityHome.swift; sourceTree = "<group>"; };
 		18D3E02E2407303C00A64E62 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		18D3E0302407304F00A64E62 /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
@@ -327,6 +331,8 @@
 				18F0EA9C24D4BCCA00AFFD3C /* Room.swift */,
 				18F0EA9E24D4BD1800AFFD3C /* EnergyModule.swift */,
 				18F0EAA024D4BD5300AFFD3C /* Schedule.swift */,
+				18AE54E224D5F869008E9217 /* Timetable.swift */,
+				18AE54E424D5F898008E9217 /* Zone.swift */,
 			);
 			path = Energy;
 			sourceTree = "<group>";
@@ -500,6 +506,7 @@
 				18D3E03F240731F000A64E62 /* Vignette.swift in Sources */,
 				18D3E037240730A500A64E62 /* SmokeDetector.swift in Sources */,
 				1862DB3E24031CF900DE4B75 /* NetatmoSecurity.swift in Sources */,
+				18AE54E524D5F898008E9217 /* Zone.swift in Sources */,
 				18E6901923FDEADD0038435B /* StationMeasure.swift in Sources */,
 				18F0EA9224D47BBA00AFFD3C /* NetatmoEnergy.swift in Sources */,
 				18D3E02D2407302400A64E62 /* SecurityHome.swift in Sources */,
@@ -507,6 +514,7 @@
 				187D9A9924033550009DD7FB /* NetatmoError.swift in Sources */,
 				18D3E03B2407310B00A64E62 /* SubEvent.swift in Sources */,
 				1821A11F23F6EC3F002688DA /* KeychainPasswordItem.swift in Sources */,
+				18AE54E324D5F869008E9217 /* Timetable.swift in Sources */,
 				18ACFCF223FF36D600BA6B03 /* WeatherModule.swift in Sources */,
 				18D3E03D240731D800A64E62 /* Snapshot.swift in Sources */,
 				18021FDB2360D60B00E3D20A /* Administrative.swift in Sources */,

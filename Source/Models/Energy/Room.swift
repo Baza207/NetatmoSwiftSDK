@@ -17,14 +17,16 @@ public extension NetatmoEnergy {
         /// ID of the room.
         public let identifier: String
         /// Name of the room.
-        public let name: String
+        public let name: String?
         /// Type of room.
-        public let type: String
+        public let type: String?
         private let rawModuleIds: [String]?
         /// Array of the modules by ID associated to this room.
         public var moduleIds: [String] { rawModuleIds ?? [] }
+        /// Set point temperature.
+        public let thermalSetPointTemperature: Int?
         public var description: String {
-            "Room(identifier: \(identifier), name: \(name), type: \(type), moduleIds: \(moduleIds))"
+            "Room(identifier: \(identifier), moduleIds: \(moduleIds))"
         }
         
         // MARK: - Coding
@@ -34,16 +36,18 @@ public extension NetatmoEnergy {
             case name
             case type
             case rawModuleIds = "module_ids"
+            case thermalSetPointTemperature = "therm_setpoint_temperature"
         }
         
         // MARK: - Init
         
-        public init(identifier: String, name: String, type: String, moduleIds: [String] = []) {
+        public init(identifier: String, name: String? = nil, type: String? = nil, moduleIds: [String] = [], thermalSetPointTemperature: Int? = nil) {
             
             self.identifier = identifier
             self.name = name
             self.type = type
             self.rawModuleIds = moduleIds
+            self.thermalSetPointTemperature = thermalSetPointTemperature
         }
         
     }

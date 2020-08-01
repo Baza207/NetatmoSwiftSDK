@@ -102,4 +102,36 @@ public extension NetatmoEnergy {
         }
     }
     
+    enum ZoneType: Int {
+        case unknown = -1
+        case day = 0
+        case night = 1
+        case away = 2
+        case frostGuard = 3
+        case custom = 4
+        case eco = 5
+        case comfort = 6
+        
+        public var description: String {
+            switch self {
+            case .unknown:
+                return "Unknown"
+            case .day:
+                return "Day"
+            case .night:
+                return "Night"
+            case .away:
+                return "Away"
+            case .frostGuard:
+                return "Frost Guard"
+            case .custom:
+                return "Custom"
+            case .eco:
+                return "Eco"
+            case .comfort:
+                return "Comfort"
+            }
+        }
+    }
+    
 }
