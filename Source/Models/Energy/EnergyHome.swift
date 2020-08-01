@@ -31,14 +31,17 @@ public extension NetatmoEnergy {
         public let timeZone: String
         /// The country the home is in.
         public let country: String
+        private let rawRooms: [Room]?
         /// The rooms in the home.
-        public let rooms: [Room]
+        public var rooms: [Room] { rawRooms ?? [] }
+        private let rawModules: [Module]?
         /// The modules in the home.
-        public let modules: [Module]
+        public var modules: [Module] { rawModules ?? [] }
         /// Default duration for a set point.
         public let thermalSetPointDefaultDuration: Int?
+        private let rawSchedules: [Schedule]?
         /// The schedules for the home.
-        public let schedules: [Schedule]
+        public var schedules: [Schedule] { rawSchedules ?? [] }
         private let rawThermalMode: String?
         /// The thermal mode of the home.
         public var thermalMode: ThermalMode? {
@@ -77,10 +80,10 @@ public extension NetatmoEnergy {
             case location = "coordinates"
             case timeZone = "timezone"
             case country
-            case rooms = "room"
-            case modules
+            case rawRooms = "room"
+            case rawModules = "modules"
             case thermalSetPointDefaultDuration = "therm_set_point_default_duration"
-            case schedules
+            case rawSchedules = "schedules"
             case rawThermalMode = "therm_mode"
         }
         
@@ -93,10 +96,10 @@ public extension NetatmoEnergy {
             self.timeZone = timeZone
             self.country = country
             self.altitude = altitude
-            self.rooms = rooms
-            self.modules = modules
+            self.rawRooms = rooms
+            self.rawModules = modules
             self.thermalSetPointDefaultDuration = thermalSetPointDefaultDuration
-            self.schedules = schedules
+            self.rawSchedules = schedules
             self.rawThermalMode = thermalMode?.rawValue
             
             if let coordinate = coordinate {

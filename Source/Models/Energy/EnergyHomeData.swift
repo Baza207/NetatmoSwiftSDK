@@ -36,7 +36,8 @@ public extension NetatmoEnergy {
         
         // MARK: - Properties
         
-        public let homes: [Home]
+        private let rawHomes: [Home]?
+        public var homes: [Home] { rawHomes ?? [] }
         public let user: User
         
         public var description: String {
@@ -46,7 +47,7 @@ public extension NetatmoEnergy {
         // MARK: - Coding
         
         private enum CodingKeys: String, CodingKey {
-            case homes
+            case rawHomes = "homes"
             case user
         }
         
@@ -54,7 +55,7 @@ public extension NetatmoEnergy {
         
         public init(homes: [Home], user: User) {
             
-            self.homes = homes
+            self.rawHomes = homes
             self.user = user
         }
         
