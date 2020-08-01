@@ -37,8 +37,8 @@ public extension NetatmoEnergy {
         public let modules: [Module]
         /// Default duration for a set point.
         public let thermalSetPointDefaultDuration: Int?
-//        /// The schedules for the home.
-//        public let schedules: [Schedule]
+        /// The schedules for the home.
+        public let schedules: [Schedule]
         private let rawThermalMode: String?
         /// The thermal mode of the home.
         public var thermalMode: ThermalMode? {
@@ -80,13 +80,13 @@ public extension NetatmoEnergy {
             case rooms = "room"
             case modules
             case thermalSetPointDefaultDuration = "therm_set_point_default_duration"
-//            case schedules
+            case schedules
             case rawThermalMode = "therm_mode"
         }
         
         // MARK: - Init
         
-        public init(identifier: String, name: String, timeZone: String, country: String, altitude: Int? = nil, coordinate: CLLocationCoordinate2D? = nil, rooms: [Room] = [], modules: [Module] = [], thermalSetPointDefaultDuration: Int? = nil/*, schedules: [Schedule] = []*/, thermalMode: ThermalMode? = nil) {
+        public init(identifier: String, name: String, timeZone: String, country: String, altitude: Int? = nil, coordinate: CLLocationCoordinate2D? = nil, rooms: [Room] = [], modules: [Module] = [], thermalSetPointDefaultDuration: Int? = nil, schedules: [Schedule] = [], thermalMode: ThermalMode? = nil) {
             
             self.identifier = identifier
             self.name = name
@@ -96,7 +96,7 @@ public extension NetatmoEnergy {
             self.rooms = rooms
             self.modules = modules
             self.thermalSetPointDefaultDuration = thermalSetPointDefaultDuration
-//            self.schedules = schedules
+            self.schedules = schedules
             self.rawThermalMode = thermalMode?.rawValue
             
             if let coordinate = coordinate {
