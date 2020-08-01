@@ -38,10 +38,14 @@ public extension NetatmoEnergy {
         
         private let rawHomes: [Home]?
         public var homes: [Home] { rawHomes ?? [] }
-        public let user: User
+        public let user: User?
         
         public var description: String {
-            "HomeData(homes: \(homes), user: \(user)"
+            if let user = user {
+                return "HomeData(homes: \(homes), user: \(user))"
+            } else {
+                return "HomeData(homes: \(homes))"
+            }
         }
         
         // MARK: - Coding
@@ -53,7 +57,7 @@ public extension NetatmoEnergy {
         
         // MARK: - Init
         
-        public init(homes: [Home], user: User) {
+        public init(homes: [Home], user: User? = nil) {
             
             self.rawHomes = homes
             self.user = user

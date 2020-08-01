@@ -99,4 +99,93 @@ public class NetatmoEnergy {
         }
         downloadTask.resume()
     }
+    
+    /// Get the current status and data measured for all home devices.
+    ///
+    /// Scope required: `read_thermostat`.
+    ///
+    public static func getHomeStatus(homeId: String, deviceTypes types: [ProductType] = [], completed: @escaping (Result<NetatmoEnergy.HomeData, Error>) -> Void) {
+        
+        guard let accessToken = NetatmoManager.shared.accessToken, accessToken.isEmpty == false else {
+            completed(Result.failure(NetatmoError.noAccessToken))
+            return
+        }
+        
+        guard var urlComponents = URLComponents(string: "\(NetatmoManager.baseAPIURL)/homestatus") else {
+            completed(Result.failure(NetatmoError.badURL))
+            return
+        }
+        
+        var queryItems = [
+            URLQueryItem(name: "home_id", value: homeId)
+        ]
+        
+        types.forEach { (type) in
+            queryItems.append(URLQueryItem(name: "device_types", value: "\(type.rawValue)"))
+        }
+        
+        urlComponents.queryItems = queryItems
+        
+        guard let url = urlComponents.url else {
+            completed(Result.failure(NetatmoError.badURL))
+            return
+        }
+        
+        guard NetatmoManager.shared.isValid == false else {
+            NetatmoEnergy.getHomeStatus(accessToken: accessToken, url: url, completed: completed)
+            return
+        }
+        
+        // Attempt tokenn refresh
+        NetatmoManager.refreshToken { (result) in
+            
+            switch result {
+            case .success:
+                NetatmoEnergy.getHomeStatus(accessToken: accessToken, url: url, completed: completed)
+            case .failure(let error):
+                completed(Result.failure(error))
+            }
+        }
+    }
+    
+    private static func getHomeStatus(accessToken: String, url: URL, completed: @escaping (Result<NetatmoEnergy.HomeData, Error>) -> Void) {
+        
+        let urlRequest = URLRequest.jsonRequest(url: url, accessToken: accessToken)
+        let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
+            
+            if let error = error {
+                completed(Result.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                completed(Result.failure(NetatmoError.noData))
+                return
+            }
+            
+            let decoder = JSONDecoder.secondsSince1970JSONDecoder
+            let result: NetatmoEnergy.HomeDataBase?
+            do {
+                result = try decoder.decode(NetatmoEnergy.HomeDataBase.self, from: data)
+            } catch {
+                completed(Result.failure(error))
+                return
+            }
+            
+            guard let baseResult = result else {
+                completed(Result.failure(NetatmoError.generalError))
+                return
+            }
+            
+            if let body = baseResult.body {
+                completed(Result.success(body))
+            } else if let error = baseResult.error {
+                completed(Result.failure(NetatmoError.error(code: error.code, message: error.message)))
+            } else {
+                completed(Result.failure(NetatmoError.noData))
+            }
+        }
+        downloadTask.resume()
+    }
+    
 }

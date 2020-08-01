@@ -57,4 +57,40 @@ class NetatmoEnergyTests: XCTestCase {
         waitForExpectations(timeout: 30)
     }
     
+    func testGetHomeStatus() {
+        
+        guard let config = self.config else {
+            XCTAssertFalse(true, "Requires a test config to be setup before calling login!")
+            return
+        }
+        
+        let expectation = self.expectation(description: #function)
+        
+        NetatmoManager.login(username: config.username, password: config.password, scope: []) { (result) in
+            
+            switch result {
+            case .success(let authState):
+                XCTAssertTrue(authState == .authorized)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            NetatmoEnergy.getHomeStatus(homeId: config.homeId) { (result) in
+                
+                switch result {
+                case .success(let homeData):
+                    XCTAssertNotNil(homeData)
+                case .failure(let error):
+                    XCTFail(error.localizedDescription)
+                }
+                
+                try? NetatmoManager.logout()
+                
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 30)
+    }
+    
 }
